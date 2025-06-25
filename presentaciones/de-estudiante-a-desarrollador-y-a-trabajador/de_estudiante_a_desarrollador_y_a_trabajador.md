@@ -61,9 +61,9 @@ date: 24 junio 2025
 
 ## 1. Introducción
 
-– Todo camino profesional tiene un inicio: el mío comenzó como estudiante, con más preguntas que respuestas, pero con hambre de aprender.
+– Todo camino profesional tiene un inicio: el mío comenzó como **estudiante**, con más preguntas que respuestas, pero con hambre de aprender.
 
-– Esta presentación recorre cómo pasé de esa etapa universitaria a convertirme en desarrollador y arquitecto de TI.
+– Esta presentación recorre cómo pasé de esa etapa universitaria a convertirme en desarrollador y **arquitecto de TI**.
 
 – Mi objetivo: compartir reflexiones reales que te ayuden a construir tu propio camino con base en habilidades, mentalidad y propósito.
 
@@ -75,7 +75,7 @@ date: 24 junio 2025
 
 ## Origen – Facultad de Contaduría y Administración, Universidad Veracruzana (2007–2012)
 
-- Estudié la **Licenciatura en Sistemas Computacionales Administrativos**
+- 🎓 Estudié la **Licenciatura en Sistemas Computacionales Administrativos**
 - Mi generación: ~100 compañeros
 - Un espacio de aprendizaje y comunidad
 - Retos y oportunidades en un ambiente académico/laboral cambiante
@@ -86,7 +86,7 @@ date: 24 junio 2025
 
 ---
 
-# Un momento decisivo
+# 🏆 Un momento decisivo
 
 ![width:600px](assets/images/certificacion.png)
 
@@ -94,15 +94,15 @@ date: 24 junio 2025
 
 ---
 
-## ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+## 🤔 ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
 
 ![width:500px](assets/images/tecnologia.png){.high}
 
 ---
 
-## ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+## 🔍 ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
 - Pregunta común entre estudiantes y profesionales
-- Respuesta: **No hay un único mejor lenguaje o tecnología**
+- Respuesta: **No hay un único mejor lenguaje** o tecnología
 - Lo importante es **entender los estándares** y **adaptarse a las necesidades del proyecto**
 - La clave es **aprender a aprender** y **adaptarse a nuevas tecnologías**
 
@@ -112,20 +112,20 @@ date: 24 junio 2025
 
 ---
 
-## Punto de inflexión – primeros roles y conferencias
+## 🚀 Punto de inflexión – primeros roles y conferencias
 
 - Organicé eventos universitarios; luego pasé al rol de **ponente e instructor**
 - Aprendí lo esencial: **comunicar, investigar, documentar**
 - Me enfrenté al desafío de explicar ideas complejas frente al público
-- Me ***"vendieron"*** como experto en una tecnología específica Alfresco CMS (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
-- Desarrollar un backend consumiendo servicios SOAP del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, logré adaptarme ***"rápidamente"***
-- Desarrolle el backend de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular, después de que una factoría se tirara un año en el proyecto lo entregué en 3 meses
+- Me ***"vendieron"*** como experto en una tecnología específica **Alfresco CMS** (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
+- Desarrollar un **backend** consumiendo **servicios SOAP** del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, logré adaptarme ***"rápidamente"***
+- Desarrolle el **backend** de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular, después de que una factoría se tirara un año en el proyecto lo entregué en **3 meses**
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
 
 ---
 
-## Habilidades esenciales (y definitorias)
+## 🧰 Habilidades esenciales (y definitorias)
 
 ### 🔍 Abstracción  
 Separar lo relevante del ruido, esencial para adaptarse.
@@ -143,9 +143,9 @@ Pasar del papel al código: transformar la teoría en realidad.
 
 ---
 
-## El software libre: mi punto de partida
+## 💻 El software libre: mi punto de partida
 
-> A lo largo de mi formación, el **software libre fue una puerta abierta**.  
+> A lo largo de mi formación, el **software libre** fue **una puerta abierta**.  
 Gracias a proyectos como **JBoss, LXC, Xen, Java, Debian, CentOS, Alfresco, Jenkins y Git**,  
 pude experimentar con tecnologías que de otro modo habrían estado fuera de mi alcance por su costo.
 
@@ -159,13 +159,13 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
-## Inteligencia Artificial en el desarrollo de software
+## 🤖 Inteligencia Artificial en el desarrollo de software
 
 - La IA ya no es futuro: es **presente** y está en producción.
 - Herramientas como GitHub Copilot, ChatGPT, Amazon CodeWhisperer ya están integradas en los flujos de trabajo reales.
 - En algunas empresas, **más del 25 % del código es sugerido por IA**.
 - Esto no reemplaza a los desarrolladores, pero sí redefine lo que se espera de nosotros:
-  - Ya no solo escribir código, sino **pensar, abstraer, validar, y conectar ideas.**
+  - Ya no solo escribir código, sino **pensar**, abstraer, **validar**, y **conectar ideas**.
 
 > Lo más importante que puedes hacer hoy no es competir contra la IA, sino **aprender a trabajar con ella.**
 
@@ -173,35 +173,35 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
-## Superación de retos (la montaña)
+## 🏔️ Superación de retos (la montaña)
 
-- Del aula a la certificación → adaptación técnica
-- De organizador a ponente → superar miedo escénico
-- Entender que el camino laboral es **una montaña con varios picos y descansos**
-- Cada reto es una oportunidad para aprender y crecer
-- La montaña no es lineal, pero cada paso cuenta
-- La perseverancia y la adaptabilidad son claves para avanzar
+- 🎓 Del aula a la certificación → adaptación técnica
+- 🎤 De organizador a ponente → superar miedo escénico
+- 🧗 Entender que el camino laboral es **una montaña con varios picos y descansos**
+- 🌱 **Cada reto es una oportunidad** para aprender y crecer
+- 🛤️ La montaña no es lineal, pero cada paso cuenta
+- 💪 La perseverancia y la adaptabilidad son claves para avanzar
 
 <!-- notes: Usar la metáfora de la montaña para reforzar la idea de que el desarrollo profesional es progresivo y no lineal. -->
 
 ---
 
-## Recursos atemporales: tu kit de herramientas
+## 🧱 Recursos atemporales: tu kit de herramientas
 
-| Habilidad         | Por qué importa                                  |
-|------------------|--------------------------------------------------|
-| Abstracción      | Permite diseñar sistemas claros y eficientes     |
-| Teoría           | Hace que lo que aprendes se mantenga vigente     |
-| Investigación    | Da soporte a tus soluciones                      |
-| Documentación| Facilita el trabajo en equipo y el mantenimiento|
-| Prototipo        | Convierte ideas en experiencia real              |
-| Gestión de emociones | Somos seres emocionales, no somos máquinas              |
+| Habilidad              | Por qué importa                                  |
+|------------------------|--------------------------------------------------|
+| 🧠 Abstracción         | Permite diseñar sistemas claros y eficientes     |
+| 📚 Teoría              | Hace que lo que aprendes se mantenga vigente     |
+| 🔍 Investigación       | Da soporte a tus soluciones                      |
+| 📝 Documentación       | Facilita el trabajo en equipo y el mantenimiento|
+| 💡 Prototipo           | Convierte ideas en experiencia real              |
+| ❤️ Gestión de emociones | **Somos seres emocionales, no somos máquinas**              |
 
 <!-- notes: Invitar a los asistentes a reflexionar sobre cuáles de estas habilidades ya dominan y cuáles deben fortalecer. -->
 
 ---
 
-## Conclusión – el viaje continúa
+## 🔁 Conclusión – el viaje continúa
 
 - No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
 - Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”/moda/tendencia
@@ -212,7 +212,7 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
-### Mi camino sigue…
+### 📌 Mi camino sigue…
 
 > Actualmente soy arquitecto de software y de soluciones especialista en tecnologías de **IA, automatización y cloud**. 
 
@@ -222,17 +222,27 @@ Además de mi rol profesional, he sido:
 - 🎤 Conferencista en Campus Party, FLISOL y eventos de innovación  
 - 🧠 Desarrollador de soluciones con IA, procesamiento de lenguaje, herramientas open source y software libre
 
+### 🧭 Balance entre pasión y realidad laboral
+
+> Aprendí que no siempre vas a poder **innovar** en tu trabajo o utilizar todas las **últimas tecnologías**.
+
+> Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como desarrollador**, y eso **está bien**.
+
+> Lo importante es encontrar un **balance saludable**: si tienes un entorno laboral sano, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
+
+> Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
+
 ---
 
 ## 🎯 Cierre – tu próximo paso
 
 ¿Qué puedes hacer hoy?
 
-1. Practica **abstracción**: desmenuza un problema en tareas básicas  
-2. Refuerza tus conceptos: revisa un marco teórico que no dominas  
-3. Documenta tu proceso: incluso en tus proyectos personales  
-4. Prototipo/MVP/POC: lleva tus ideas a algo tangible  
-5. Atrévete: presenta, comparte o enseña lo que aprendes
+1. 🧠 Practica **abstracción**: desmenuza un problema en tareas básicas  
+2. 📘 Refuerza tus conceptos: revisa un marco teórico que no dominas  
+3. 📝 Documenta tu proceso: incluso en tus proyectos personales  
+4. 🧪 Prototipo/MVP/POC: lleva tus ideas a algo tangible  
+5. 🎤 Atrévete: **presenta, comparte o enseña** lo que aprendes
 
 <!-- notes: Llamado a la acción concreto. Motivar a la audiencia a aplicar lo aprendido desde hoy mismo. -->
 
@@ -240,10 +250,10 @@ Además de mi rol profesional, he sido:
 
 # ¡Gracias!
 
-- [LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
-- [Correo](mailto:rafex@rafex.dev) para dudas o charlas
-- [GitHub](https://github.com/rafex)
-- [Blog personal The world of Rafex](https://theworldofrafex.blog/)
+- 🔗 [**LinkedIn**](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- ✉️ [**Correo**](mailto:rafex@rafex.dev) para dudas o charlas
+- 🐙 [**GitHub**](https://github.com/rafex)
+- 📝 [**Blog personal The world of Rafex**](https://theworldofrafex.blog/)
 
 ![width:600px](assets/images/rafex.png)
 
