@@ -78,11 +78,10 @@ date: 24 junio 2025
 ## ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
 - Pregunta común entre estudiantes y profesionales
 - Respuesta: **No hay un único mejor lenguaje o tecnología**
-- Lo importante es **entender los estándares**
+- Lo importante es **entender los estándares** y **adaptarse a las necesidades del proyecto**
+- La clave es **aprender a aprender** y **adaptarse a nuevas tecnologías**
 
-- Certificación con **Sun Microsystems**, pioneros de Java
-- Oracle compró a Sun; el ecosistema cambió, pero al final **emergió reorganizado**
-- Para mí fue la primera gran **constancia profesional**
+![Mejor?](assets/images/post.png)
 
 <!-- notes: Usar un tono reflexivo. Reconocer que el cambio fue disruptivo pero terminó generando crecimiento para el ecosistema. -->
 
@@ -90,9 +89,10 @@ date: 24 junio 2025
 
 ## Punto de inflexión – primeros roles y conferencias
 
-- Organizé eventos universitarios; luego pasé al rol de **ponente e instructor**
+- Organicé eventos universitarios; luego pasé al rol de **ponente e instructor**
 - Aprendí lo esencial: **comunicar, investigar, documentar**
 - Me enfrenté al desafío de explicar ideas complejas frente al público
+- Me ***"vendieron"*** como experto en una tecnología específica, en un proyecto sin experiencia previa, era recién egresado
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
 
@@ -133,8 +133,9 @@ Pasar del papel al código: transformar la teoría en realidad.
 | Abstracción      | Permite diseñar sistemas claros y eficientes     |
 | Teoría           | Hace que lo que aprendes se mantenga vigente     |
 | Investigación    | Da soporte a tus soluciones                      |
-| Documentación    | Facilita el trabajo en equipo y el mantenimiento|
+| Documentación| Facilita el trabajo en equipo y el mantenimiento|
 | Prototipo        | Convierte ideas en experiencia real              |
+| Gestión de emociones | Somos seres emocionales, no somos máquinas              |
 
 <!-- notes: Invitar a los asistentes a reflexionar sobre cuáles de estas habilidades ya dominan y cuáles deben fortalecer. -->
 
