@@ -17,10 +17,19 @@ date: 24 junio 2025
 
 ---
 
-## Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de las tecnologías de la información  
-Raúl Eduardo González Argote, 26 junio 2025
+## Datos actuales del mundo laboral
 
-<!-- notes: Presentar el tema y el objetivo de la charla. Crear expectativa sobre lo que se va a aprender. -->
+- 📉 **Entrada incierta para recién egresados**  
+  Las contrataciones para roles junior en grandes empresas han caído más del 50 % respecto a niveles pre‑pandemia; muchos graduados envían cientos de solicitudes sin respuesta  [oai_citation:0‡businessinsider.com](https://www.businessinsider.com/gen-z-tech-entry-level-job-market-2025-6?utm_source=chatgpt.com).
+
+- 🤖 **IA genera el 25 % del código en empresas como Amazon y Microsoft**  
+  Herramientas de IA están reemplazando tareas rutinarias, lo cual impacta especialmente a los roles de programador junior  [oai_citation:1‡economictimes.indiatimes.com](https://economictimes.indiatimes.com/news/international/global-trends/amazon-microsoft-use-ai-to-generate-25-of-their-code-will-it-take-away-jobs-of-software-engineers-in-2025/articleshow/122030620.cms?utm_source=chatgpt.com) [oai_citation:2‡businessinsider.com](https://www.businessinsider.com/career-ladder-software-engineers-collapsing-ai-google-meta-coding-2025-2?utm_source=chatgpt.com).
+
+- ⚙️ **Oferta laboral estable pero cambiante**  
+  A pesar de la disminución de vacantes (–35 % desde 2020), la demanda de desarrolladores sigue creciendo a largo plazo (+17 % hasta 2033)  [oai_citation:3‡businessinsider.com](https://www.businessinsider.com/jobs-software-engineers-coders-bad-market-ai-2025-3?utm_source=chatgpt.com) [oai_citation:4‡lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com).
+
+- 🛠️ **Habilidades en demanda en 2025**  
+  Las empresas buscan más que solo código: IA/machine learning, datos, DevOps, ciberseguridad y comunicación “blanda” están en auge .
 
 ---
 
@@ -34,34 +43,20 @@ Raúl Eduardo González Argote, 26 junio 2025
 
 ## 1. Introducción
 
-– Contexto  
-– Objetivos
+– En el trayecto de todo profesional hay un inicio, y este es el mío: un estudiante con más preguntas que respuestas, pero con ganas de aprender y crecer.
 
+– En esta presentación recorreremos mi camino desde la Facultad de Contaduría y Administración hasta convertirme en desarrollador y conferencista.
+
+– El objetivo es compartir reflexiones reales y prácticas que te permitan reconocer lo que realmente importa al prepararte para el mundo laboral: habilidades esenciales, mentalidad adaptable y propósito.
+
+<!-- notes: Aquí puedes hablar con sinceridad sobre cómo eras como estudiante: tus inquietudes, tus motivaciones y lo que esperabas de la carrera. Este bloque da pie a todo lo demás. -->
 ---
 
 ## 2. Desarrollo
 
-### Punto clave A
-
-Descripción…
-
---
-
-### Punto clave B
-
-Más detalles…
-
-## Diapositiva con notas
-
-Contenido visible…
-
-<!-- notes: Aquí van tus apuntes para el orador -->
-
----
-
 # Un momento decisivo
 
-Era 2011, de pie frente a un salón repleto como conferencista inaugural tras obtener mi certificación Sun Microsystems...
+![Certificación](assets/images/certificacion.png)
 
 <!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
 
@@ -72,12 +67,18 @@ Era 2011, de pie frente a un salón repleto como conferencista inaugural tras ob
 - Estudié la **Licenciatura en Sistemas Computacionales Administrativos**
 - Mi generación: ~100 compañeros
 - Un espacio de aprendizaje y comunidad
+- Retos y oportunidades en un ambiente académico/laboral cambiante
+
+![Estudiante](assets/images/estudiante.jpg)
 
 <!-- notes: Mostrar cercanía con la audiencia al describir el ambiente universitario y cómo se forjó la identidad como estudiante. -->
 
 ---
 
-## ¿Por qué Java y Sun Microsystems?
+## ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+- Pregunta común entre estudiantes y profesionales
+- Respuesta: **No hay un único mejor lenguaje o tecnología**
+- Lo importante es **entender los estándares**
 
 - Certificación con **Sun Microsystems**, pioneros de Java
 - Oracle compró a Sun; el ecosistema cambió, pero al final **emergió reorganizado**
