@@ -26,7 +26,7 @@ date: 24 junio 2025
   Herramientas de IA están reemplazando tareas rutinarias, lo cual impacta especialmente a los roles de programador junior  [economictimes.indiatimes.com](https://economictimes.indiatimes.com/news/international/global-trends/amazon-microsoft-use-ai-to-generate-25-of-their-code-will-it-take-away-jobs-of-software-engineers-in-2025/articleshow/122030620.cms?utm_source=chatgpt.com) [businessinsider.com](https://www.businessinsider.com/career-ladder-software-engineers-collapsing-ai-google-meta-coding-2025-2?utm_source=chatgpt.com).
 
 - ⚙️ **Oferta laboral estable pero cambiante**  
-  A pesar de la disminución de vacantes (–35 % desde 2020), la demanda de desarrolladores sigue creciendo a largo plazo (+17 % hasta 2033)  [‡businessinsider.com](https://www.businessinsider.com/jobs-software-engineers-coders-bad-market-ai-2025-3?utm_source=chatgpt.com) [lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com).
+  A pesar de la disminución de vacantes (–35 % desde 2020), la demanda de desarrolladores sigue creciendo a largo plazo (+17 % hasta 2033)  [businessinsider.com](https://www.businessinsider.com/jobs-software-engineers-coders-bad-market-ai-2025-3?utm_source=chatgpt.com) [lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com).
 
 - 🛠️ **Habilidades en demanda en 2025**  
   Las empresas buscan más que solo código: IA/machine learning, datos, DevOps, ciberseguridad y comunicación “blanda” están en auge .
@@ -99,7 +99,7 @@ date: 24 junio 2025
 - Aprendí lo esencial: **comunicar, investigar, documentar**
 - Me enfrenté al desafío de explicar ideas complejas frente al público
 - Me ***"vendieron"*** como experto en una tecnología específica Alfresco CMS (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
-- Desarrollar un backend consumiendo servicios SOAP del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha busqueda en internet, logré adaptarme ***"rápidamente"***
+- Desarrollar un backend consumiendo servicios SOAP del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, logré adaptarme ***"rápidamente"***
 - Desarrolle el backend de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular, después de que una factoría se tirara un año en el proyecto lo entregué en 3 meses
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
@@ -173,7 +173,7 @@ Pasar del papel al código: transformar la teoría en realidad.
 1. Practica **abstracción**: desmenuza un problema en tareas básicas  
 2. Refuerza tus conceptos: revisa un marco teórico que no dominas  
 3. Documenta tu proceso: incluso en tus proyectos personales  
-4. Protótipaló: lleva tus ideas a algo tangible  
+4. Prototipo/MVP/POC: lleva tus ideas a algo tangible  
 5. Atrévete: presenta, comparte o enseña lo que aprendes
 
 <!-- notes: Llamado a la acción concreto. Motivar a la audiencia a aplicar lo aprendido desde hoy mismo. -->
