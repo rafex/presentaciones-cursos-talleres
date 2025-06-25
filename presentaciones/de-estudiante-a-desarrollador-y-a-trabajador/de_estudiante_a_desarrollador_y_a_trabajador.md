@@ -34,28 +34,22 @@ date: 24 junio 2025
 
 ## Agenda
 
-1. **Bienvenida e introducción**  
-   Propósito de la charla y contexto general. *(~2 min)*
+1. **Introducción y contexto actual**  
+   Mi camino profesional y el panorama del mundo laboral. *(~5 min)*
 
-2. **Panorama actual del mundo laboral**  
-   Cifras, IA y tendencias que afectan la entrada al mercado. *(~3 min)*
+2. **De estudiante a desarrollador**  
+   Trayectoria universitaria, primeros retos y aprendizajes clave. *(~12 min)*
 
-3. **Mi historia: de estudiante a desarrollador**  
-   Trayectoria universitaria, primeros proyectos y transiciones clave. *(~15 min)*
+3. **Tecnología con propósito**  
+   Software libre, habilidades esenciales y experiencias en IA. *(~10 min)*
 
-4. **Lecciones aprendidas**  
-   Habilidades esenciales, valores, aprendizajes y filosofía profesional. *(~7 min)*
+4. **Equilibrio entre pasión y realidad**  
+   Expectativas laborales, adaptación y balance saludable. *(~5 min)*
 
-5. **Software libre e Inteligencia Artificial**  
-   Cómo el open source y la IA marcaron mi camino. *(~5 min)*
+5. **Conclusión e inspiración final**  
+   Recomendaciones prácticas, contacto y mensaje de cierre. *(~3 min)*
 
-6. **Retos, recursos y herramientas personales**  
-   Montaña de crecimiento, tabla de habilidades, aprendizajes reales. *(~5 min)*
-
-7. **Conclusiones y próximos pasos**  
-   Ideas finales, contacto, y recomendaciones prácticas. *(~5 min)*
-
-<!-- notes: Esta agenda está pensada para marcar un ritmo claro, mantener la atención del público y ayudarte a gestionar bien los tiempos durante tu ponencia. -->
+<!-- notes: Agenda condensada en cinco secciones más amplias para enfocar mejor la atención del público y mantener claridad estructural durante la charla. -->
 
 ---
 
@@ -80,7 +74,7 @@ date: 24 junio 2025
 - Un espacio de aprendizaje y comunidad
 - Retos y oportunidades en un ambiente académico/laboral cambiante
 
-![width:500px](assets/images/estudiante.jpg)
+![bg right:33%](assets/images/estudiante.jpg)
 
 <!-- notes: Mostrar cercanía con la audiencia al describir el ambiente universitario y cómo se forjó la identidad como estudiante. -->
 
@@ -88,38 +82,35 @@ date: 24 junio 2025
 
 # 🏆 Un momento decisivo
 
-![width:600px](assets/images/certificacion.png)
+![bg left:50%](assets/images/certificacion.png)
 
 <!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
 
 ---
 
-## 🤔 ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+## 🤔 ¿Cuál es la mejor tecnología?
 
-![width:500px](assets/images/tecnologia.png)
+![bg right:50%](assets/images/tecnologia.png)
 
 ---
 
-## 🔍 ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+## 🤔 ¿Cuál es el mejor lenguaje de programación?
+
 - Pregunta común entre estudiantes y profesionales
 - Respuesta: **No hay un único mejor lenguaje** o tecnología
-- Lo importante es **entender los estándares** y **adaptarse a las necesidades del proyecto**
-- La clave es **aprender a aprender** y **adaptarse a nuevas tecnologías**
 
-![w:800px](assets/images/post.png)
+![width:600px](assets/images/post.png)
 
 <!-- notes: Usar un tono reflexivo. Reconocer que el cambio fue disruptivo pero terminó generando crecimiento para el ecosistema. -->
 
 ---
 
-## 🚀 Punto de inflexión – primeros roles y conferencias
+## 🚀 Punto de inflexión – primeros pasos...
 
-- Organicé eventos universitarios; luego pasé al rol de **ponente e instructor**
-- Aprendí lo esencial: **comunicar, investigar, documentar**
-- Me enfrenté al desafío de explicar ideas complejas frente al público
-- Me ***"vendieron"*** como experto en una tecnología específica **Alfresco CMS** (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
-- Desarrollé un **backend** consumiendo **servicios SOAP** de los cuales no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, me adapté ***"rápidamente"***
-- Desarrollé el **backend** de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular. Después de que un proveedor dedicara un año sin resultados en el proyecto, lo entregué en **3 meses**
+- Organicé eventos universitarios; luego pasé al rol de **ponente e instructor** enfrenté al desafío de explicar ideas complejas frente al público
+- Me ***"vendieron"*** como experto en una tecnología específica **Alfresco CMS** (Content Management System), en un proyecto sin experiencia previa, era recién egresado. [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
+- Desarrollé un **backend** consumiendo **servicios SOAP** sin conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, me adapté ***"rápidamente"***
+- Desarrollé el **backend** de una aplicación móvil para banco que realizaba operaciones con solo tener el número de celular
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
 
@@ -153,7 +144,7 @@ Sin saberlo, me estaba formando no solo técnicamente, sino también bajo una fi
 
 Hoy, en un evento centrado en el software libre, puedo decir que fue una de las **bases más importantes** de mi camino como desarrollador.
 
-![width:200px](assets/images/debian.png)
+![bg right:20%](assets/images/linux.png)
 
 <!-- notes: Reflexionar sobre el impacto real del software libre en tu aprendizaje. Invitar a valorar y apoyar este modelo de desarrollo y conocimiento compartido. -->
 
@@ -182,6 +173,8 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 - 🛤️ La montaña no es lineal, pero cada paso cuenta
 - 💪 La perseverancia y la adaptabilidad son claves para avanzar
 
+![bg right:25%](assets/images/epica.png)
+
 <!-- notes: Usar la metáfora de la montaña para reforzar la idea de que el desarrollo profesional es progresivo y no lineal. -->
 
 ---
@@ -203,9 +196,8 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ## 🔁 Conclusión – el viaje continúa
 
-- No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
+- No importa el lenguaje o la tecnología: **las habilidades son tu verdadero legado**
 - Si hoy estás empezando, da prioridad a esas competencias más que a algo de moda o pasajero
-
 
 > Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
 <!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
@@ -222,13 +214,15 @@ Además de mi rol profesional, he sido:
 - 🎤 Conferencista en Campus Party, FLISOL y eventos de innovación  
 - 🧠 Desarrollador de soluciones con IA, procesamiento del lenguaje, herramientas open source y software libre
 
+---
+
 ### 🧭 Balance entre pasión y realidad laboral
 
 > Aprendí que no siempre vas a poder **innovar** en tu trabajo o utilizar todas las **últimas tecnologías**.
 
-> Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como desarrollador**, y eso **está bien**.
+> Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como profesional**, y eso **está bien**.
 
-> Lo importante es encontrar un **balance saludable**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
+> Lo importante es encontrar un **balance**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
 
 > Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
 
@@ -257,6 +251,6 @@ Además de mi rol profesional, he sido:
 - 🐙 [**GitHub**](https://github.com/rafex)
 - 📝 [**Blog personal The world of Rafex**](https://theworldofrafex.blog/)
 
-![width:600px](assets/images/rafex.png)
+![bg auto opacity:.2](assets/images/rafex.png)
 
 <!-- notes: Agradecer y abrir espacio para preguntas. Transmitir energía positiva y disposición para dialogar. -->
