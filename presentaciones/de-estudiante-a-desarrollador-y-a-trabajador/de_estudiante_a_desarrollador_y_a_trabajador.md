@@ -9,7 +9,7 @@ title: De estudiante a desarrollador y a trabajador
 description: Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de la programación.
 backgroundImage: assets/images/background.jpg
 header: De estudiante a desarrollador y a trabajador
-author: Raúl Eduardo González Argote by rafex
+author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
 ---
 
@@ -20,13 +20,13 @@ date: 24 junio 2025
 ## Datos actuales del mundo laboral
 
 - 📉 **Entrada incierta para recién egresados**  
-  Las contrataciones para roles junior en grandes empresas han caído más del 50 % respecto a niveles pre‑pandemia; muchos graduados envían cientos de solicitudes sin respuesta  [oai_citation:0‡businessinsider.com](https://www.businessinsider.com/gen-z-tech-entry-level-job-market-2025-6?utm_source=chatgpt.com).
+  Las contrataciones para roles junior en grandes empresas han caído más del 50 % respecto a niveles pre‑pandemia; muchos graduados envían cientos de solicitudes sin respuesta  [businessinsider.com](https://www.businessinsider.com/gen-z-tech-entry-level-job-market-2025-6?utm_source=chatgpt.com).
 
 - 🤖 **IA genera el 25 % del código en empresas como Amazon y Microsoft**  
-  Herramientas de IA están reemplazando tareas rutinarias, lo cual impacta especialmente a los roles de programador junior  [oai_citation:1‡economictimes.indiatimes.com](https://economictimes.indiatimes.com/news/international/global-trends/amazon-microsoft-use-ai-to-generate-25-of-their-code-will-it-take-away-jobs-of-software-engineers-in-2025/articleshow/122030620.cms?utm_source=chatgpt.com) [oai_citation:2‡businessinsider.com](https://www.businessinsider.com/career-ladder-software-engineers-collapsing-ai-google-meta-coding-2025-2?utm_source=chatgpt.com).
+  Herramientas de IA están reemplazando tareas rutinarias, lo cual impacta especialmente a los roles de programador junior  [economictimes.indiatimes.com](https://economictimes.indiatimes.com/news/international/global-trends/amazon-microsoft-use-ai-to-generate-25-of-their-code-will-it-take-away-jobs-of-software-engineers-in-2025/articleshow/122030620.cms?utm_source=chatgpt.com) [businessinsider.com](https://www.businessinsider.com/career-ladder-software-engineers-collapsing-ai-google-meta-coding-2025-2?utm_source=chatgpt.com).
 
 - ⚙️ **Oferta laboral estable pero cambiante**  
-  A pesar de la disminución de vacantes (–35 % desde 2020), la demanda de desarrolladores sigue creciendo a largo plazo (+17 % hasta 2033)  [oai_citation:3‡businessinsider.com](https://www.businessinsider.com/jobs-software-engineers-coders-bad-market-ai-2025-3?utm_source=chatgpt.com) [oai_citation:4‡lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com).
+  A pesar de la disminución de vacantes (–35 % desde 2020), la demanda de desarrolladores sigue creciendo a largo plazo (+17 % hasta 2033)  [‡businessinsider.com](https://www.businessinsider.com/jobs-software-engineers-coders-bad-market-ai-2025-3?utm_source=chatgpt.com) [lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com).
 
 - 🛠️ **Habilidades en demanda en 2025**  
   Las empresas buscan más que solo código: IA/machine learning, datos, DevOps, ciberseguridad y comunicación “blanda” están en auge .
@@ -98,7 +98,9 @@ date: 24 junio 2025
 - Organicé eventos universitarios; luego pasé al rol de **ponente e instructor**
 - Aprendí lo esencial: **comunicar, investigar, documentar**
 - Me enfrenté al desafío de explicar ideas complejas frente al público
-- Me ***"vendieron"*** como experto en una tecnología específica, en un proyecto sin experiencia previa, era recién egresado
+- Me ***"vendieron"*** como experto en una tecnología específica Alfresco CMS (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
+- Desarrollar un backend consumiendo servicios SOAP del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha busqueda en internet, logré adaptarme ***"rápidamente"***
+- Desarrolle el backend de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular, después de que una factoría se tirara un año en el proyecto lo entregué en 3 meses
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
 
@@ -127,6 +129,9 @@ Pasar del papel al código: transformar la teoría en realidad.
 - Del aula a la certificación → adaptación técnica
 - De organizador a ponente → superar miedo escénico
 - Entender que el camino laboral es **una montaña con varios picos y descansos**
+- Cada reto es una oportunidad para aprender y crecer
+- La montaña no es lineal, pero cada paso cuenta
+- La perseverancia y la adaptabilidad son claves para avanzar
 
 <!-- notes: Usar la metáfora de la montaña para reforzar la idea de que el desarrollo profesional es progresivo y no lineal. -->
 
@@ -149,10 +154,14 @@ Pasar del papel al código: transformar la teoría en realidad.
 
 ## Conclusión – el viaje continúa
 
-- Hoy soy desarrollador y conferencista, pero mi trabajo comenzó como estudiante
+- Hoy soy arquitecto de soluciones y de software, también soy conferencista, pero mi camino comenzó como estudiante
 - No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
 - Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”
+- [Link a mi perfil de LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- [Contacto por correo](mailto:rafex@rafex.dev) para dudas o charlas
+- [GitHub](https://github.com/rafex)
 
+> Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
 <!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
 
 ---
