@@ -7,7 +7,6 @@ format: pdf
 
 title: De estudiante a desarrollador y a trabajador
 description: Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de la programación.
-backgroundImage: url('assets/images/background.jpg')
 header: De estudiante a desarrollador y a trabajador
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
@@ -69,17 +68,10 @@ date: 24 junio 2025
 – El objetivo es compartir reflexiones reales y prácticas que te permitan reconocer lo que realmente importa al prepararte para el mundo laboral: habilidades esenciales, mentalidad adaptable y propósito.
 
 <!-- notes: Aquí puedes hablar con sinceridad sobre cómo eras como estudiante: tus inquietudes, tus motivaciones y lo que esperabas de la carrera. Este bloque da pie a todo lo demás. -->
+
 ---
 
 ## 2. Desarrollo
-
-# Un momento decisivo
-
-![width:600px](assets/images/certificacion.png)
-
-<!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
-
----
 
 ## Origen – Facultad de Contaduría y Administración (2007–2012)
 
@@ -91,6 +83,17 @@ date: 24 junio 2025
 ![width:500px](assets/images/estudiante.jpg)
 
 <!-- notes: Mostrar cercanía con la audiencia al describir el ambiente universitario y cómo se forjó la identidad como estudiante. -->
+
+---
+
+# Un momento decisivo
+
+![width:600px](assets/images/certificacion.png)
+
+<!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
+
+---
+
 
 ---
 
@@ -153,6 +156,8 @@ Sin saberlo, me estaba formando no solo técnicamente, sino también bajo una fi
 
 Hoy, en un evento centrado en el software libre, puedo decir que fue una de las **bases más importantes** de mi camino como desarrollador.
 
+![width:400px](assets/images/debian.png)
+
 <!-- notes: Reflexionar sobre el impacto real del software libre en tu aprendizaje. Invitar a valorar y apoyar este modelo de desarrollo y conocimiento compartido. -->
 
 ---
@@ -203,11 +208,8 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 - Hoy soy arquitecto de soluciones y de software, también soy conferencista, pero mi camino comenzó como estudiante
 - No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
-- Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”
-- [Link a mi perfil de LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
-- [Contacto por correo](mailto:rafex@rafex.dev) para dudas o charlas
-- [GitHub](https://github.com/rafex)
-- [Blog personal The world of Rafex](https://theworldofrafex.blog/)
+- Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”/moda/tendencia
+
 
 > Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
 <!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
@@ -229,5 +231,12 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 ---
 
 # ¡Gracias!
+
+- [Link a mi perfil de LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- [Contacto por correo](mailto:rafex@rafex.dev) para dudas o charlas
+- [GitHub](https://github.com/rafex)
+- [Blog personal The world of Rafex](https://theworldofrafex.blog/)
+
+![width:600px](assets/images/rafex.png)
 
 <!-- notes: Agradecer y abrir espacio para preguntas. Transmitir energía positiva y disposición para dialogar. -->
