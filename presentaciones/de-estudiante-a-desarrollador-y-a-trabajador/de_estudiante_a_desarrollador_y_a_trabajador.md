@@ -61,11 +61,11 @@ date: 24 junio 2025
 
 ## 1. Introducción
 
-– En el trayecto de todo profesional hay un inicio, y este es el mío: un estudiante con más preguntas que respuestas, pero con ganas de aprender y crecer.
+– Todo camino profesional tiene un inicio: el mío comenzó como estudiante, con más preguntas que respuestas, pero con hambre de aprender.
 
-– En esta presentación recorreremos mi camino desde la Facultad de Contaduría y Administración hasta convertirme en desarrollador y conferencista.
+– Esta presentación recorre cómo pasé de esa etapa universitaria a convertirme en desarrollador y arquitecto de TI.
 
-– El objetivo es compartir reflexiones reales y prácticas que te permitan reconocer lo que realmente importa al prepararte para el mundo laboral: habilidades esenciales, mentalidad adaptable y propósito.
+– Mi objetivo: compartir reflexiones reales que te ayuden a construir tu propio camino con base en habilidades, mentalidad y propósito.
 
 <!-- notes: Aquí puedes hablar con sinceridad sobre cómo eras como estudiante: tus inquietudes, tus motivaciones y lo que esperabas de la carrera. Este bloque da pie a todo lo demás. -->
 
@@ -73,7 +73,7 @@ date: 24 junio 2025
 
 ## 2. Desarrollo
 
-## Origen – Facultad de Contaduría y Administración (2007–2012)
+## Origen – Facultad de Contaduría y Administración, Universidad Veracruzana (2007–2012)
 
 - Estudié la **Licenciatura en Sistemas Computacionales Administrativos**
 - Mi generación: ~100 compañeros
@@ -91,9 +91,6 @@ date: 24 junio 2025
 ![width:600px](assets/images/certificacion.png)
 
 <!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
-
----
-
 
 ---
 
@@ -156,7 +153,7 @@ Sin saberlo, me estaba formando no solo técnicamente, sino también bajo una fi
 
 Hoy, en un evento centrado en el software libre, puedo decir que fue una de las **bases más importantes** de mi camino como desarrollador.
 
-![width:400px](assets/images/debian.png)
+![width:200px](assets/images/debian.png)
 
 <!-- notes: Reflexionar sobre el impacto real del software libre en tu aprendizaje. Invitar a valorar y apoyar este modelo de desarrollo y conocimiento compartido. -->
 
@@ -164,7 +161,7 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ## Inteligencia Artificial en el desarrollo de software
 
-- La IA ya no es futuro: es presente y está en producción.
+- La IA ya no es futuro: es **presente** y está en producción.
 - Herramientas como GitHub Copilot, ChatGPT, Amazon CodeWhisperer ya están integradas en los flujos de trabajo reales.
 - En algunas empresas, **más del 25 % del código es sugerido por IA**.
 - Esto no reemplaza a los desarrolladores, pero sí redefine lo que se espera de nosotros:
@@ -206,13 +203,24 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ## Conclusión – el viaje continúa
 
-- Hoy soy arquitecto de soluciones y de software, también soy conferencista, pero mi camino comenzó como estudiante
 - No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
 - Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”/moda/tendencia
 
 
 > Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
 <!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
+
+---
+
+### Mi camino sigue…
+
+> Actualmente soy arquitecto de software y de soluciones especialista en tecnologías de **IA, automatización y cloud**. 
+
+Además de mi rol profesional, he sido:
+
+- 👨‍🏫 Profesor de Java y estructuras de datos  
+- 🎤 Conferencista en Campus Party, FLISOL y eventos de innovación  
+- 🧠 Desarrollador de soluciones con IA, procesamiento de lenguaje, herramientas open source y software libre
 
 ---
 
@@ -232,8 +240,8 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 # ¡Gracias!
 
-- [Link a mi perfil de LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
-- [Contacto por correo](mailto:rafex@rafex.dev) para dudas o charlas
+- [LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- [Correo](mailto:rafex@rafex.dev) para dudas o charlas
 - [GitHub](https://github.com/rafex)
 - [Blog personal The world of Rafex](https://theworldofrafex.blog/)
 
