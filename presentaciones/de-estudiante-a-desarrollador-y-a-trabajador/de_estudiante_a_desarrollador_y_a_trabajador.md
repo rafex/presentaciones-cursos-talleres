@@ -118,8 +118,8 @@ date: 24 junio 2025
 - Aprendí lo esencial: **comunicar, investigar, documentar**
 - Me enfrenté al desafío de explicar ideas complejas frente al público
 - Me ***"vendieron"*** como experto en una tecnología específica **Alfresco CMS** (Content Management System), en un proyecto sin experiencia previa, era recién egresado. Link de duda en un foro de preguntas y respuestas: [alfresco-cms-issue](https://connect.hyland.com/t5/alfresco-archive/crear-un-documento-sobre-una-carpeta-especifica-solucionado/td-p/184491)
-- Desarrollar un **backend** consumiendo **servicios SOAP** del cuál no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, logré adaptarme ***"rápidamente"***
-- Desarrolle el **backend** de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular, después de que una factoría se tirara un año en el proyecto lo entregué en **3 meses**
+- Desarrollé un **backend** consumiendo **servicios SOAP** de los cuales no tenía conocimiento previo, pero con la ayuda de un compañero y mucha búsqueda en internet, me adapté ***"rápidamente"***
+- Desarrollé el **backend** de la nueva aplicación móvil de un banco para realizar transferencias bancarias por medio del número de celular. Después de que un proveedor dedicara un año sin resultados en el proyecto, lo entregué en **3 meses**
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
 
@@ -204,7 +204,7 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 ## 🔁 Conclusión – el viaje continúa
 
 - No importa el lenguaje o la tecnología: **estas habilidades son tu verdadero legado**
-- Si hoy estás empezando, da prioridad a esas competencias más que a algo “trendy”/moda/tendencia
+- Si hoy estás empezando, da prioridad a esas competencias más que a algo de moda o pasajero
 
 
 > Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
@@ -220,7 +220,7 @@ Además de mi rol profesional, he sido:
 
 - 👨‍🏫 Profesor de Java y estructuras de datos  
 - 🎤 Conferencista en Campus Party, FLISOL y eventos de innovación  
-- 🧠 Desarrollador de soluciones con IA, procesamiento de lenguaje, herramientas open source y software libre
+- 🧠 Desarrollador de soluciones con IA, procesamiento del lenguaje, herramientas open source y software libre
 
 ### 🧭 Balance entre pasión y realidad laboral
 
@@ -228,7 +228,7 @@ Además de mi rol profesional, he sido:
 
 > Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como desarrollador**, y eso **está bien**.
 
-> Lo importante es encontrar un **balance saludable**: si tienes un entorno laboral sano, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
+> Lo importante es encontrar un **balance saludable**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
 
 > Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
 
@@ -249,6 +249,8 @@ Además de mi rol profesional, he sido:
 ---
 
 # ¡Gracias!
+
+> “Tu camino no se trata solo de código, sino de conciencia, criterio y propósito.”
 
 - 🔗 [**LinkedIn**](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - ✉️ [**Correo**](mailto:rafex@rafex.dev) para dudas o charlas
