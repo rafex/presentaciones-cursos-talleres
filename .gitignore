@@ -1,0 +1,13 @@
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS system files
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+*.pdf
+*.odp
