@@ -96,7 +96,7 @@ date: 24 junio 2025
 
 ## 🤔 ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
 
-![width:500px](assets/images/tecnologia.png){.high}
+![width:500px](assets/images/tecnologia.png)
 
 ---
 
