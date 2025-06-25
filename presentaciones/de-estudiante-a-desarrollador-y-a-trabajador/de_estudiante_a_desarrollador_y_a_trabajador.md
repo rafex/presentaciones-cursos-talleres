@@ -35,19 +35,19 @@ date: 24 junio 2025
 ## Agenda
 
 1. **Introducción y contexto actual**  
-   Mi camino profesional y el panorama del mundo laboral. *(~5 min)*
+   ¿Quién soy y qué está ocurriendo en el mundo del desarrollo? *(~5 min)*
 
-2. **De estudiante a desarrollador**  
-   Trayectoria universitaria, primeros retos y aprendizajes clave. *(~12 min)*
+2. **Primeros pasos y punto de inflexión**  
+   De la universidad a mis primeros roles reales. *(~10 min)*
 
 3. **Tecnología con propósito**  
-   Software libre, habilidades esenciales y experiencias en IA. *(~10 min)*
+   El valor del software libre y el impacto de la IA. *(~8 min)*
 
-4. **Equilibrio entre pasión y realidad**  
-   Expectativas laborales, adaptación y balance saludable. *(~5 min)*
+4. **Retos, habilidades y balance profesional**  
+   La montaña, los aprendizajes y cómo encontrar tu lugar. *(~8 min)*
 
 5. **Conclusión e inspiración final**  
-   Recomendaciones prácticas, contacto y mensaje de cierre. *(~3 min)*
+   Herramientas atemporales y próximos pasos. *(~4 min)*
 
 <!-- notes: Agenda condensada en cinco secciones más amplias para enfocar mejor la atención del público y mantener claridad estructural durante la charla. -->
 
@@ -113,26 +113,6 @@ date: 24 junio 2025
 - Desarrollé el **backend** de una aplicación móvil para banco que realizaba operaciones con solo tener el número de celular
 
 <!-- notes: Relatar cómo los eventos académicos se convirtieron en la puerta de entrada al mundo profesional. -->
-
----
-
-## 🧰 Habilidades esenciales (y definitorias)
-
-### 🔍 Abstracción  
-Separar lo relevante del ruido, esencial para adaptarse.
-
-### 📚 Marco teórico & comprensión  
-Nunca subestimen la teoría—es la base para formular preguntas inteligentes.
-
-### 📝 Investigación & documentación  
-Sustento técnico, buenas prácticas, colaboración en equipo.
-
-### 💡 Idea → Prototipo  
-Pasar del papel al código: transformar la teoría en realidad.
-
-![bg right:33%](assets/images/abstraccion.png)
-
-<!-- notes: Desarrollar cada punto con ejemplos. Enfatizar que estas habilidades son permanentes, no modas. -->
 
 ---
 
