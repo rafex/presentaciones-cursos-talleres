@@ -13,7 +13,7 @@ author: Raúl Eduardo González Argote by rafex
 date: 24 junio 2025
 ---
 
-![Portada](assets/images/portada.png)
+![width:1080px](assets/images/portada.png)
 
 ---
 
@@ -56,7 +56,7 @@ date: 24 junio 2025
 
 # Un momento decisivo
 
-![Certificación](assets/images/certificacion.png)
+![width:600px](assets/images/certificacion.png)
 
 <!-- notes: Comenzar con una anécdota personal potente que enganche. Describir sensaciones de nervios, emoción y cómo este momento marcó un antes y un después. -->
 
@@ -69,9 +69,15 @@ date: 24 junio 2025
 - Un espacio de aprendizaje y comunidad
 - Retos y oportunidades en un ambiente académico/laboral cambiante
 
-![Estudiante](assets/images/estudiante.jpg)
+![width:500px](assets/images/estudiante.jpg)
 
 <!-- notes: Mostrar cercanía con la audiencia al describir el ambiente universitario y cómo se forjó la identidad como estudiante. -->
+
+---
+
+## ¿Cuál es el mejor lenguaje de programación? ¿cuál es la mejor tecnología?
+
+![width:500px](assets/images/tecnologia.png){.high}
 
 ---
 
@@ -81,7 +87,7 @@ date: 24 junio 2025
 - Lo importante es **entender los estándares** y **adaptarse a las necesidades del proyecto**
 - La clave es **aprender a aprender** y **adaptarse a nuevas tecnologías**
 
-![Mejor?](assets/images/post.png)
+![w:800px](assets/images/post.png)
 
 <!-- notes: Usar un tono reflexivo. Reconocer que el cambio fue disruptivo pero terminó generando crecimiento para el ecosistema. -->
 
