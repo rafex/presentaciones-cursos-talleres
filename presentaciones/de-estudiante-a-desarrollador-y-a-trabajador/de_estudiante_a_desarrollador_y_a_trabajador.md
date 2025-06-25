@@ -7,7 +7,7 @@ format: pdf
 
 title: De estudiante a desarrollador y a trabajador
 description: Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de la programación.
-backgroundImage: assets/images/background.jpg
+backgroundImage: url('assets/images/background.jpg')
 header: De estudiante a desarrollador y a trabajador
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
@@ -35,9 +35,28 @@ date: 24 junio 2025
 
 ## Agenda
 
-1. Introducción  
-2. Desarrollo  
-3. Conclusión
+1. **Bienvenida e introducción**  
+   Propósito de la charla y contexto general. *(~2 min)*
+
+2. **Panorama actual del mundo laboral**  
+   Cifras, IA y tendencias que afectan la entrada al mercado. *(~3 min)*
+
+3. **Mi historia: de estudiante a desarrollador**  
+   Trayectoria universitaria, primeros proyectos y transiciones clave. *(~15 min)*
+
+4. **Lecciones aprendidas**  
+   Habilidades esenciales, valores, aprendizajes y filosofía profesional. *(~7 min)*
+
+5. **Software libre e Inteligencia Artificial**  
+   Cómo el open source y la IA marcaron mi camino. *(~5 min)*
+
+6. **Retos, recursos y herramientas personales**  
+   Montaña de crecimiento, tabla de habilidades, aprendizajes reales. *(~5 min)*
+
+7. **Conclusiones y próximos pasos**  
+   Ideas finales, contacto, y recomendaciones prácticas. *(~5 min)*
+
+<!-- notes: Esta agenda está pensada para marcar un ritmo claro, mantener la atención del público y ayudarte a gestionar bien los tiempos durante tu ponencia. -->
 
 ---
 
@@ -124,6 +143,34 @@ Pasar del papel al código: transformar la teoría en realidad.
 
 ---
 
+## El software libre: mi punto de partida
+
+> A lo largo de mi formación, el **software libre fue una puerta abierta**.  
+Gracias a proyectos como **JBoss, LXC, Xen, Java, Debian, CentOS, Alfresco, Jenkins y Git**,  
+pude experimentar con tecnologías que de otro modo habrían estado fuera de mi alcance por su costo.
+
+Sin saberlo, me estaba formando no solo técnicamente, sino también bajo una filosofía de **colaboración, acceso libre al conocimiento y mejora continua**.
+
+Hoy, en un evento centrado en el software libre, puedo decir que fue una de las **bases más importantes** de mi camino como desarrollador.
+
+<!-- notes: Reflexionar sobre el impacto real del software libre en tu aprendizaje. Invitar a valorar y apoyar este modelo de desarrollo y conocimiento compartido. -->
+
+---
+
+## Inteligencia Artificial en el desarrollo de software
+
+- La IA ya no es futuro: es presente y está en producción.
+- Herramientas como GitHub Copilot, ChatGPT, Amazon CodeWhisperer ya están integradas en los flujos de trabajo reales.
+- En algunas empresas, **más del 25 % del código es sugerido por IA**.
+- Esto no reemplaza a los desarrolladores, pero sí redefine lo que se espera de nosotros:
+  - Ya no solo escribir código, sino **pensar, abstraer, validar, y conectar ideas.**
+
+> Lo más importante que puedes hacer hoy no es competir contra la IA, sino **aprender a trabajar con ella.**
+
+<!-- notes: Esta sección permite contextualizar a los asistentes sobre cómo la IA está cambiando el rol del desarrollador. Muestra que las habilidades humanas profundas (entendimiento, ética, abstracción) cobran más valor. -->
+
+---
+
 ## Superación de retos (la montaña)
 
 - Del aula a la certificación → adaptación técnica
@@ -160,6 +207,7 @@ Pasar del papel al código: transformar la teoría en realidad.
 - [Link a mi perfil de LinkedIn](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - [Contacto por correo](mailto:rafex@rafex.dev) para dudas o charlas
 - [GitHub](https://github.com/rafex)
+- [Blog personal The world of Rafex](https://theworldofrafex.blog/)
 
 > Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
 <!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
