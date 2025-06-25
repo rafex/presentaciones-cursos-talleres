@@ -130,6 +130,8 @@ Sustento técnico, buenas prácticas, colaboración en equipo.
 ### 💡 Idea → Prototipo  
 Pasar del papel al código: transformar la teoría en realidad.
 
+![bg right:33%](assets/images/abstraccion.png)
+
 <!-- notes: Desarrollar cada punto con ejemplos. Enfatizar que estas habilidades son permanentes, no modas. -->
 
 ---
@@ -144,7 +146,7 @@ Sin saberlo, me estaba formando no solo técnicamente, sino también bajo una fi
 
 Hoy, en un evento centrado en el software libre, puedo decir que fue una de las **bases más importantes** de mi camino como desarrollador.
 
-![bg right:20%](assets/images/linux.png)
+![bg left:20%](assets/images/linux.png)
 
 <!-- notes: Reflexionar sobre el impacto real del software libre en tu aprendizaje. Invitar a valorar y apoyar este modelo de desarrollo y conocimiento compartido. -->
 
@@ -179,6 +181,18 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
+### 🧭 Balance entre pasión y realidad laboral
+
+> Aprendí que no siempre vas a poder **innovar** en tu trabajo o utilizar todas las **últimas tecnologías**.
+
+> Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como profesional**, y eso **está bien**.
+
+> Lo importante es encontrar un **balance**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
+
+> Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
+
+---
+
 ## 🧱 Recursos atemporales: tu kit de herramientas
 
 | Habilidad              | Por qué importa                                  |
@@ -194,41 +208,9 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
-## 🔁 Conclusión – el viaje continúa
+## 🎯 El viaje continúa y tus próximo paso
 
-- No importa el lenguaje o la tecnología: **las habilidades son tu verdadero legado**
-- Si hoy estás empezando, da prioridad a esas competencias más que a algo de moda o pasajero
-
-> Recuerda: el éxito no es un destino, es un viaje continuo de aprendizaje y adaptación
-<!-- notes: Aportar autenticidad. Mostrar que el éxito viene de la constancia y el trabajo profundo, no de seguir modas. -->
-
----
-
-### 📌 Mi camino sigue…
-
-> Actualmente soy arquitecto de software y de soluciones especialista en tecnologías de **IA, automatización y cloud**. 
-
-Además de mi rol profesional, he sido:
-
-- 👨‍🏫 Profesor de Java y estructuras de datos  
-- 🎤 Conferencista en Campus Party, FLISOL y eventos de innovación  
-- 🧠 Desarrollador de soluciones con IA, procesamiento del lenguaje, herramientas open source y software libre
-
----
-
-### 🧭 Balance entre pasión y realidad laboral
-
-> Aprendí que no siempre vas a poder **innovar** en tu trabajo o utilizar todas las **últimas tecnologías**.
-
-> Con el tiempo entendí que cada organización tiene **objetivos distintos a los tuyos como profesional**, y eso **está bien**.
-
-> Lo importante es encontrar un **balance**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
-
-> Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
-
----
-
-## 🎯 Cierre – tu próximo paso
+> No importa el lenguaje o la tecnología: **las habilidades son tu verdadero legado**
 
 ¿Qué puedes hacer hoy?
 
