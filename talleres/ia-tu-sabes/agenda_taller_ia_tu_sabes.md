@@ -1,3 +1,5 @@
+![QR](assets/images/QR.png)
+
 # Prompt para IDE con IA (Cursor o Void Editor):
 
 ---

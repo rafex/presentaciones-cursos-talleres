@@ -12,6 +12,10 @@ author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
 ---
 
+![width:650px bg](assets/images/QR.png)
+
+---
+
 ![width:1080px](assets/images/portada.png)
 
 ---
