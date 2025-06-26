@@ -9,13 +9,17 @@ Crear un archivo `README.md` que contenga:
 # Taller ¿IA tú sabes?
 ## Descripción del taller
 En este taller práctico, los participantes aprenderán a crear una aplicación sencilla tipo red social con scroll infinito utilizando tecnologías web básicas y contenedores Docker. El stack tecnológico incluye un frontend con HTML, CSS y JavaScript puro, un backend en Python o Java sin frameworks, una base de datos SQLite, y un despliegue en Kubernetes utilizando Helm. El objetivo es que los participantes puedan levantar el entorno en sus máquinas y llevarse un entregable funcional al finalizar el taller.   
+
 ## Objetivos del taller
 1. **Familiarizarse con el uso de IA** para generar código y acelerar el desarrollo.
 2. **Crear un frontend básico** con HTML, CSS y JavaScript puro.
 3. **Implementar un backend sencillo** en Python o Java sin frameworks, con una API REST.
 4. **Configurar una base de datos SQLite** para persistencia de datos.
 5. **Utilizar Docker** para contenerizar la aplicación y facilitar su despliegue.
-6. **Desplegar la aplicación en Kubernetes** utilizando Helm, para entender el ciclo de vida de una aplicación en un entorno real.
+6. **Makefile** para automatizar la construcción y ejecución de contenedores.
+
+## Validar
+ejecuta el archivo `Makefile` para construir y ejecutar el proyecto. Asegúrate de que todos los comandos funcionen correctamente y que la aplicación se levante sin errores.
 
 ---
 
