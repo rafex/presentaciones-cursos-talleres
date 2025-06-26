@@ -208,6 +208,14 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 ---
 
+## Bonus: Crear un CV
+
+- **concentra tus habilidades y experiencias** en un formato claro para la posición que buscas
+- **destaca tus proyectos personales** y contribuciones a software libre
+- **mantén un portafolio actualizado** con ejemplos de tu trabajo
+
+---
+
 # ¡Gracias!
 
 > “Tu camino no se trata solo de código, sino de conciencia, criterio y propósito.”
