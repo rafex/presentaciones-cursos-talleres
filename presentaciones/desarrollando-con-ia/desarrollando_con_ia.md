@@ -131,19 +131,33 @@ date: 24 junio 2025
 
 <!-- notes: Usar un tono reflexivo. Reconocer que el cambio fue disruptivo pero terminó generando crecimiento para el ecosistema. -->
 
-
+---
 
 ## 🤖 Inteligencia Artificial en el desarrollo de software
 
-- La IA ya no es futuro: es **presente** y está en producción.
-- Herramientas como GitHub Copilot, ChatGPT, Amazon CodeWhisperer ya están integradas en los flujos de trabajo reales.
-- En algunas empresas, **más del 25 % del código es sugerido por IA**.
-- Esto no reemplaza a los desarrolladores, pero sí redefine lo que se espera de nosotros:
-  - Ya no solo escribir código, sino **pensar**, abstraer, **validar**, y **conectar ideas**.
-
-> Lo más importante que puedes hacer hoy no es competir contra la IA, sino **aprender a trabajar con ella.**
+- La **IA ya no es futuro: es presente** y está transformando el desarrollo de software.  
+- En el *Informe DORA 2025*, se señala que hasta un **90 % de los equipos de desarrollo** ya integran IA en procesos de código, documentación y pruebas.  
+- Grandes empresas como Microsoft y Amazon reportan que entre **20 % y 30 % del código** es generado con ayuda de IA.  
+- En el sector TI, un **97 % de los trabajadores** usan herramientas generativas (como **ChatGPT**) en su día a día.  
 
 <!-- notes: Esta sección permite contextualizar a los asistentes sobre cómo la IA está cambiando el rol del desarrollador. Muestra que las habilidades humanas profundas (entendimiento, ética, abstracción) cobran más valor. -->
+
+---
+
+### Herramientas destacadas
+
+- **GitHub Copilot y su Agente**: no solo sugiere código, ahora puede ejecutar tareas más amplias como pruebas, documentación y refactorización.  
+- **Cursor (Anysphere)**: IDE de nueva generación que permite *vibe coding*, donde el desarrollador describe lo que quiere y la IA genera y ajusta iterativamente el código.  
+- **Jules (Google Labs)**: agente autónomo que planifica, genera y valida cambios, proponiendo *pull requests* listos para revisión.  
+- **ChatGPT**: asistente versátil para explicar conceptos, depurar código y generar ejemplos en múltiples lenguajes.  
+
+---
+
+### Implicaciones
+- Estas herramientas **no reemplazan** a los desarrolladores, pero sí redefinen lo que se espera de ellos:  
+  - Más enfoque en **pensar, abstraer, validar y conectar ideas**.  
+  - Asumir un rol de **supervisión crítica** sobre el trabajo de los agentes de IA.  
+  - Desarrollar **habilidades blandas y éticas**, además de las técnicas.  
 
 ---
 
@@ -159,24 +173,34 @@ date: 24 junio 2025
 
 ---
 
----
-
 ## Temas relevantes sobre IA en **INDAUTOR**
 
 1. **Obras creadas completamente por IA no registrables**  
    **INDAUTOR** ha publicado que la **Suprema Corte de Justicia de la Nación (SCJN)** resolvió que las obras generadas exclusivamente por sistemas de **IA** no pueden registrarse bajo el régimen de **derechos de autor** en México.  
    En un comunicado oficial, **INDAUTOR** reconoce esta decisión y la integra como **criterio institucional**.  
 
+---
+
+## Temas relevantes sobre IA en **INDAUTOR**
+
 2. **Documentos y análisis sobre IA y derecho de autor**  
    - *“**Inteligencia artificial. El futuro en el derecho de autor**”* es un documento de **INDAUTOR** que explora los **retos legales** de la IA frente al derecho de autor.  
    - *“**Inteligencia artificial y derechos de autor (IA-OMPI)**”* es otro documento que analiza cómo funcionan las **leyes de IA** desde la perspectiva de la **OMPI** y su implicación en México.  
    - También hay documentos más específicos, como uno que trata de la plataforma **Lanteri IA** en México y su relación con **derechos de autor**.  
+
+---
+
+## Temas relevantes sobre IA en **INDAUTOR**
 
 3. **Convocatorias que incorporan IA generativa**  
    En la convocatoria del **Premio Nacional de Administración 2025**, hay mención explícita de que pueden participar tecnologías que usen modelos de **Inteligencia Artificial Generativa (IAG)** para creación de contenido (texto, imágenes).  
 
 4. **Impacto en la creatividad computacional / industria de videojuegos**  
    En **webinars de INDAUTOR** relacionados con **videojuegos** como industria, se ha discutido el uso de **IA** y **creatividad computacional** como parte de la **innovación de contenido**.  
+
+---
+
+## Temas relevantes sobre IA en **INDAUTOR**
 
 5. **Tesis y normatividad universitaria**  
    En la sección de **tesis** del sitio, **INDAUTOR** también menciona “**inteligencia artificial**” en algunos trabajos o contextos de investigación, mostrando que el ámbito **académico** también se cruza con las decisiones de **derechos de autor**.  
@@ -188,6 +212,12 @@ date: 24 junio 2025
 - Un contraste interesante: **Japón, EE. UU. y la UE** tienen posiciones diversas sobre **autoría de IA**; mostrar que en México la postura actual (a nivel institucional) es que solo obras con **intervención humana significativa** puedan registrarse.  
 - Relacionarlo con tu **demo**: si usas **Jules** o **Copilot** para generar código/documentación, ¿cómo se aplica en México respecto a quién “posee” ese contenido?  
 - También usar la **convocatoria del Premio Nacional** como ejemplo de que ya se están reconociendo usos de **IA generativa** en prácticas institucionales.  
+
+---
+
+# Demo Express
+
+- https://github.com/rafex/prueba-chat
 
 ---
 
