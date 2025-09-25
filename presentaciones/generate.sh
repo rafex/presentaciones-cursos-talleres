@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
+
+MARPCLI="./node_modules/.bin/marp"
 
 # Si pasas argumentos (pdf, odp o all), sólo genera esos; si no, genera ambos.
 if [[ $# -ge 1 ]]; then
@@ -31,10 +34,12 @@ for dir in */ ; do
     name="${base%.*}"
 
     for fmt in "${formats[@]}"; do
+      theme="$dir/assets/css/theme.css"
+      [[ -f "$theme" ]] || { echo "  → No se encontró $theme, salteando $md."; continue; }
       out="$dir/${name}.${fmt}"
       echo "Generando $out..."
-      marp "$md" \
-        --theme "$dir/assets/css/theme.css" \
+      "$MARPCLI" "$md" \
+        --theme "$theme" \
         --allow-local-files \
         -o "$out"
     done
