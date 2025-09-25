@@ -221,10 +221,10 @@ Hoy, en un evento centrado en el software libre, puedo decir que fue una de las 
 
 > “Tu camino no se trata solo de código, sino de conciencia, criterio y propósito.”
 
-- 🔗 [**LinkedIn**](www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
-- ✉️ [**Correo**](mailto:rafex@rafex.dev) para dudas o charlas
-- 🐙 [**GitHub**](https://github.com/rafex)
-- 📝 [**Blog personal The world of Rafex**](https://theworldofrafex.blog/)
+- 🔗 [**LinkedIn**](https://linkedin.com/in/soft-architect-raul-gonzalez) https://linkedin.com/in/soft-architect-raul-gonzalez para seguir en contacto
+- ✉️ [**Correo**](mailto:rafex@rafex.dev) rafex@rafex.dev para dudas o charlas
+- 🐙 [**GitHub**](https://github.com/rafex) https://github.com/rafex
+- 📝 [**Blog personal The world of Rafex**](https://theworldofrafex.blog/) https://theworldofrafex.blog/
 
 ![bg auto opacity:.2](assets/images/rafex.png)
 
