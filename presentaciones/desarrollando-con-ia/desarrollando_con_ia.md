@@ -8,7 +8,7 @@ format: pdf
 title: Desarrollando con IA
 description: Se muestra cómo ha cambiado el desarrollo de software con la llegada de la inteligencia artificial, y cómo adaptarse a este nuevo entorno laboral/profesional/personal.
 header: Desarrollando con IA
-footer: lldds
+footer: by Raúl González - @rafex
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
 ---
@@ -29,6 +29,10 @@ date: 24 junio 2025
 - 🤖 **IA genera entre 20 % y 30 % del código en empresas líderes**  
   Microsoft ha reportado que hasta un **30 % de su código interno** es generado por IA, y medios señalan cifras similares en Amazon. Esto impacta especialmente a roles junior, pues las tareas rutinarias son automatizadas. [techcrunch.com](https://techcrunch.com/2025/04/29/microsoft-ceo-says-up-to-30-of-the-companys-code-was-written-by-ai/?utm_source=chatgpt.com) [economictimes.indiatimes.com](https://m.economictimes.com/news/international/global-trends/amazon-microsoft-use-ai-to-generate-25-of-their-code-will-it-take-away-jobs-of-software-engineers-in-2025/articleshow/122030620.cms?utm_source=chatgpt.com)
 
+---
+
+## Datos actuales del mundo laboral
+
 - ⚙️ **Oferta laboral estable pero cambiante**  
   Aunque hay una reducción en vacantes de entrada, la demanda global de desarrolladores sigue creciendo a largo plazo, con una proyección de **+17 % hasta 2033**. Los perfiles más buscados incluyen IA, machine learning, datos, DevOps y ciberseguridad. [lemon.io](https://lemon.io/blog/software-engineering-job-market/?utm_source=chatgpt.com)
 
@@ -48,6 +52,10 @@ date: 24 junio 2025
    - Muchas empresas hacen pilotos, pero los beneficios reales requieren **reestructurar procesos completos**, no solo codificación.  
    - Las mejoras de productividad rondan el **10‑15 %**, sin siempre traducirse en retorno económico si revisión e integración siguen lentas.  
    - Un experimento con desarrolladores open source mostró que en algunos casos la IA tomó **19 % más tiempo** para completar tareas.  
+
+---
+
+### 📊 Tendencias y cambios recientes
 
 3. **Nuevas formas de codificación: “Vibe Coding”**  
    - Surge el concepto *vibe coding* (popularizado por Andrej Karpathy): el desarrollador describe lo que quiere y la IA genera iterativamente el código.  
@@ -148,6 +156,38 @@ date: 24 junio 2025
 > Lo importante es encontrar un **balance**: si tienes un entorno laboral saludable, con tiempo y autonomía, entonces puedes aportar, experimentar o construir lo que disfrutas.
 
 > Ejemplo de eso es poder estar aquí hoy, compartiendo esta charla con ustedes.
+
+---
+
+---
+
+## Temas relevantes sobre IA en **INDAUTOR**
+
+1. **Obras creadas completamente por IA no registrables**  
+   **INDAUTOR** ha publicado que la **Suprema Corte de Justicia de la Nación (SCJN)** resolvió que las obras generadas exclusivamente por sistemas de **IA** no pueden registrarse bajo el régimen de **derechos de autor** en México.  
+   En un comunicado oficial, **INDAUTOR** reconoce esta decisión y la integra como **criterio institucional**.  
+
+2. **Documentos y análisis sobre IA y derecho de autor**  
+   - *“**Inteligencia artificial. El futuro en el derecho de autor**”* es un documento de **INDAUTOR** que explora los **retos legales** de la IA frente al derecho de autor.  
+   - *“**Inteligencia artificial y derechos de autor (IA-OMPI)**”* es otro documento que analiza cómo funcionan las **leyes de IA** desde la perspectiva de la **OMPI** y su implicación en México.  
+   - También hay documentos más específicos, como uno que trata de la plataforma **Lanteri IA** en México y su relación con **derechos de autor**.  
+
+3. **Convocatorias que incorporan IA generativa**  
+   En la convocatoria del **Premio Nacional de Administración 2025**, hay mención explícita de que pueden participar tecnologías que usen modelos de **Inteligencia Artificial Generativa (IAG)** para creación de contenido (texto, imágenes).  
+
+4. **Impacto en la creatividad computacional / industria de videojuegos**  
+   En **webinars de INDAUTOR** relacionados con **videojuegos** como industria, se ha discutido el uso de **IA** y **creatividad computacional** como parte de la **innovación de contenido**.  
+
+5. **Tesis y normatividad universitaria**  
+   En la sección de **tesis** del sitio, **INDAUTOR** también menciona “**inteligencia artificial**” en algunos trabajos o contextos de investigación, mostrando que el ámbito **académico** también se cruza con las decisiones de **derechos de autor**.  
+
+---
+
+💡 **Ideas para usar esto en tu conferencia**  
+- Puedes incluir una sección breve sobre **derechos de autor y AI en México**, mostrando cómo la **legislación** está respondiendo al desafío de las obras generadas por IA.  
+- Un contraste interesante: **Japón, EE. UU. y la UE** tienen posiciones diversas sobre **autoría de IA**; mostrar que en México la postura actual (a nivel institucional) es que solo obras con **intervención humana significativa** puedan registrarse.  
+- Relacionarlo con tu **demo**: si usas **Jules** o **Copilot** para generar código/documentación, ¿cómo se aplica en México respecto a quién “posee” ese contenido?  
+- También usar la **convocatoria del Premio Nacional** como ejemplo de que ya se están reconociendo usos de **IA generativa** en prácticas institucionales.  
 
 ---
 
