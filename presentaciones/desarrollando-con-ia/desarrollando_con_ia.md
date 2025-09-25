@@ -5,9 +5,10 @@ paginate: true
 size: 16:9
 format: pdf
 
-title: De estudiante a desarrollador y a trabajador
-description: Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de la programación.
-header: De estudiante a desarrollador y a trabajador
+title: Desarrollando con IA
+description: Se muestra cómo ha cambiado el desarrollo de software con la llegada de la inteligencia artificial, y cómo adaptarse a este nuevo entorno laboral/profesional/personal.
+header: Desarrollando con IA
+footer: lldds
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2025
 ---
