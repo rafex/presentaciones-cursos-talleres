@@ -17,7 +17,7 @@ date: 24 junio 2025
 
 ---
 
-![width:1080px](assets/images/portada.png)
+![width:1080px](assets/images/portada_nueva.png)
 
 ---
 
@@ -161,7 +161,7 @@ date: 24 junio 2025
 
 ---
 
-### 🧭 Balance entre pasión y realidad laboral
+### 🧭 ***Bonus tema:*** Balance entre pasión y realidad laboral
 
 > Aprendí que no siempre vas a poder **innovar** en tu trabajo o utilizar todas las **últimas tecnologías**.
 
@@ -204,14 +204,6 @@ date: 24 junio 2025
 
 5. **Tesis y normatividad universitaria**  
    En la sección de **tesis** del sitio, **INDAUTOR** también menciona “**inteligencia artificial**” en algunos trabajos o contextos de investigación, mostrando que el ámbito **académico** también se cruza con las decisiones de **derechos de autor**.  
-
----
-
-💡 **Ideas para usar esto en tu conferencia**  
-- Puedes incluir una sección breve sobre **derechos de autor y AI en México**, mostrando cómo la **legislación** está respondiendo al desafío de las obras generadas por IA.  
-- Un contraste interesante: **Japón, EE. UU. y la UE** tienen posiciones diversas sobre **autoría de IA**; mostrar que en México la postura actual (a nivel institucional) es que solo obras con **intervención humana significativa** puedan registrarse.  
-- Relacionarlo con tu **demo**: si usas **Jules** o **Copilot** para generar código/documentación, ¿cómo se aplica en México respecto a quién “posee” ese contenido?  
-- También usar la **convocatoria del Premio Nacional** como ejemplo de que ya se están reconociendo usos de **IA generativa** en prácticas institucionales.  
 
 ---
 
