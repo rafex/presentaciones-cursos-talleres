@@ -44,7 +44,8 @@ date: 24 junio 2025
    - **GitHub Copilot Agent** como copiloto corporativo.  
    - **ChatGPT** como asistente de aprendizaje.  
    
-   **demo en vivo**.  
+   **demo**.  
+   https://github.com/rafex/prueba-chat
 
 ---
 
@@ -64,9 +65,20 @@ date: 24 junio 2025
 
 ---
 
-# **Cierre motivacional** *(~3-4 min)*  
+# **Cierre** *(~3-4 min)*  
    - “No se trata de competir contra la IA, sino de aprender a trabajar con ella”.  
    - Balance entre **pasión y realidad laboral** → vincular con IA: encontrar espacio para experimentar, crecer y aportar con criterio humano.  
    - Invitación a experimentar y no temer.  
 
 ---
+
+# ¡Gracias!
+
+> “Tu camino no se trata solo de código, sino de conciencia, criterio y propósito.”
+
+- 🔗 [**LinkedIn**](https://linkedin.com/in/soft-architect-raul-gonzalez) https://linkedin.com/in/soft-architect-raul-gonzalez para seguir en contacto
+- ✉️ [**Correo**](mailto:rafex@rafex.dev) rafex@rafex.dev para dudas o charlas
+- 🐙 [**GitHub**](https://github.com/rafex) https://github.com/rafex
+- 📝 [**Blog personal The world of Rafex**](https://theworldofrafex.blog/) https://theworldofrafex.blog/
+
+![bg auto opacity:.2](assets/images/rafex.png)
