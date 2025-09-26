@@ -17,12 +17,16 @@ date: 24 junio 2025
 
 ---
 
-![width:1080px](assets/images/portada_nueva.png)
+![width:450px bg](assets/images/portada_nueva.png)
 
 ---
 
 # **Introducción personal y contexto** *(~5 min)*  
-   - Conectar: “Así como antes buscábamos cuál era el mejor lenguaje o tecnología, hoy el reto es entender cómo la IA redefine nuestro rol”.  
+
+   ***“Así como antes buscábamos cuál era la mejor manera de implementar un lenguaje o tecnología,*** **hoy el reto es entender cómo la IA redefine nuestro rol**”.
+
+   ![bg right:25%](assets/images/tecnologia.png)
+   ![bg left:60%](assets/images/estudiante.jpg)
 
 <!-- notes: Breve historia universitaria (UV, sistemas, comunidad). -->
 
@@ -58,17 +62,17 @@ date: 24 junio 2025
 ---
 
 # **Ética y marco legal (México y el mundo)** *(~7 min)*  
-   - **INDAUTOR**: obras generadas **100 % por IA** no registrables.  
+   - [INDAUTOR](https://indautor.gob.mx/comunicados.php): obras generadas **100 % por IA** no registrables.  
    - **UE, EE. UU. y China**: distintos modelos de regulación.  
    - Implicaciones en industrias (**salud, banca, videojuegos**).  
-   - Mensaje: la **ética y la legalidad** son parte de nuestro rol como devs.  
+   - La **ética y la legalidad** son parte de nuestro rol como devs.  
 
 ---
 
 # **Cierre** *(~3-4 min)*  
    - “No se trata de competir contra la IA, sino de aprender a trabajar con ella”.  
    - Balance entre **pasión y realidad laboral** → vincular con IA: encontrar espacio para experimentar, crecer y aportar con criterio humano.  
-   - Invitación a experimentar y no temer.  
+   - **Invitación a experimentar y no temer.**  
 
 ---
 
