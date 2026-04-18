@@ -1,0 +1,117 @@
+# La IA no es solo de las Big Tech: construyendo con IA Open Source
+
+
+              Internet (opcional)
+                    │
+              Router OpenWRT
+          WiFi: FLISOL-LAB (abierta)
+           │              │
+           │              │
+      Raspberry Pi 3B   Usuarios
+       (Sensor)         Teléfonos
+           │
+           │ datos
+           ▼
+      Raspberry Pi 4
+        IA / Alertas
+           │
+           ▼
+      Dashboard Web
+
+
+Raspi 3B
+arp-scan
+nmap
+tcpdump
+
+
+Modelos open source que puedes usar
+
+Para Raspberry te convienen modelos ligeros.
+
+Opciones:
+
+TinyLLM
+
+llama.cpp
+
+Phi-3-mini
+TinyLlama
+Qwen2-1.5B
+
+Stack totalmente open source
+
+Puedes presumir que todo es OSS:
+
+Componente
+
+Tecnología
+
+Router
+
+OpenWRT
+
+Sensor
+
+arp-scan / nmap
+
+Captura tráfico
+
+tcpdump
+
+IA
+
+llama.cpp
+
+Modelo
+
+Phi-3 / TinyLlama
+
+Backend
+
+Python / Rust / Go
+
+Dashboard
+
+HTML simple
+
+
+Demo impactante en vivo
+
+Haz esto:
+
+1️⃣ Creas la red WiFi abierta
+
+2️⃣ Pides al público conectarse
+
+3️⃣ La Pi detecta dispositivos en vivo
+
+Router viejo + OpenWrt
+      │
+WiFi abierta insegura
+      │
+Raspberry Pi sensor
+      │
+Raspberry Pi IA
+      │
+Dashboard de seguridad
+
+
+opkg install arp-scan
+opkg install nmap
+opkg install tcpdump
+
+opkg install iwinfo
+
+
+Router OpenWrt (sensor red)
+        │
+        │ logs
+        ▼
+Raspberry Pi 3 (escaneo)
+        │
+        ▼
+Raspberry Pi 4 (IA analiza)
+        │
+        ▼
+alertas seguridad
