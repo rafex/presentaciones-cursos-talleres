@@ -1,0 +1,26 @@
+flowchart LR
+  Internet((Internet))
+  Router["Router OpenWrt\n192.168.1.1\nAP + DHCP + DNS + nftables"]
+  Clientes["Clientes WiFi\n192.168.1.x"]
+  Sensor["Raspberry Pi 3B A\nSensor de red\ntshark + sensor.py"]
+  IA["Raspberry Pi 4B\nIA y plataforma\nk3s + MQTT + llama.cpp"]
+  Portal["Raspberry Pi 3B B\nPortal opcional\nsplit topology"]
+  Dashboard["Dashboard\n/terminal\n/api/history"]
+
+  Internet --> Router
+  Router --> Clientes
+  Router --> Sensor
+  Router --> IA
+  Router -.-> Portal
+  Sensor -->|"MQTT QoS 1\nbatch cada 30s"| IA
+  Portal -.->|"proxy /api"| IA
+  IA --> Dashboard
+
+  classDef router fill:#e8f3ff,stroke:#24527a,stroke-width:2px,color:#111
+  classDef edge fill:#edf8ed,stroke:#347a34,stroke-width:2px,color:#111
+  classDef ia fill:#fff4df,stroke:#9a6a12,stroke-width:2px,color:#111
+  classDef ui fill:#f5ecff,stroke:#7344a6,stroke-width:2px,color:#111
+  class Router router
+  class Sensor,Portal edge
+  class IA ia
+  class Dashboard ui

@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant C as Cliente WiFi
+  participant R as OpenWrt
+  participant S as Pi 3B Sensor
+  participant M as Mosquitto
+  participant A as ai-analyzer
+  participant L as llama.cpp
+  participant D as Dashboard
+
+  C->>R: Genera trafico real
+  S->>S: Captura paquetes con tshark
+  S->>S: Agrega estadisticas por 30s
+  S->>R: Consulta leases, conntrack y allowed_clients
+  S->>M: Publica batch JSON
+  M->>A: Entrega evento MQTT
+  A->>A: Persiste batch en SQLite
+  A->>L: POST /completion con prompt de seguridad
+  L-->>A: Analisis + riesgo
+  A->>D: Publica historial, stats y stream SSE

@@ -49,19 +49,40 @@ Demostrar en un entorno real:
 
 ---
 
+## Repositorio analizado
+
+La PoC vive en:
+
+<https://github.com/rafex/poc-openwrt-dietpi-raspi3b-raspi4b>
+
+Estructura principal:
+
+| Directorio | Responsabilidad |
+|---|---|
+| `scripts/` | Instalación, health checks, cambios de topología |
+| `sensor/` | Captura y agregación de tráfico desde Pi 3B |
+| `backend/` | Portal cautivo y analizador IA |
+| `k8s/` | Manifiestos para k3s, Traefik, servicios e ingress |
+| `docs/` | Arquitectura, setup, LLM, portales y software libre |
+
+---
+
 ## Arquitectura general
 
-```text
-Internet (opcional)
-        |
-Router OpenWrt (AP + captive + nftables)
-        |
-        +--> Raspberry Pi 3B #1 (sensor: tshark + agregación)
-        |
-        +--> Raspberry Pi 4B (k3s + MQTT + llama.cpp + analyzer + dashboard)
-        |
-        +--> Raspberry Pi 3B #2 (portal cautivo opcional / split topology)
-```
+![width:1050px](assets/images/arquitectura-general.svg)
+
+<!-- notes: Explicar que el router no solo da red: también aplica la política de acceso. La Pi 3B observa, la Pi 4B razona y sirve la UI, y la tercera Pi permite separar el portal en una topología más limpia. -->
+
+---
+
+## Responsabilidades por nodo
+
+| Nodo | Qué hace |
+|---|---|
+| OpenWrt | AP WiFi, DHCP, DNS captive, reglas `nftables`, allowlist |
+| Pi 3B sensor | `tshark`, agregación cada 30s, enriquecimiento con datos del router |
+| Pi 4B IA | Mosquitto, `llama-server`, k3s, `ai-analyzer`, SQLite, dashboard |
+| Pi 3B portal | Portal cautivo opcional en topología `split_portal` |
 
 ---
 
@@ -79,14 +100,37 @@ Router OpenWrt (AP + captive + nftables)
 
 ---
 
+## Software libre como sistema
+
+![width:980px](assets/images/software-libre-stack.svg)
+
+<!-- notes: Este slide conecta la charla con software libre: no es una lista aislada de tecnologías, es una cadena completa de piezas abiertas colaborando. -->
+
+---
+
+## Flujo captive portal
+
+![width:960px](assets/images/flujo-captive.svg)
+
+<!-- notes: Poner énfasis en que OpenWrt decide el acceso con nftables. El portal no es solo una página, es el punto donde el backend registra y autoriza temporalmente al cliente. -->
+
+---
+
 ## Flujo de datos
 
-1. `sensor.py` agrupa tráfico cada 30 segundos
-2. Publica batch a `rafexpi/sensor/batch` (MQTT)
-3. `ai-analyzer` consume, encola y persiste en SQLite
-4. Genera prompt contextual y consulta `llama-server`
-5. Clasifica riesgo (`BAJO`, `MEDIO`, `ALTO`)
-6. Expone resultados en dashboard y stream en vivo
+![width:980px](assets/images/flujo-ia.svg)
+
+<!-- notes: Explicar que el LLM no ve paquetes crudos. Recibe una síntesis: top emisores, puertos, DNS, HTTP hosts, conexiones y anomalías. Eso reduce costo y hace viable correr en Raspberry. -->
+
+---
+
+## Cómo piensa el analizador
+
+1. `sensor.py` genera un resumen de red, no un volcado completo
+2. `ai-analyzer` lo guarda como batch pendiente
+3. Un worker procesa un batch a la vez para no saturar la Pi 4B
+4. El prompt pide tres puntos breves y un riesgo: `BAJO`, `MEDIO`, `ALTO`
+5. El resultado queda consultable por dashboard, historial y stream SSE
 
 ---
 
@@ -126,6 +170,22 @@ Resultado esperado: entender el riesgo real de una red pública en minutos.
 - Latencia de inferencia local (segundos por batch)
 - Curva de operación en OpenWrt y networking
 - Seguridad y ética: no exponer datos sensibles en demos
+
+---
+
+## Por qué Mermaid pre-renderizado
+
+Para esta presentación conviene convertir Mermaid a SVG antes de exportar:
+
+- Marp PDF no depende de JavaScript en tiempo de render
+- El diagrama queda versionado junto al markdown
+- El resultado es reproducible en PDF, HTML y ODP
+
+Flujo usado:
+
+```bash
+mmdc -i assets/diagrams/arquitectura-general.mmd -o assets/images/arquitectura-general.svg
+```
 
 ---
 

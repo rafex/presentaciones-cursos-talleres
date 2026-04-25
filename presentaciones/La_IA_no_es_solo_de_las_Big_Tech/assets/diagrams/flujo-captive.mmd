@@ -1,0 +1,19 @@
+flowchart TD
+  A["Usuario se conecta al WiFi"]
+  B["OpenWrt asigna IP\nDHCP lease 120 min"]
+  C["Sistema detecta portal cautivo\nDHCP option 114 + DNS redirect"]
+  D{"IP en allowed_clients?"}
+  E["nftables redirige HTTP\nDNAT tcp:80 al portal"]
+  F["Portal Lentium\nregistro cliente/invitado"]
+  G["Backend guarda SQLite\ny ejecuta nft add element"]
+  H["Cliente autorizado\nnavega por 120 min"]
+  I["Vuelve al portal\nal expirar timeout"]
+
+  A --> B --> C --> D
+  D -- "No" --> E --> F --> G --> H --> I
+  D -- "Si" --> H
+
+  classDef decision fill:#fff7cc,stroke:#8a6d00,stroke-width:2px,color:#111
+  classDef action fill:#ecf7ff,stroke:#336b8a,stroke-width:2px,color:#111
+  class D decision
+  class A,B,C,E,F,G,H,I action

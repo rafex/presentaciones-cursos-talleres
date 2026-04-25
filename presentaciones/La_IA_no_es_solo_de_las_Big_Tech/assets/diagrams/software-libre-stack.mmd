@@ -1,0 +1,32 @@
+flowchart TB
+  subgraph Router["Router"]
+    OpenWrt["OpenWrt"]
+    Dnsmasq["dnsmasq"]
+    Nft["nftables"]
+  end
+
+  subgraph Sensor["Sensor"]
+    DietPi3["DietPi"]
+    Tshark["tshark / tcpdump"]
+    Paho["paho-mqtt"]
+  end
+
+  subgraph Core["IA local"]
+    DietPi4["DietPi"]
+    K3s["k3s"]
+    Mosquitto["Mosquitto"]
+    Llama["llama.cpp"]
+    Tiny["TinyLlama 1.1B Q4"]
+    SQLite["SQLite"]
+    Python["Python"]
+  end
+
+  subgraph UI["Experiencia demo"]
+    Nginx["nginx"]
+    HTML["HTML dashboard"]
+    Flask["Flask endpoints"]
+  end
+
+  Router --> Sensor
+  Sensor --> Core
+  Core --> UI
