@@ -1,0 +1,4 @@
+[submodule "presentaciones/La_IA_no_es_solo_de_las_Big_Tech/poc-openwrt-dietpi-raspi3b-raspi4b"]
+	path = presentaciones/La_IA_no_es_solo_de_las_Big_Tech/poc-openwrt-dietpi-raspi3b-raspi4b
+	url = git@github.com:rafex/poc-openwrt-dietpi-raspi3b-raspi4b.git
+	branch = main

@@ -115,3 +115,26 @@ Raspberry Pi 4 (IA analiza)
         │
         ▼
 alertas seguridad
+
+Algo que haría tu demo mucho más impresionante
+
+Puedes montar un captive portal.
+
+usuario conecta wifi
+↓
+abre navegador
+↓
+portal educativo
+↓
+explica riesgos de redes públicas
+↓
+muestra análisis IA
+
+Eso queda brutal en una ponencia de seguridad + IA open source.
+
+⸻
+
+Si quieres, también puedo enseñarte algo muy útil para tu demo:
+
+cómo hacer que OpenWrt envíe automáticamente eventos cuando alguien se conecta al WiFi (sin escanear la red) y que la Raspberry lo procese con IA.
+Eso hace que la demo se vea casi como un sistema profesional de ciberseguridad.
