@@ -12,6 +12,28 @@ author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 25 abril 2026
 ---
 
+<style>
+
+section {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+</style>
+---
+
 ![width:620px bg](assets/images/QR.png)
 
 ---
@@ -53,7 +75,7 @@ Así que terminé regresando a **Windows**.
 
 La curiosidad **ya estaba sembrada**.
 
-![bg right:50%](assets/images/rafex_nino.jpeg)
+![bg right:30%](assets/images/rafex_nino.jpeg)
 
 ---
 
@@ -173,6 +195,8 @@ A diferencia del firmware propietario que traen la mayoría de los routers:
 - permite **control total del dispositivo**
 - se pueden instalar paquetes como en una distribución Linux
 
+<!-- notes:
+
 En esta PoC OpenWrt se usa para:
 
 - crear la **red WiFi abierta**
@@ -198,6 +222,7 @@ Características importantes:
 - puede ejecutarse en **CPU sin GPU**
 - soporta cuantización para reducir memoria
 
+<!-- notes:
 En esta PoC se utiliza para:
 
 - ejecutar un **modelo pequeño (TinyLlama)**
@@ -206,7 +231,6 @@ En esta PoC se utiliza para:
 
 Esto permite tener **IA local en hardware muy pequeño**.
 
-<!-- notes:
 La clave es que no estamos llamando a una API externa.
 La inferencia ocurre dentro de la Raspberry Pi.
 -->
@@ -224,12 +248,16 @@ Características generales:
 - almacenamiento en microSD
 - ejecuta distribuciones Linux
 
+<!-- notes:
+
 Es muy utilizada para:
 
 - educación
 - IoT
 - prototipos
 - laboratorios de redes
+
+-->
 
 En esta PoC se utilizan varias Raspberry Pi para separar responsabilidades del sistema.
 
@@ -324,17 +352,12 @@ Esto también permite escalar el sistema si se desea.
 
 ## Software libre como sistema
 
+https://github.com/rafex/poc-openwrt-dietpi-raspi3b-raspi4b/blob/main/docs/software-libre.md
+
+<!-- notes:
 ![width:980px](assets/images/software-libre-stack.svg)
 
-<!-- notes: Este slide conecta la charla con software libre: no es una lista aislada de tecnologías, es una cadena completa de piezas abiertas colaborando. -->
-
----
-
-## Flujo captive portal
-
-![width:960px](assets/images/flujo-captive.svg)
-
-<!-- notes: Poner énfasis en que OpenWrt decide el acceso con nftables. El portal no es solo una página, es el punto donde el backend registra y autoriza temporalmente al cliente. -->
+ Este slide conecta la charla con software libre: no es una lista aislada de tecnologías, es una cadena completa de piezas abiertas colaborando. -->
 
 ---
 
@@ -365,18 +388,6 @@ Esto también permite escalar el sistema si se desea.
 
 ---
 
-## Demo en vivo (guion)
-
-1. Levantar WiFi abierta en OpenWrt
-2. Pedir al público conectarse
-3. Mostrar nuevos dispositivos y patrones de tráfico
-4. Ejecutar análisis IA local frente a la audiencia
-5. Mostrar alertas y recomendaciones en dashboard
-
-Resultado esperado: entender el riesgo real de una red pública en minutos.
-
----
-
 ## Aprendizajes técnicos
 
 - El valor está en integrar piezas, no en usar una sola herramienta
@@ -392,31 +403,6 @@ Resultado esperado: entender el riesgo real de una red pública en minutos.
 - Latencia de inferencia local (segundos por batch)
 - Curva de operación en OpenWrt y networking
 - Seguridad y ética: no exponer datos sensibles en demos
-
----
-
-## Por qué Mermaid pre-renderizado
-
-Para esta presentación conviene convertir Mermaid a SVG antes de exportar:
-
-- Marp PDF no depende de JavaScript en tiempo de render
-- El diagrama queda versionado junto al markdown
-- El resultado es reproducible en PDF, HTML y ODP
-
-Flujo usado:
-
-```bash
-mmdc -i assets/diagrams/arquitectura-general.mmd -o assets/images/arquitectura-general.svg
-```
-
----
-
-## Próximos pasos
-
-1. Mejorar scoring de riesgo por tipo de evento
-2. Añadir más fuentes (`arp-scan`, `nmap`) por ventana controlada
-3. Afinar topología split para más resiliencia
-4. Publicar guía reproducible para talleres comunitarios
 
 ---
 
