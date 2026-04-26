@@ -19,33 +19,128 @@ date: 25 abril 2026
 # La IA no es solo de las Big Tech
 ## Construyendo con IA Open Source
 
-- PoC real con hardware accesible
-- Router OpenWrt + 3 Raspberry Pi
-- Captura de red, análisis local con LLM y dashboard
-
 Repositorio de la charla:
 <https://github.com/rafex/presentaciones-cursos-talleres/tree/main/presentaciones/La_IA_no_es_solo_de_las_Big_Tech>
 
 ---
 
-## Mensaje central
+## Cómo empezó todo
 
-> No necesitas nube propietaria ni infraestructura millonaria para crear soluciones útiles con IA.
+Cuando estaba en primaria tuve mi primer contacto con **Linux**.
 
-- Puedes construir con software libre
-- Puedes ejecutar IA local
-- Puedes aprender y enseñar con evidencia práctica
+Mi papá trabajaba en un lugar donde usaban:
+
+- **SUSE**
+
+- **Linux PPP**
+
+- **Red Hat**
+
+Ahí me enseñaron algo que para mí parecía magia:
+
+- particiones de disco
+
+- instalación de sistemas
+
+- cómo arrancar Linux
+
+En una máquina usada logré instalar **Red Hat**.
+
+Pero pasó algo curioso.
+
+No supe **qué hacer con él**.
+
+Así que terminé regresando a **Windows**.
+
+Sin embargo, la curiosidad **ya estaba sembrada**.
+
+![bg right:50%](assets/images/rafex_nino.jpeg)
 
 ---
 
-## Objetivo de la PoC
+## La decisión
 
-Demostrar en un entorno real:
+Cuando entré a la universidad tomé una decisión muy simple:
 
-1. Red WiFi abierta en OpenWrt
-2. Detección y observabilidad de tráfico en tiempo real
-3. Análisis automatizado de riesgo con un LLM local
-4. Visualización para demo educativa de ciberseguridad
+> Voy a aprender Linux **sí o sí**.
+
+Incluso si eso significaba:
+
+- tardar más en hacer tareas
+
+- romper cosas
+
+- reinstalar el sistema varias veces
+
+Primero probé:
+
+- **Ubuntu 7.x u 8.x** (no recuerdo exactamente)
+
+Funcionaba bien, pero lo sentía **pesado**.
+
+Así que decidí probar algo más desafiante.
+
+Me cambié a **Debian Sarge**.
+
+Lo odié… por un tiempo.
+
+Cada reinicio pasaba algo:
+
+- el **audio se desconfiguraba**
+
+- algo dejaba de funcionar
+
+Pero cada uno de esos problemas me obligaba a **entender el sistema**.
+
+---
+
+## El momento en que entendí Linux
+
+Hubo un momento que cambió todo.
+
+Cuando **compilé mi primer kernel**.
+
+Fueron noches sin dormir:
+
+- prueba
+
+- error
+
+- recompilar
+
+- volver a probar
+
+Recuerdo activar funcionalidades que aún no estaban en la línea base.
+
+Como **cgroups**.
+
+En ese momento pensé:
+
+> "Esto es increíble."
+
+Estaba construyendo mi propio sistema.
+
+---
+
+## Por eso esta charla existe
+
+Linux y yo tenemos historia.
+
+Y esa historia me enseñó algo importante:
+
+El poder del **software libre** es que te permite **entender cómo funcionan las cosas**.
+
+No solo usarlas.
+
+Y hoy estamos viendo algo muy parecido con la **IA**.
+
+La pregunta es:
+
+> ¿Tenemos que depender de la nube y de las Big Tech para usar IA?
+
+¿O podemos **entenderla, ejecutarla y construir con ella nosotros mismos**?
+
+Ahí es donde entra esta **PoC**.
 
 ---
 
