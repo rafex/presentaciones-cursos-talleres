@@ -5,9 +5,9 @@ paginate: true
 size: 16:9
 format: pdf
 
-title: La IA no es solo de las Big Tech: construyendo con IA Open Source
-description: Hay pocas tecnologías que se logran proliferar tan rápido como la IA, pero ¿es necesario depender de la nube y las Big Tech para crear soluciones útiles? En esta charla se presenta una prueba de concepto real que demuestra cómo construir con IA Open Source usando hardware accesible. Con un router OpenWrt y dos Raspberry Pi, se captura el tráfico de una red WiFi abierta, se analiza localmente con un LLM y se muestra en un dashboard educativo. El mensaje central es claro: no necesitas infraestructura millonaria para crear soluciones útiles con IA.
-header: La IA no es solo de las Big Tech: construyendo con IA Open Source
+title: La IA no es solo de las Big Tech - construyendo con IA Open Source
+description: Hay pocas tecnologías que se logran proliferar tan rápido como la IA
+header: La IA no es solo de las Big Tech - construyendo con IA Open Source
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 25 abril 2026
 ---
@@ -16,15 +16,11 @@ date: 25 abril 2026
 
 ---
 
-# La IA no es solo de las Big Tech
-## Construyendo con IA Open Source
-
-Repositorio de la charla:
-<https://github.com/rafex/presentaciones-cursos-talleres/tree/main/presentaciones/La_IA_no_es_solo_de_las_Big_Tech>
+![width:1080x](assets/images/7163eb05b9e3edf653af967022b64221a41cc708c8394ddcf01662955c76e6b1.png)
 
 ---
 
-## Cómo empezó todo
+## ¿Cómo empezó todo?
 
 Cuando estaba en primaria tuve mi primer contacto con **Linux**.
 
@@ -36,6 +32,7 @@ Mi papá trabajaba en un lugar donde usaban:
 
 - **Red Hat**
 
+<!-- notes:
 Ahí me enseñaron algo que para mí parecía magia:
 
 - particiones de disco
@@ -52,13 +49,13 @@ No supe **qué hacer con él**.
 
 Así que terminé regresando a **Windows**.
 
-Sin embargo, la curiosidad **ya estaba sembrada**.
+-->
+
+La curiosidad **ya estaba sembrada**.
 
 ![bg right:50%](assets/images/rafex_nino.jpeg)
 
 ---
-
-## La decisión
 
 Cuando entré a la universidad tomé una decisión muy simple:
 
@@ -71,6 +68,8 @@ Incluso si eso significaba:
 - romper cosas
 
 - reinstalar el sistema varias veces
+
+<!-- notes:
 
 Primero probé:
 
@@ -90,35 +89,37 @@ Cada reinicio pasaba algo:
 
 - algo dejaba de funcionar
 
+-->
+
 Pero cada uno de esos problemas me obligaba a **entender el sistema**.
 
----
+![bg left:50%](assets/images/4343d7d516e5ae3ff8f3a98dc1a7bd31ee159b94e842bd9e2950e08de307a190.png)
 
-## El momento en que entendí Linux
+---
 
 Hubo un momento que cambió todo.
 
 Cuando **compilé mi primer kernel**.
 
 Fueron noches sin dormir:
-
 - prueba
-
 - error
-
 - recompilar
 
-- volver a probar
 
+<!-- notes:
 Recuerdo activar funcionalidades que aún no estaban en la línea base.
 
 Como **cgroups**.
+-->
 
 En ese momento pensé:
 
 > "Esto es increíble."
 
 Estaba construyendo mi propio sistema.
+
+![bg right:50%](assets/images/baac5797cc9c8d269efb0ba42d8a88ae775e9fd9e2af90de9af5fa8c6db7c773.png)
 
 ---
 
