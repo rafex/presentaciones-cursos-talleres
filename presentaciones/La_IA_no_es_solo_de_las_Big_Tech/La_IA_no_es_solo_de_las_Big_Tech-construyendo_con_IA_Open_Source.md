@@ -163,6 +163,132 @@ Estructura principal:
 
 ---
 
+## ¿Qué es OpenWrt?
+
+[**OpenWrt**](https://openwrt.org/) es un sistema operativo Linux para routers y dispositivos de red.
+
+A diferencia del firmware propietario que traen la mayoría de los routers:
+
+- es **software libre**
+- permite **control total del dispositivo**
+- se pueden instalar paquetes como en una distribución Linux
+
+En esta PoC OpenWrt se usa para:
+
+- crear la **red WiFi abierta**
+- manejar **DHCP y DNS**
+- implementar el **captive portal**
+- aplicar reglas de red con **nftables**
+
+<!-- notes:
+OpenWrt convierte un router común en un pequeño servidor Linux.
+Esto permite instrumentar la red y crear demos educativas de seguridad.
+-->
+
+---
+
+## ¿Qué es llama.cpp?
+
+**llama.cpp** es un proyecto open source que permite ejecutar modelos de lenguaje (LLM)
+**de forma local**.
+
+Características importantes:
+
+- escrito en **C/C++ altamente optimizado**
+- puede ejecutarse en **CPU sin GPU**
+- soporta cuantización para reducir memoria
+
+En esta PoC se utiliza para:
+
+- ejecutar un **modelo pequeño (TinyLlama)**
+- analizar eventos de red
+- generar explicaciones de riesgo
+
+Esto permite tener **IA local en hardware muy pequeño**.
+
+<!-- notes:
+La clave es que no estamos llamando a una API externa.
+La inferencia ocurre dentro de la Raspberry Pi.
+-->
+
+---
+
+## ¿Qué es una Raspberry Pi?
+
+Una **Raspberry Pi** es una computadora de bajo costo del tamaño de una tarjeta de crédito.
+
+Características generales:
+
+- CPU ARM
+- bajo consumo eléctrico
+- almacenamiento en microSD
+- ejecuta distribuciones Linux
+
+Es muy utilizada para:
+
+- educación
+- IoT
+- prototipos
+- laboratorios de redes
+
+En esta PoC se utilizan varias Raspberry Pi para separar responsabilidades del sistema.
+
+---
+
+## Hardware utilizado en la PoC
+
+### Raspberry Pi 3B (sensor)
+
+- CPU: Broadcom BCM2837 Quad‑Core 1.2 GHz
+- RAM: 1 GB
+- Ethernet 100 Mbps
+- WiFi 2.4 GHz
+
+Responsabilidad:
+
+- capturar tráfico de red
+- generar resúmenes de actividad
+- enviar eventos al backend
+
+---
+
+### Raspberry Pi 3B (portal cautivo)
+
+- CPU: Broadcom BCM2837 Quad-Core 1.2 GHz
+- RAM: 1 GB
+- Ethernet 100 Mbps
+- WiFi 2.4 GHz
+
+Responsabilidad:
+
+- servir el **portal cautivo**
+- mostrar la página de acceso a la red
+- registrar la aceptación del usuario
+- controlar el flujo inicial del usuario en la red
+
+---
+
+### Raspberry Pi 4B (IA y backend)
+
+- CPU: Quad‑Core Cortex‑A72
+- RAM: 4 GB
+- Ethernet Gigabit
+- USB 3.0
+
+Responsabilidad:
+
+- ejecutar **llama.cpp**
+- correr **k3s**
+- almacenar eventos
+- servir el **dashboard**
+
+<!-- notes:
+Separar el sensor de la inferencia evita que la captura de red afecte el análisis IA.
+Esto también permite escalar el sistema si se desea.
+-->
+
+---
+
 ## Arquitectura general
 
 ![width:1050px](assets/images/arquitectura-general.svg)
