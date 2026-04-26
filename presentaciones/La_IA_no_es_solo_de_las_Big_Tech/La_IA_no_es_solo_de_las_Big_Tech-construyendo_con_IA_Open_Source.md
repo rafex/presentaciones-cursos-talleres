@@ -5,9 +5,9 @@ paginate: true
 size: 16:9
 format: pdf
 
-title: La IA no es solo de las Big Tech
-description: Construyendo una PoC funcional con OpenWrt, Raspberry Pi e IA Open Source
-header: La IA no es solo de las Big Tech
+title: La IA no es solo de las Big Tech: construyendo con IA Open Source
+description: Hay pocas tecnologías que se logran proliferar tan rápido como la IA, pero ¿es necesario depender de la nube y las Big Tech para crear soluciones útiles? En esta charla se presenta una prueba de concepto real que demuestra cómo construir con IA Open Source usando hardware accesible. Con un router OpenWrt y dos Raspberry Pi, se captura el tráfico de una red WiFi abierta, se analiza localmente con un LLM y se muestra en un dashboard educativo. El mensaje central es claro: no necesitas infraestructura millonaria para crear soluciones útiles con IA.
+header: La IA no es solo de las Big Tech: construyendo con IA Open Source
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 25 abril 2026
 ---
