@@ -13,24 +13,133 @@ date: 25 abril 2026
 ---
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
 section {
   font-family: "Inter", sans-serif;
   font-size: 24px;
+  background: #f5f2ee;
+  color: #1a1a2e;
+  padding: 48px 60px;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #238636, #1f6feb, #8b5cf6);
 }
 
 h1 {
   font-size: 50px;
+  font-weight: 700;
+  color: #1f6feb;
+  line-height: 1.2;
+  margin-bottom: 0.3em;
 }
 
 h2 {
-  font-size: 38px;
+  font-size: 36px;
+  font-weight: 600;
+  color: #238636;
+  border-bottom: 2px solid #d0cbc4;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #6e40c9;
 }
 
+strong {
+  color: #cf6b17;
+  font-weight: 600;
+}
+
+a {
+  color: #1f6feb;
+  text-decoration: none;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  background: #e8e3dc;
+  color: #1f6feb;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #c8c2b8;
+}
+
+pre {
+  background: #2d2d2d;
+  border: 1px solid #c8c2b8;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  color: #f5f2ee;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 4px solid #1f6feb;
+  background: #e8e3dc;
+  padding: 0.6em 1em;
+  margin: 0.8em 0;
+  border-radius: 0 6px 6px 0;
+  color: #555;
+  font-style: italic;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88em;
+}
+
+th {
+  background: #1a1a2e;
+  color: #f5f2ee;
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  border: 1px solid #c8c2b8;
+  text-align: left;
+}
+
+td {
+  padding: 0.4em 0.8em;
+  border: 1px solid #c8c2b8;
+  color: #1a1a2e;
+  background: #f5f2ee;
+}
+
+tr:nth-child(even) td {
+  background: #ede8e1;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+header {
+  color: #1f6feb;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+footer, section.paginate > p {
+  color: #999;
+  font-size: 14px;
+}
 </style>
 ---
 
