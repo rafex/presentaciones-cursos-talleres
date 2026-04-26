@@ -10,6 +10,6 @@
   "author": "Raúl Eduardo González Argote",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.2.3"
+    "@marp-team/marp-cli": "^4.3.1"
   }
 }
