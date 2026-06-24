@@ -8,7 +8,7 @@ format: pdf
 title: Dale un boost a tus desarrollos con IA usando herramientas Open Source
 description: Cómo la IA y el software libre están transformando la ingeniería de software.
 header: Dale un boost a tus desarrollos con IA usando herramientas Open Source
-footer: Raúl González - @rafex
+footer: Raúl González - rafex@rafex.dev
 author: Raúl Eduardo González Argote by rafex@rafex.dev
 date: 24 junio 2026
 ---
@@ -64,6 +64,8 @@ Certificado por Sun Microsystems.
 
 Convencido de que estaba listo.
 
+![bg right:58% contain](assets/IMG_20120720_122339.jpg)
+
 <!-- notes:
 Contar el contexto personal:
 - Primer empleo formal de 8 horas y un poco más.
@@ -86,6 +88,8 @@ SOAP.
 Endpoints.
 
 Y yo no tenía idea de cómo conectar todo.
+
+![bg left:48% contain](assets/IMG_20120706_144057.jpg)
 
 <!-- notes:
 Aquí hacerlo conversacional.
@@ -131,7 +135,7 @@ Fue aprender a aprender.
 
 Mi carrera no avanzó por lo que sabía.
 
-Avanzó por lo rápido que podía dejar de no saber.
+**Avanzó por lo rápido que podía dejar de no saber.**
 
 <!-- notes:
 Esta es la frase que conecta con estudiantes.
@@ -140,29 +144,26 @@ No vender seguridad falsa: vender método, curiosidad y humildad técnica.
 
 ---
 
-2012
+# 2012
 
-Tenía una certificación.
+- Tenía una certificación.
 
-Pero necesitaba ayuda.
-
----
-
-2026
-
-Tengo Claude.
-
-Tengo ChatGPT.
-
-Tengo Codex.
-
-Tengo OpenCode.
-
-Y sigo necesitando ayuda.
+> Pero necesitaba ayuda.
 
 ---
 
-La diferencia
+# 2026
+
+- Tengo Claude.
+- Tengo ChatGPT.
+- Tengo Codex.
+- Tengo OpenCode.
+
+**Y sigo necesitando ayuda.**
+
+---
+
+# La diferencia
 
 Ahora algunas de esas ayudas son agentes. Son boosts a mi productividad.
 
@@ -175,7 +176,7 @@ Como una nueva forma de apoyo técnico que también hay que aprender a dirigir.
 
 ---
 
-La tecnología cambia.
+# La tecnología cambia.
 
 La necesidad de aprender de otros no.
 
@@ -237,48 +238,24 @@ Persona → Agente → Herramientas → Sistemas
 
 ---
 
-## La evolución del desarrollador
-
-![w:820px](assets/images/evolucion-desarrollador.svg)
-
----
-
 🤖 ¿Qué es un agente?
 
+![bg right:58% contain](assets/images/agente-ia-concepto.png)
+
 No es un chatbot.
+
+Es software que persigue un objetivo usando herramientas.
 
 --- 
 
 Un agente tiene
 
+![bg right:58% contain](assets/images/agente-ia-componentes.png)
+
 * Objetivo
 * Memoria
 * Herramientas
 * Capacidad de decisión
-
----
-
-Ejemplo
-
-Usuario:
-
-Valida una dirección.
-
-El agente:
-
-1. Analiza la petición
-2. Busca datos
-3. Usa herramientas
-4. Evalúa resultados
-5. Entrega una solución
-
----
-
-El nuevo trabajo del desarrollador
-
-Ya no es solamente:
-
-public class HelloWorld {}
 
 ---
 
@@ -293,33 +270,19 @@ Ahora diseñamos
 
 --- 
 
-Lo interesante
+## Open Source cambió mi carrera
 
-La IA necesita más ingeniería.
-
-No menos.
-
----
-
-Open Source cambió mi carrera
-
----
-
-Gracias al software libre aprendí
+> Gracias al software libre aprendí
 
 * Java
 * JBoss
 * Debian
-* CentOS
 * Jenkins
 * Git
 * Xen
 * LXC
 * Alfresco
-
----
-
-Y ahora vuelve a pasar
+* etc...
 
 ---
 
@@ -341,8 +304,6 @@ Por primera vez
 
 Una universidad puede tener su propia IA.
 
----
-
 Sin depender totalmente de
 
 * OpenAI
@@ -352,90 +313,40 @@ Sin depender totalmente de
 
 ---
 
-Soberanía tecnológica
+# Soberanía tecnológica
 
-No significa aislarse.
+*No significa aislarse.*
 
-Significa elegir.
+**Significa elegir.**
 
 ---
 
 Mi stack actual
 
-* Claude
+* Claude, Codex, OpenCode
 * ChatGPT
-* Codex
-* OpenCode
 * LangGraph
 * MCP
-* Groq
+* Groq, DeepSeek, OpenRouter
 * Ether Brain
 
 ---
 
-La pregunta ya no es
+# La pregunta ya no es
 
 ¿Qué modelo usas?
 
 ---
 
-La pregunta es
+# La pregunta es
 
-¿Qué eres capaz de construir?
+**¿Qué eres capaz de construir?**
 
----
+- La IA sola no resuelve problemas
+- Las herramientas tampoco
+- Los modelos tampoco
 
-Caso real
-
-Agente de validación de direcciones
-
----
-
-Herramientas
-
-* Dataset de Correos de México
-* LangGraph
-* MCP
-* Groq
-* Ether Brain
-
----
-
-Flujo
-
-Usuario
-
-↓
-
-Agente
-
-↓
-
-Tools
-
-↓
-
-Datos
-
-↓
-
-Respuesta
-
----
-
-La IA sola no resuelve problemas
-
----
-
-Las herramientas tampoco
-
----
-
-Los modelos tampoco
-
----
-
-La arquitectura sí
+**La arquitectura sí**
 
 ---
 
@@ -450,37 +361,23 @@ Las habilidades más valiosas para 2027
 
 ---
 
-Lo que menos me preocupa
+# Lo que menos me preocupa
 
-Que la IA escriba código.
-
----
-
-Lo que más me preocupa
-
-Que los desarrolladores dejen de pensar.
+*Que la IA escriba código.*
 
 ---
 
-No delegues tu criterio
+# Lo que más me preocupa
 
-Usa IA.
-
-Pero entiende.
-
-Valida.
-
-Cuestiona.
-
-Aprende.
+**Que los desarrolladores dejen de pensar.**
 
 ---
 
-🎯 Si hoy fueras estudiante
+🎯 Si hoy volviera a ser estudiante
 
 Yo aprendería:
 
-1. Python
+1. Python, Java, Rust, Go, JavaScript
 2. Git
 3. Linux
 4. APIs
@@ -489,92 +386,38 @@ Yo aprendería:
 
 ---
 
-🎯 Si ya eres desarrollador
+# Tu ventaja competitiva
 
-Aprendería:
+*No será usar IA.*
 
-1. Agentes
-2. MCP
-3. LangGraph
-4. Datos
-5. Open Source AI
+**Será entender problemas.**
 
 ---
 
-La oportunidad
+# Porque al final…
 
-Nunca había sido tan fácil construir.
+*La IA genera código.*
 
----
-
-Nunca había sido tan difícil diferenciarse.
+**Los humanos generan propósito.**
 
 ---
 
-Tu ventaja competitiva
+- Construye.
+- Rompe.
+- Mide.
+- Comparte.
 
-No será usar IA.
 
-Será entender problemas.
-
----
-
-Porque al final…
-
-La IA genera código.
-
-Los humanos generan propósito.
 
 ---
 
-Invitación
+*"La IA no elimina la ingeniería de software. La vuelve más importante."*
 
-Construye.
+- 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
+- 🐙 [**https://github.com/rafex**](https://github.com/rafex)
+- 📝 [**https://theworldofrafex.blog**](https://theworldofrafex.blog/)
 
-Rompe.
+![bg auto opacity:.2](assets/images/rafex.png)
 
-Mide.
 
-Comparte.
-
-<!-- notes:
-Dejar una acción clara:
-- Instalen una herramienta local.
-- Construyan un agente pequeño.
-- Publiquen un repo.
-- Expliquen qué problema resuelve.
--->
-
----
-
-Si solo recuerdas una idea
-
----
-
-No compitas contra la IA.
-
-Aprende a dirigirla.
-
-<!-- notes:
-Cierre fuerte antes del agradecimiento.
-Pausa breve.
--->
-
----
-
-Gracias
-
-La IA no elimina la ingeniería de software.
-
-La vuelve más importante.
-
-* GitHub
-* LinkedIn
-* Blog
-* QR
-
-<!-- notes:
-Cerrar conectando con el taller:
-En la mañana construimos un agente.
-La conferencia resume por qué eso importa profesionalmente.
--->
