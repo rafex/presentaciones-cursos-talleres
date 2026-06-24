@@ -30,13 +30,12 @@ Raúl Eduardo González Argote
 
 ## Resultado del taller
 
-Al final tendrás **dos** agentes que pueden:
+Al final vas a tener, corriendo en tu máquina:
 
-* Recibir una tarea
-* Razonar un plan corto
-* Usar herramientas — declarativas (`tools.json`) o vía MCP
-* Consultar datos reales
-* Entregar una respuesta verificable
+* Un programa que llama al LLM **sin** herramientas
+* El mismo programa, pero con **una** herramienta conectada a una API real
+* Claridad sobre por qué esos dos programas responden distinto
+* Tu propia API key de Groq, guardada de forma segura (cifrada)
 
 ---
 
@@ -51,17 +50,10 @@ Venimos a construir con IA.
 ## Stack propuesto
 
 * Linux, macOS o Windows con WSL
-* Java 21 + Maven (para [ether-brain](https://github.com/rafex/ether-brain))
-* Python 3.11+ con [uv](https://docs.astral.sh/uv/)
+* Python 3.11+ con [uv](https://docs.astral.sh/uv/) (no se instala nada más a mano)
 * API key de [Groq](https://console.groq.com/keys) (gratis)
 * [age](https://github.com/FiloSottile/age) + [sops](https://github.com/getsops/sops) (cifrar la API key)
-* LangGraph + MCP (Model Context Protocol)
 * Git
-
-<!-- notes:
-Si el laboratorio no tiene internet estable, llevar API keys de respaldo y
-el fixture local del repo como plan B para la demo de SEPOMEX.
--->
 
 ---
 
@@ -70,8 +62,7 @@ el fixture local del repo como plan B para la demo de SEPOMEX.
 Antes del taller:
 
 * Laptop
-* Git, Java 21, Maven, `uv` instalados
-* `age` y `sops` instalados (`brew install age sops` / `apt install age sops`)
+* Git, `uv`, `age`, `sops` instalados
 * Editor de código
 * Cuenta gratuita en https://console.groq.com/keys
 * Internet estable
@@ -82,8 +73,6 @@ Antes del taller:
 
 ```bash
 git --version
-java -version
-mvn --version
 uv --version
 age --version
 sops --version
@@ -91,19 +80,22 @@ sops --version
 
 ```bash
 git clone https://github.com/rafex/presentaciones-cursos-talleres
-git clone https://github.com/rafex/ether-brain
+cd presentaciones-cursos-talleres/talleres/crea-tu-agente-ia/agente-mini-python
 ```
+
+Sin `pip install`: cada script declara sus dependencias en su propio
+encabezado y `uv` las instala solo, la primera vez que lo corres.
 
 ---
 
 ## Agenda
 
-* 10:00 - 10:15 | Qué es un agente
-* 10:15 - 10:45 | Ejercicio 1: clima con ether-brain, sin código
-* 10:45 - 11:10 | Secretos con age + sops
-* 11:10 - 11:45 | Ejercicio 2: LangGraph + MCP
-* 11:45 - 12:30 | El caso: direcciones con SEPOMEX
-* 12:30 - 13:00 | Demo final, retos y cierre
+* 10:00 - 10:20 | Qué es un agente
+* 10:20 - 10:40 | Configurar tu API key (de forma segura)
+* 10:40 - 11:10 | El experimento: sin tool vs con tool
+* 11:10 - 11:40 | Cómo funciona el ciclo, línea por línea
+* 11:40 - 12:20 | Práctica guiada: cambia la tool, rompe el agente, arréglalo
+* 12:20 - 13:00 | Retos, demo final y cierre
 
 ---
 
@@ -121,7 +113,7 @@ Usuario
 
 ↓
 
-Objetivo
+Pregunta
 
 ↓
 
@@ -135,86 +127,12 @@ Modelo (Groq)
 
 Respuesta
 
-Este ciclo es el mismo sin importar si el runtime es Java o Python — lo
-vas a ver dos veces hoy, con dos implementaciones distintas.
+Hoy vas a ver este ciclo en su versión más pequeña posible: un solo
+archivo de Python, sin frameworks.
 
 ---
 
-## Ejercicio 1: el agente más simple posible
-
-Objetivo: un agente que responda "¿qué clima hay en \<ciudad\>?" sin
-escribir una sola línea de código — solo declarando herramientas.
-
-Runtime: [ether-brain](https://github.com/rafex/ether-brain), Java 21,
-arquitectura hexagonal, sin frameworks pesados.
-
-```bash
-cd ether-brain/ether-brain
-./mvnw -q -pl ether-brain-transport-cli -am package -DskipTests
-```
-
-Código completo: `agente-clima-etherbrain/`
-
----
-
-## ether-brain no está en Maven Central (todavía)
-
-Se compila desde el código fuente — es software libre, el código *es* la
-distribución.
-
-```bash
-export ETHER_BRAIN_JAR=.../ether-brain-transport-cli/target/ether-brain-cli.jar
-```
-
-<!-- notes:
-Confirmado buscando en search.maven.org/solrsearch -- numFound: 0.
--->
-
----
-
-## Las tools, sin código: `tools.json`
-
-```json
-{
-  "type":        "http",
-  "name":        "clima_actual",
-  "endpoint":    "https://api.open-meteo.com/v1/forecast?current_weather=true&timezone=auto",
-  "method":      "GET",
-  "input_schema": {
-    "type": "object",
-    "properties": {
-      "latitude":  {"type": "number"},
-      "longitude": {"type": "number"}
-    },
-    "required": ["latitude", "longitude"]
-  }
-}
-```
-
-ether-brain reenvía los argumentos del modelo como query params. Dos
-tools así (`geocodificar_ciudad` + `clima_actual`) y el modelo las
-encadena solo.
-
----
-
-## Probarlo sin gastar una llamada al LLM
-
-```bash
-cd agente-clima-etherbrain
-LLM_TYPE=demo java -jar "$ETHER_BRAIN_JAR" "hola"
-```
-
-```
-[EtherBrain] tool http: geocodificar_ciudad → https://geocoding-api.open-meteo.com/...
-[EtherBrain] tool http: clima_actual → https://api.open-meteo.com/...
-[EtherBrain] 2 tool(s) externas cargadas desde tools.json
-```
-
-`LLM_TYPE=demo` confirma que `tools.json` se parseó bien, sin tocar Groq.
-
----
-
-## 2. Secretos: nada de `.env` en texto plano
+## 2. Tu API key, sin subirla por accidente a git
 
 Un secreto en texto plano en un repo es un accidente esperando a pasar.
 
@@ -226,220 +144,230 @@ archivo, las claves quedan legibles — los diffs de PR siguen siendo
 útiles.
 
 ```bash
-mkdir -p ~/.config/sops/age
-age-keygen -o ~/.config/sops/age/keys.txt
-# Public key: age1...
+./scripts/configurar_secreto.sh
 ```
+
+Pide tu `GROQ_API_KEY` (sin mostrarla en pantalla) y deja
+`secrets/groq.enc.env` cifrado automáticamente.
 
 ---
 
-## `.sops.yaml`: quién puede descifrar qué
+## Cómo la encuentra el código
 
-```yaml
-creation_rules:
-  - path_regex: secrets/.*\.enc\.env$
-    age: age1kyupq4um57pmddeuaxm4dtwah9hhmxv3ty5tvjr7detgzlrfl9zsdte4zj
-```
+Cada script busca la key en este orden, solo:
 
-```bash
-cp secrets/groq.example.env secrets/groq.enc.env
-$EDITOR secrets/groq.enc.env        # pega tu LLM_TOKEN real
-sops --encrypt --in-place secrets/groq.enc.env
-```
+1. Variable de entorno ya exportada
+2. `.env` local de esa carpeta
+3. `secrets/groq.enc.env` cifrado — el script lo descifra solo, en
+   memoria, llamando a `sops`
 
-A partir de aquí, `secrets/groq.enc.env` es seguro de commitear.
+No hace falta envolver el comando con nada para que funcione.
 
 ---
 
-## Correr el agente con el secreto descifrado en memoria
+## 3. El experimento: misma pregunta, dos agentes
 
-```bash
-export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+Pregunta para los dos: **"¿cuánto pesa pikachu?"**
 
-sops exec-env secrets/groq.enc.env \
-  "java -jar $ETHER_BRAIN_JAR '¿qué clima hay en Tlaxcala?'"
+```
+agente-sin-tool/sin_tool.py   →  solo el LLM, sin acceso a datos reales
+agente-pokemon/pokemon.py     →  el LLM + una tool conectada a PokeAPI
 ```
 
-`sops exec-env` descifra, exporta las variables solo para ese proceso, y
-nunca escribe el secreto sin cifrar a disco.
+Vamos a correr los dos, en vivo, y comparar las respuestas.
 
 ---
 
-## Un bug real que encontramos probando esto
-
-La documentación de ether-brain dice `LLM_URL=https://api.groq.com`.
-
-```bash
-curl -X POST https://api.groq.com/v1/chat/completions          # 404
-curl -X POST https://api.groq.com/openai/v1/chat/completions   # 401 (correcto)
-```
-
-La URL real de Groq necesita el prefijo `/openai`. Reportado al proyecto;
-mientras tanto, `secrets/groq.example.env` ya trae la URL corregida.
-
-Probar en vivo encuentra cosas que la documentación no.
-
----
-
-## Ejercicio 2: ahora con código — LangGraph
-
-Objetivo:
-
-Construir un grafo explícito: el modelo decide, y si pide una
-herramienta, el grafo la ejecuta y vuelve a preguntarle al modelo.
+## `agente-sin-tool`: el LLM puro
 
 ```python
-grafo.add_node("llamar_modelo", llamar_modelo)
-grafo.add_node("ejecutar_tools", ToolNode(tools))
-grafo.add_conditional_edges(
-    "llamar_modelo", hay_tool_calls,
-    {"ejecutar_tools": "ejecutar_tools", END: END},
-)
-grafo.add_edge("ejecutar_tools", "llamar_modelo")
+def preguntar_sin_herramientas(pregunta: str) -> str:
+    cliente = OpenAI(api_key=api_key, base_url=GROQ_BASE_URL)
+    respuesta = cliente.chat.completions.create(
+        model=MODELO,
+        messages=[
+            {"role": "system", "content": "Responde lo mejor que puedas."},
+            {"role": "user", "content": pregunta},
+        ],
+        # Sin "tools": el modelo no tiene forma de consultar datos reales.
+    )
+    return respuesta.choices[0].message.content
 ```
-
-Código completo: `agente-cp/src/agente_cp/agente_langgraph.py`
-
----
-
-## Setup de `agente-cp`
 
 ```bash
-cd presentaciones-cursos-talleres/talleres/crea-tu-agente-ia/agente-cp
-uv sync
-cp .env.example .env   # pega tu GROQ_API_KEY
-uv run agente-cp "¿Quién eres?"
+cd agente-sin-tool
+uv run sin_tool.py "¿cuánto pesa pikachu?"
 ```
-
-(Todavía sin herramientas — solo el modelo respondiendo.)
 
 ---
 
-## Herramientas con MCP
+## Qué responde `agente-sin-tool`
 
-Un agente se vuelve útil cuando puede hacer cosas — y MCP es la forma
-estándar de exponer esas cosas sin atarlas a un solo runtime.
+El modelo va a inventar un número, con el mismo tono seguro de siempre —
+o, con suerte, admitir que no está seguro.
 
-```
-mcp_server.py  ──→  cualquier agente que hable MCP
-```
+No es que "no sea inteligente": literalmente no tiene ninguna forma de
+verificar ese dato. Solo tiene lo que aprendió en su entrenamiento.
 
-El mismo servidor MCP de este taller lo puede usar:
-
-* El agente LangGraph (Python) que acabamos de armar.
-* [ether-brain](https://github.com/rafex/ether-brain) del Ejercicio 1 —
-  vía `tools.json` tipo `"mcp"`, sin escribir una línea de Java.
+Esa es la pregunta que el resto del taller responde: ¿cómo le damos
+acceso a datos reales?
 
 ---
 
-## Caso del taller: direcciones mexicanas
-
-Correos de México (SEPOMEX) publica el catálogo nacional de Códigos
-Postales. Lo convertimos una sola vez a **SQLite** (158k registros, 20 MB) —
-el taller corre sin depender de que un sitio gubernamental esté arriba.
-
-Construimos un agente que:
-
-* Consulta el catálogo nacional, local y al instante.
-* Busca las colonias de un CP.
-* Detecta cuando una dirección está mal escrita.
-* Sugiere la corrección — "repara" la dirección.
-
----
-
-## La tool `buscar_cp`
+## `agente-pokemon`: el LLM + una tool
 
 ```python
-@mcp.tool()
-def buscar_cp(cp: str, estado: str) -> dict:
-    """Busca un CP en el catalogo oficial de SEPOMEX."""
-    ...
+def obtener_pokemon(nombre: str) -> dict:
+    """Busca datos de un Pokemon por nombre en PokeAPI."""
+    resp = requests.get(f"https://pokeapi.co/api/v2/pokemon/{nombre.lower()}")
+    datos = resp.json()
+    return {
+        "nombre": datos["name"],
+        "peso_hectogramos": datos["weight"],
+        "tipos": [t["type"]["name"] for t in datos["types"]],
+    }
 ```
 
-Pruébala sola, sin LLM, con el inspector de MCP:
+Una función de Python normal. Nada de IA todavía — solo `requests`
+contra una API pública y gratuita, sin API key.
+
+---
+
+## Decirle al modelo que esa función existe
+
+```python
+HERRAMIENTAS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "obtener_pokemon",
+            "description": "Busca peso y tipos de un Pokemon por su nombre.",
+            "parameters": {
+                "type": "object",
+                "properties": {"nombre": {"type": "string"}},
+                "required": ["nombre"],
+            },
+        },
+    },
+]
+```
+
+El modelo no ejecuta código: solo **lee esta descripción** y decide si
+la necesita.
+
+---
+
+## Correrlo
 
 ```bash
-npx @modelcontextprotocol/inspector \
-  uv run python -m agente_cp.mcp_server
+cd agente-pokemon
+uv run pokemon.py "¿cuánto pesa pikachu?"
+```
+
+```
+  -> el agente uso obtener_pokemon({'nombre': 'pikachu'})
+Pikachu pesa 6.0 kg (60 hectogramos) y es de tipo eléctrico.
+```
+
+La línea `-> el agente uso ...` es el modelo decidiendo, por sí mismo,
+qué herramienta necesita y con qué argumento — eso es lo que lo hace un
+agente y no solo una llamada a un chatbot.
+
+---
+
+## 4. El ciclo, línea por línea
+
+```python
+mensajes = [{"role": "system", "content": "..."}, {"role": "user", "content": pregunta}]
+
+for _ in range(5):                              # tope de seguridad
+    respuesta = cliente.chat.completions.create(
+        model=MODELO, messages=mensajes, tools=HERRAMIENTAS
+    )
+    mensaje = respuesta.choices[0].message
+    mensajes.append(mensaje)
+
+    if not mensaje.tool_calls:
+        return mensaje.content                  # ya tiene la respuesta final
+
+    for llamada in mensaje.tool_calls:
+        funcion = FUNCIONES[llamada.function.name]
+        resultado = funcion(**json.loads(llamada.function.arguments))
+        mensajes.append({"role": "tool", "tool_call_id": llamada.id,
+                          "content": json.dumps(resultado)})
 ```
 
 ---
 
-## Datos reales, no solo el prompt
+## Paso a paso
 
-La IA sin datos propios responde generalidades.
+1. Se manda la pregunta + la lista de herramientas disponibles.
+2. El modelo responde: "necesito `obtener_pokemon(nombre='pikachu')`" —
+   no da respuesta final todavía (`tool_calls` no está vacío).
+3. El código ejecuta esa función de verdad, contra la API real, y le
+   manda el resultado al modelo (`role: "tool"`).
+4. El modelo, ya con el dato real en su contexto, responde con texto
+   normal — el ciclo termina.
 
-Con el catálogo de SEPOMEX puede confirmar o corregir una dirección real.
+El `for _ in range(5)` evita que un modelo en bucle corra para siempre.
+
+---
+
+## Por qué esto es "un agente" y no "un chatbot"
+
+Un chatbot responde con texto a partir de texto.
+
+Este programa **decide por sí mismo** cuántas veces y en qué orden
+necesita consultar datos externos reales antes de responder — ese ciclo
+de "pensar → actuar → observar → repetir" es la definición práctica de
+agente que usa todo este taller.
+
+---
+
+## 5. Práctica guiada
+
+* Cambia la pregunta — prueba con otro Pokemon, o uno que no existe
+* Quita el parámetro `tools=HERRAMIENTAS` de `pokemon.py` — ¿qué cambia?
+* Lee `agente-sin-tool/sin_tool.py` y `agente-pokemon/pokemon.py` lado a
+  lado: ¿cuál es la única diferencia real entre los dos?
+* Rompe a propósito la `description` de la tool — ¿el modelo sigue
+  encontrándola?
+
+---
+
+## Protección contra subir una API key por accidente
+
+`.gitignore` en la raíz del proyecto y otro dentro de cada carpeta de
+agente — protegen cualquier `.env` en texto plano. Solo
+`secrets/*.enc.env` (cifrado) y `secrets/*.example.env` (plantilla sin
+secretos) están exceptuados.
 
 ```bash
-uv run agente-cp "¿La colonia Tlaxcala Cento corresponde al CP 90001?"
+git check-ignore -v agente-pokemon/.env       # debe estar ignorado
+git check-ignore -v secrets/groq.enc.env      # NO debe estar ignorado
 ```
 
-El agente debe detectar el typo y sugerir "Tlaxcala Centro".
-
 ---
 
-## De XML a SQLite, una sola vez
+## Retos extra
 
-```bash
-uv run python scripts/xml_a_sqlite.py /ruta/a/CPdescarga.xml
-```
-
-158,539 filas, 20 MB, en menos de 2 segundos. `data/sepomex.sqlite` ya
-queda commiteado — nadie en el taller necesita regenerarlo.
-
----
-
-## Si no hubiera SQLite (plan B y C)
-
-`sepomex.py` tiene cascada: si falta `data/sepomex.sqlite`, intenta
-**scraping en vivo** del formulario de Correos de México; si tampoco hay
-red, cae a un **fixture local** de Tlaxcala.
-
-Cada respuesta declara `origen_datos` (`sqlite`, `red`, `cache` o
-`fixture`) — mismo patrón que usarías en producción con una API externa
-frágil.
-
----
-
-## MCP en la práctica: dos runtimes, un contrato
-
-```json
-{
-  "type": "mcp",
-  "server_name": "agente-cp",
-  "command": ["uv", "run", "--directory", "/ruta/a/agente-cp",
-              "python", "-m", "agente_cp.mcp_server"]
-}
-```
-
-Modelos y runtimes diferentes.
-
-Herramientas reutilizables — el mismo contrato que vimos con `tools.json`
-tipo `"http"` en el Ejercicio 1.
-
----
-
-## Demo guiada
-
-Agente de direcciones, de extremo a extremo:
-
-* Recibe una dirección con un posible error
-* Consulta SEPOMEX vía MCP
-* Detecta la inconsistencia
-* Sugiere la colonia correcta
-* (Bonus) geocodifica con OpenStreetMap si el CP no alcanza
+* `agente-clima/` — la misma idea, con una API de clima encadenando dos
+  tools (`geocodificar` → `clima`)
+* `agente-consejos/` — la misma idea, con una API de consejos al azar
+* `agente-orquestador/` — las tres tools anteriores juntas: el modelo
+  decide cuál o cuáles necesita, sin que el código le diga nada
+* Agrega tu propia tool con otra [API pública](https://github.com/public-apis/public-apis)
 
 ---
 
 ## Producto final
 
-Cada equipo entrega:
+Cada asistente entrega:
 
-* `agente-clima-etherbrain` corriendo con su propia API key cifrada
-* `agente-cp` corriendo (`uv run agente-cp "..."`)
-* Al menos una tool propia o modificada (`tools.json` o MCP)
-* Demo de un caso donde el agente corrige una dirección mal escrita
+* Su `GROQ_API_KEY` configurada y cifrada con `age` + `sops`
+* `agente-sin-tool/sin_tool.py` y `agente-pokemon/pokemon.py` corriendo
+* Una explicación, en sus palabras, de por qué responden distinto
+* (Bonus) una tool propia agregada a alguno de los agentes
 
 ---
 
@@ -452,17 +380,6 @@ Usa software libre.
 Explica sus decisiones.
 
 Se puede mejorar.
-
----
-
-## Retos extra
-
-* Agregar una tercera tool de clima (pronóstico a varios días) en `agente-clima-etherbrain`
-* Agregar una tool con una [API pública](https://github.com/public-apis/public-apis)
-  en `agente-cp` y combinarla con `buscar_cp`
-* Conectar `mcp_server.py` a ether-brain vía `tools.json` tipo `"mcp"`
-* Soportar más de un estado a la vez
-* Cambiar de proveedor LLM (Groq → Cerebras/OpenAI/Ollama) sin tocar el agente
 
 ---
 

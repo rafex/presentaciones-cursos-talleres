@@ -36,12 +36,61 @@ No se necesita `pip install` nada a mano — cada script declara sus
 dependencias en su propio encabezado (`# /// script ... ///`) y `uv` las
 instala solo, en un entorno temporal, la primera vez que lo corres.
 
-## Cómo correrlo
+## Configuración
 
-Necesitas tu `GROQ_API_KEY` disponible como variable de entorno. Hay dos
-formas — usa la que te quede más cómoda:
+Cada agente necesita tres variables de entorno:
 
-### Opción rápida: export manual
+| Variable | Para qué | ¿Es secreta? |
+|---|---|---|
+| `GROQ_API_KEY` | autenticación contra Groq | Sí — usar `secrets/` + age/sops |
+| `GROQ_BASE_URL` | endpoint de compatibilidad OpenAI de Groq (`https://api.groq.com/openai/v1`) | No |
+| `GROQ_MODEL` | modelo a usar (`openai/gpt-oss-120b`) | No |
+
+Los scripts usan el cliente de `openai` apuntando a `GROQ_BASE_URL` — por
+eso esa URL ya incluye `/openai/v1`, igual que harías con cualquier
+proveedor compatible con la API de OpenAI. Si no defines estas variables,
+cada script usa esos mismos valores por default — no es obligatorio
+configurarlas a mano para que funcionen.
+
+### Variables no secretas: `GROQ_BASE_URL` y `GROQ_MODEL`
+
+```bash
+./scripts/configurar_env.sh crear
+```
+
+Crea (o actualiza, sin pisar valores que ya hayas cambiado) un `.env` en
+cada una de las 5 carpetas de agente, con `GROQ_BASE_URL` y `GROQ_MODEL`.
+También revisa que cada `.gitignore` ya proteja ese `.env`.
+
+Para usar esas variables en tu shell antes de correr un agente:
+
+```bash
+cd agente-clima
+source ../scripts/configurar_env.sh cargar
+uv run clima.py "¿que clima hay en Tlaxcala?"
+```
+
+Importante: el modo `cargar` necesita `source` (o `.`) — si lo corres
+como `./scripts/configurar_env.sh cargar` sin `source`, las variables se
+exportan en un proceso hijo que termina al instante y no le quedan a tu
+shell.
+
+### Variable secreta: `GROQ_API_KEY`
+
+Cada script la busca solo, en este orden, sin que tengas que envolver el
+comando con nada:
+
+1. Variable de entorno ya exportada (`export GROQ_API_KEY=...`).
+2. `.env` local de esa carpeta (si tiene un valor real, no el placeholder).
+3. `../secrets/groq.enc.env` cifrado con sops+age — el script lo descifra
+   solo, en memoria, llamando a `sops` por ti.
+
+Si ninguna de las tres tiene una key válida, el script termina con un
+mensaje explicando qué falta — nunca intenta llamar a Groq sin key.
+
+Hay dos formas de dejarle la key disponible — usa la que te quede más cómoda:
+
+#### Opción rápida: export manual
 
 ```bash
 export GROQ_API_KEY=gsk_...
@@ -53,7 +102,7 @@ cd ../agente-consejos    && uv run consejos.py "dame un consejo sobre el amor"
 cd ../agente-orquestador && uv run orquestador.py "¿que clima hay en Tlaxcala y cuanto pesa pikachu?"
 ```
 
-### Opción segura: age + sops (recomendada si vas a compartir tu API key)
+#### Opción segura: age + sops (recomendada si vas a compartir tu API key)
 
 Este repo trae un secreto cifrado de ejemplo en
 [`secrets/groq.enc.env`](./secrets/groq.enc.env) — solo quien tenga la
@@ -67,7 +116,15 @@ API key, corre el script interactivo:
 Te va a pedir la `GROQ_API_KEY` (sin mostrarla en pantalla) y va a dejar
 `secrets/groq.enc.env` cifrado automáticamente — no hay que editar nada a
 mano ni acordarse del comando de `sops`. Si el archivo ya existe, pregunta
-antes de sobrescribirlo.
+antes de sobrescribirlo. Una vez ahí, ya puedes correr cualquier agente
+directamente:
+
+```bash
+cd agente-clima && uv run clima.py "¿que clima hay en Tlaxcala?"
+```
+
+El script va a notar que no hay variable de entorno ni `.env` con una key
+real, y va a descifrar `secrets/groq.enc.env` por su cuenta.
 
 Equivalente manual, por si prefieres hacerlo paso a paso:
 
@@ -77,21 +134,14 @@ $EDITOR secrets/groq.enc.env             # pega tu GROQ_API_KEY real
 sops --encrypt --in-place secrets/groq.enc.env
 ```
 
-Para usar la API key ya cifrada:
-
-```bash
-export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt   # ruta de tu llave privada age
-
-cd agente-clima
-sops exec-env ../secrets/groq.enc.env "uv run clima.py '¿que clima hay en Tlaxcala?'"
-```
-
-`sops exec-env` descifra el archivo en memoria, exporta `GROQ_API_KEY`
-solo para ese proceso, y nunca escribe el secreto sin cifrar a disco — el
-mismo patrón que usa
-[`agente-clima-etherbrain`](../agente-clima-etherbrain/docs/secretos.md).
+Necesitas tu llave privada age accesible (`SOPS_AGE_KEY_FILE` o la ruta
+default `~/.config/sops/age/keys.txt`) para que el script pueda descifrar
+`secrets/groq.enc.env` — es lo único que `sops` necesita para funcionar
+solo, sin que tengas que envolver el comando con `sops exec-env` a mano.
 El archivo `secrets/groq.enc.env` resultante es seguro de commitear: solo
-las claves quedan legibles, los valores quedan cifrados.
+las claves quedan legibles, los valores quedan cifrados — el mismo patrón
+que usa
+[`agente-clima-etherbrain`](../agente-clima-etherbrain/docs/secretos.md).
 
 Sin argumentos, cada script usa una pregunta de ejemplo por default.
 
@@ -118,9 +168,11 @@ punto del ejercicio.
 
 Hay un `.gitignore` en la raíz de `agente-mini-python/` (protege
 `secrets/*.env` sin cifrar y cualquier llave `*.agekey`) y otro `.gitignore`
-dentro de cada carpeta de agente (protege un `.env` local si decides usar
-la opción rápida ahí). Solo `secrets/*.enc.env` y `secrets/*.example.env`
-están exceptuados — son los únicos que deben llegar a git.
+dentro de cada carpeta de agente (protege el `.env` que crea
+`configurar_env.sh` y cualquier `.env` que armes a mano ahí). Solo
+`secrets/*.enc.env` y `secrets/*.example.env` están exceptuados — son los
+únicos que deben llegar a git. `configurar_env.sh crear` además revisa
+que cada `.gitignore` tenga la línea `.env` y la agrega si falta.
 
 ## Documentación
 
