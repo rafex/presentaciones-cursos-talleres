@@ -1,0 +1,5 @@
+# Si usas el método rápido (export manual / .env local), nunca lo subas.
+# El método seguro para compartir la API key es secrets/ + age/sops (ver ../README.md).
+.env
+__pycache__/
+*.pyc
