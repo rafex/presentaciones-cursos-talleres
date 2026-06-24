@@ -184,16 +184,16 @@ La necesidad de aprender de otros no.
 
 Durante estos años sobreviví a…
 
-* SOAP
-* ESB
-* SOA
-* Virtualización
-* Cloud
-* DevOps
-* Microservicios
-* Kubernetes
-* Platform Engineering
-* IA Generativa
+* 🧱 SOAP
+* 🚌 ESB
+* 🧩 SOA
+* 🖥️ Virtualización
+* ☁️ Cloud
+* ⚙️ DevOps
+* 🧬 Microservicios
+* 🚢 Kubernetes
+* 🛠️ Platform Engineering
+* 🤖 IA Generativa
 
 <!-- notes:
 La tecnología cambia.
@@ -206,12 +206,12 @@ Los principios permanecen.
 
 Lo que realmente importa
 
-* Resolver problemas
-* Diseñar sistemas
-* Aprender rápido
-* Pedir ayuda
-* Adaptarse
-* Comunicar
+* 🧠 Resolver problemas
+* 🏗️ Diseñar sistemas
+* ⚡ Aprender rápido
+* 🤝 Pedir ayuda
+* 🔄 Adaptarse
+* 📣 Comunicar
 
 *Las tecnologías cambian.*
 **Las habilidades permanecen.**
@@ -219,6 +219,10 @@ Lo que realmente importa
 ---
 
 🚀 Estamos viviendo otro cambio de plataforma
+
+<!-- _class: bg-dark -->
+
+![bg opacity:.44](assets/images/bg-cambio-plataforma.png)
 
 Antes:
 
@@ -228,11 +232,19 @@ Persona → IDE → Código
 
 🚀 Hoy
 
+<!-- _class: bg-dark -->
+
+![bg opacity:.44](assets/images/bg-cambio-plataforma.png)
+
 Persona → IA → IDE → Código
 
 --- 
 
 🚀 Mañana (esto ya nos alcanzó, es el ahora)
+
+<!-- _class: bg-dark -->
+
+![bg opacity:.44](assets/images/bg-cambio-plataforma.png)
 
 Persona → Agente → Herramientas → Sistemas
 
@@ -261,46 +273,58 @@ Un agente tiene
 
 Ahora diseñamos
 
-* Contexto
-* Prompts
-* Herramientas
-* MCPs
-* Workflows
-* Agentes
+* 🧭 Contexto
+* 💬 Prompts
+* 🛠️ Herramientas
+* 🔌 MCPs
+* 🔁 Workflows
+* 🤖 Agentes
 
 --- 
 
 ## Open Source cambió mi carrera
 
+<!-- _class: bg-light -->
+
+![bg opacity:.30](assets/images/bg-open-source-soberania.png)
+
 > Gracias al software libre aprendí
 
-* Java
-* JBoss
-* Debian
-* Jenkins
-* Git
-* Xen
-* LXC
-* Alfresco
-* etc...
+* ☕ Java
+* 🧱 JBoss
+* 🐧 Debian
+* 🧪 Jenkins
+* 🌿 Git
+* 🖥️ Xen
+* 📦 LXC
+* 📚 Alfresco
+* ✨ etc...
 
 ---
 
-Open Source está democratizando la IA
+🌎 Open Source está democratizando la IA
 
-* LLama.cpp
-* Ollama
-* Open WebUI
-* DeepSeek
-* Qwen
-* Llama
-* LangGraph
-* Qdrant
-* MCP
+<!-- _class: bg-light -->
+
+![bg opacity:.30](assets/images/bg-open-source-soberania.png)
+
+* 🦙 LLama.cpp
+* 🧠 Ollama
+* 🪟 Open WebUI
+* 🔎 DeepSeek
+* 🌐 Qwen
+* 🦙 Llama
+* 🕸️ LangGraph
+* 🧲 Qdrant
+* 🔌 MCP
 
 ---
 
 Por primera vez
+
+<!-- _class: bg-light -->
+
+![bg opacity:.30](assets/images/bg-open-source-soberania.png)
 
 Una universidad puede tener su propia IA.
 
@@ -315,6 +339,10 @@ Sin depender totalmente de
 
 # Soberanía tecnológica
 
+<!-- _class: bg-light -->
+
+![bg opacity:.30](assets/images/bg-open-source-soberania.png)
+
 *No significa aislarse.*
 
 **Significa elegir.**
@@ -323,12 +351,12 @@ Sin depender totalmente de
 
 Mi stack actual
 
-* Claude, Codex, OpenCode
-* ChatGPT
-* LangGraph
-* MCP
-* Groq, DeepSeek, OpenRouter
-* Ether Brain
+* 🧠 Claude, Codex, OpenCode
+* 💬 ChatGPT
+* 🕸️ LangGraph
+* 🔌 MCP
+* ⚡ Groq, DeepSeek, OpenRouter
+* 🧩 Ether Brain
 
 ---
 
@@ -352,12 +380,12 @@ Mi stack actual
 
 Las habilidades más valiosas para 2027
 
-* Abstracción
-* Diseño
-* Comunicación
-* Sistemas distribuidos
-* Datos
-* IA aplicada
+* 🧩 Abstracción
+* 🏗️ Diseño
+* 📣 Comunicación
+* 🌐 Sistemas distribuidos
+* 🗃️ Datos
+* 🤖 IA aplicada
 
 ---
 
@@ -377,12 +405,12 @@ Las habilidades más valiosas para 2027
 
 Yo aprendería:
 
-1. Python, Java, Rust, Go, JavaScript
-2. Git
-3. Linux
-4. APIs
-5. IA
-6. Arquitectura
+1. 🐍 Python, Java, Rust, Go, JavaScript
+2. 🌿 Git
+3. 🐧 Linux
+4. 🔌 APIs
+5. 🤖 IA
+6. 🏗️ Arquitectura
 
 ---
 
@@ -396,16 +424,24 @@ Yo aprendería:
 
 # Porque al final…
 
+<!-- _class: bg-dark -->
+
+![bg opacity:.48](assets/images/bg-cierre-proposito.png)
+
 *La IA genera código.*
 
 **Los humanos generan propósito.**
 
 ---
 
-- Construye.
-- Rompe.
-- Mide.
-- Comparte.
+<!-- _class: bg-dark -->
+
+![bg opacity:.48](assets/images/bg-cierre-proposito.png)
+
+- 🏗️ Construye.
+- 🔨 Rompe.
+- 📏 Mide.
+- 🌎 Comparte.
 
 
 
@@ -413,11 +449,14 @@ Yo aprendería:
 
 *"La IA no elimina la ingeniería de software. La vuelve más importante."*
 
+<!-- _class: bg-dark -->
+
+![bg opacity:.48](assets/images/bg-cierre-proposito.png)
+
 - 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
 - 🐙 [**https://github.com/rafex**](https://github.com/rafex)
 - 📝 [**https://theworldofrafex.blog**](https://theworldofrafex.blog/)
 
 ![bg auto opacity:.2](assets/images/rafex.png)
-
 

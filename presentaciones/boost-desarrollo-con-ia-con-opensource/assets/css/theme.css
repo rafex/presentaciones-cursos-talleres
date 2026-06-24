@@ -137,3 +137,28 @@ section.cover footer {
   position: absolute;
   z-index: 1;
 }
+
+section.bg-dark {
+  background: #07111f;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+section.bg-dark p,
+section.bg-dark li,
+section.bg-dark h1,
+section.bg-dark h2,
+section.bg-dark h3,
+section.bg-dark strong {
+  color: #fff !important;
+}
+
+section.bg-dark header,
+section.bg-dark footer,
+section.bg-dark::after {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+section.bg-light {
+  background: var(--bg);
+}
