@@ -1,0 +1,25 @@
+[project]
+name = "agente-cp"
+version = "0.1.0"
+description = "Agente LangGraph + Groq que valida y repara direcciones mexicanas usando el catalogo de SEPOMEX, vía un servidor MCP."
+readme = "README.md"
+authors = [
+    { name = "rafex", email = "rafex@rafex.dev" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+    "langchain-groq>=1.1.3",
+    "langchain-mcp-adapters>=0.3.0",
+    "langgraph>=1.2.6",
+    "mcp>=1.28.0",
+    "python-dotenv>=1.2.2",
+]
+
+[project.scripts]
+agente-cp = "agente_cp.cli:main"
+agente-cp-mcp = "agente_cp.mcp_server:main"
+
+[build-system]
+requires = ["uv_build>=0.11.6,<0.12.0"]
+build-backend = "uv_build"

@@ -1,0 +1,36 @@
+[
+  {
+    "type":        "http",
+    "name":        "geocodificar_ciudad",
+    "description": "Convierte el nombre de una ciudad o municipio en sus coordenadas (latitud/longitud) usando el geocodificador publico de Open-Meteo. Usa esta tool ANTES de clima_actual: el clima necesita coordenadas, no nombres de lugar.",
+    "endpoint":    "https://geocoding-api.open-meteo.com/v1/search?count=1&language=es&format=json",
+    "method":      "GET",
+    "timeout_seconds": 10,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre de la ciudad, municipio o lugar a buscar, p.ej. 'Tlaxcala' o 'Guadalajara'"
+        }
+      },
+      "required": ["name"]
+    }
+  },
+  {
+    "type":        "http",
+    "name":        "clima_actual",
+    "description": "Devuelve el clima actual (temperatura en C, viento, codigo de condicion) para unas coordenadas, usando la API publica de Open-Meteo. Requiere latitude/longitude -- obtenlas primero con geocodificar_ciudad si el usuario dio un nombre de lugar.",
+    "endpoint":    "https://api.open-meteo.com/v1/forecast?current_weather=true&timezone=auto",
+    "method":      "GET",
+    "timeout_seconds": 10,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "latitude":  {"type": "number", "description": "Latitud decimal"},
+        "longitude": {"type": "number", "description": "Longitud decimal"}
+      },
+      "required": ["latitude", "longitude"]
+    }
+  }
+]

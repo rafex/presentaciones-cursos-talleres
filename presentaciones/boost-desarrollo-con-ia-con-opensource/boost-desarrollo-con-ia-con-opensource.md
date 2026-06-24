@@ -446,7 +446,7 @@ Yo aprendería:
 
 <!-- _class: bg-dark -->
 
-![bg opacity:.48](assets/images/bg-cierre-proposito.png)
+![bg opacity:.48](assets/images/rafex.png)
 
 - 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas

@@ -1,0 +1,10 @@
+[
+  {
+    "type": "mcp",
+    "server_name": "agente-cp",
+    "command": [
+      "uv", "run", "--directory", "/ruta/absoluta/a/agente-cp",
+      "python", "-m", "agente_cp.mcp_server"
+    ]
+  }
+]

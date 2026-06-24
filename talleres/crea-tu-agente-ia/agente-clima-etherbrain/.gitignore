@@ -1,0 +1,12 @@
+# Nunca commitear secretos en texto plano -- solo *.enc.env (cifrado con sops+age)
+# y *.example.env (plantilla con placeholders, sin secretos reales)
+secrets/*.env
+!secrets/*.enc.env
+!secrets/*.example.env
+
+# Llaves privadas age -- NUNCA deben vivir dentro del repo
+*.agekey
+key.txt
+
+# Copia local del jar de ether-brain (se construye desde el código fuente)
+*.jar
