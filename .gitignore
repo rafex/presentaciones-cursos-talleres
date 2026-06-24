@@ -11,3 +11,5 @@ Icon?
 
 *.pdf
 *.odp
+
+/tmp/
