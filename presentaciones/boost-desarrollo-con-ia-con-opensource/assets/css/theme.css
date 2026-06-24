@@ -153,6 +153,11 @@ section.bg-dark strong {
   color: #fff !important;
 }
 
+section.bg-dark a {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.72);
+}
+
 section.bg-dark header,
 section.bg-dark footer,
 section.bg-dark::after {

@@ -79,15 +79,12 @@ Contar el contexto personal:
 
 Primer empleo.
 
-IBM Middleware.
+- IBM Middleware.
+- IBM WebSphere Portal.
+- SOAP.
+- Endpoints/Web Services.
 
-IBM WebSphere Portal.
-
-SOAP.
-
-Endpoints.
-
-Y yo no tenía idea de cómo conectar todo.
+**Y yo no tenía idea de cómo conectar todo.**
 
 ![bg left:48% contain](assets/IMG_20120706_144057.jpg)
 
@@ -101,13 +98,11 @@ Tenía teoría, tenía Java, tenía certificación, pero el problema real era in
 
 🤝 Lo que me salvó
 
-No fue Java.
+- No fue Java.
+- No fue la certificación.
+- No fue un libro.
 
-No fue la certificación.
-
-No fue un libro.
-
-Fue un compañero que un sábado fue a trabajar para enseñarme.
+**Fue un compañero que un sábado fue a trabajar para enseñarme.**
 
 <!-- notes:
 Hacer pausa.
@@ -117,7 +112,7 @@ Ese sábado entendí la diferencia entre saber una tecnología y construir soluc
 
 ---
 
-Ese día entendí algo:
+# Ese día entendí algo:
 
 El valor de un profesional no está en lo que memoriza.
 
@@ -125,17 +120,17 @@ Está en su capacidad para aprender.
 
 ---
 
-La mejor inversión de mi carrera
+# La mejor inversión de mi carrera
 
-no fue una certificación.
+*no fue una certificación.*
 
-Fue aprender a aprender.
+**Fue aprender a aprender.**
 
 ---
 
-Mi carrera no avanzó por lo que sabía.
+## Mi carrera no avanzó por lo que sabía.
 
-**Avanzó por lo rápido que podía dejar de no saber.**
+# **Avanzó por lo rápido que podía dejar de no saber.**
 
 <!-- notes:
 Esta es la frase que conecta con estudiantes.
@@ -455,8 +450,5 @@ Yo aprendería:
 
 - 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
-- 🐙 [**https://github.com/rafex**](https://github.com/rafex)
+- 💻 [**https://github.com/rafex**](https://github.com/rafex)
 - 📝 [**https://theworldofrafex.blog**](https://theworldofrafex.blog/)
-
-![bg auto opacity:.2](assets/images/rafex.png)
-
