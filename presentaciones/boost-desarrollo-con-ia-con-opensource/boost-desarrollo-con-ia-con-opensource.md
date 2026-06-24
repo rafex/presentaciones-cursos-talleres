@@ -58,17 +58,126 @@ La IA es una nueva capa de abstracción.
 
 ---
 
-Mi historia
+🎓 Recién egresado
 
-2008 → Estudiante
+Certificado por Sun Microsystems.
 
-2010 → Desarrollador Java
+Convencido de que estaba listo.
 
-2013 → Líder técnico
+<!-- notes:
+Contar el contexto personal:
+- Primer empleo formal de 8 horas y un poco más.
+- Venía de estudiar, certificarme y creer que eso significaba estar preparado.
+- Para muchos estudiantes, una certificación se siente como la meta.
+-->
 
-2018 → Arquitecto
+---
 
-2025 → IA Engineering
+😅 Mi primer golpe de realidad
+
+Primer empleo.
+
+IBM Middleware.
+
+IBM WebSphere Portal.
+
+SOAP.
+
+Endpoints.
+
+Y yo no tenía idea de cómo conectar todo.
+
+<!-- notes:
+Aquí hacerlo conversacional.
+No hacerlo heroico: hacerlo honesto.
+Tenía teoría, tenía Java, tenía certificación, pero el problema real era integrar piezas reales para que un sistema real funcionara.
+-->
+
+---
+
+🤝 Lo que me salvó
+
+No fue Java.
+
+No fue la certificación.
+
+No fue un libro.
+
+Fue un compañero que un sábado fue a trabajar para enseñarme.
+
+<!-- notes:
+Hacer pausa.
+Dejar que la idea respire.
+Ese sábado entendí la diferencia entre saber una tecnología y construir soluciones.
+-->
+
+---
+
+Ese día entendí algo:
+
+El valor de un profesional no está en lo que memoriza.
+
+Está en su capacidad para aprender.
+
+---
+
+La mejor inversión de mi carrera
+
+no fue una certificación.
+
+Fue aprender a aprender.
+
+---
+
+Mi carrera no avanzó por lo que sabía.
+
+Avanzó por lo rápido que podía dejar de no saber.
+
+<!-- notes:
+Esta es la frase que conecta con estudiantes.
+No vender seguridad falsa: vender método, curiosidad y humildad técnica.
+-->
+
+---
+
+2012
+
+Tenía una certificación.
+
+Pero necesitaba ayuda.
+
+---
+
+2026
+
+Tengo Claude.
+
+Tengo ChatGPT.
+
+Tengo Codex.
+
+Tengo OpenCode.
+
+Y sigo necesitando ayuda.
+
+---
+
+La diferencia
+
+Ahora algunas de esas ayudas son agentes. Son boosts a mi productividad.
+
+<!-- notes:
+Aquí entra IA naturalmente.
+No como magia.
+No como reemplazo de compañeros.
+Como una nueva forma de apoyo técnico que también hay que aprender a dirigir.
+-->
+
+---
+
+La tecnología cambia.
+
+La necesidad de aprender de otros no.
 
 ---
 
@@ -94,18 +203,17 @@ Los principios permanecen.
 
 💡 La mejor tecnología nunca fue el objetivo
 
----
-
 Lo que realmente importa
 
 * Resolver problemas
 * Diseñar sistemas
 * Aprender rápido
+* Pedir ayuda
 * Adaptarse
 * Comunicar
 
-Las tecnologías cambian.
-Las habilidades permanecen.
+*Las tecnologías cambian.*
+**Las habilidades permanecen.**
 
 ---
 
@@ -123,25 +231,15 @@ Persona → IA → IDE → Código
 
 --- 
 
-🚀 Mañana
+🚀 Mañana (esto ya nos alcanzó, es el ahora)
 
 Persona → Agente → Herramientas → Sistemas
 
 ---
 
-La evolución del desarrollador
+## La evolución del desarrollador
 
-Nivel 1
-
-Escribe código.
-
-Nivel 2
-
-Usa IA para escribir código.
-
-Nivel 3
-
-Construye sistemas que usan IA.
+![w:820px](assets/images/evolucion-desarrollador.svg)
 
 ---
 
@@ -164,7 +262,7 @@ Ejemplo
 
 Usuario:
 
-Valida una dirección mexicana.
+Valida una dirección.
 
 El agente:
 
