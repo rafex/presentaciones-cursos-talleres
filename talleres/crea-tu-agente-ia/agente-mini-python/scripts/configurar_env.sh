@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Administra GROQ_BASE_URL y GROQ_MODEL (config no secreta, va en .env,
-# no en secrets/) para los 5 agentes de agente-mini-python.
+# no en secrets/) para los agentes de agente-mini-python.
 #
 # Uso:
 #   ./scripts/configurar_env.sh crear              # crea/actualiza el .env de cada agente
@@ -14,7 +14,7 @@ set -euo pipefail
 GROQ_BASE_URL_DEFAULT="https://api.groq.com/openai/v1"
 GROQ_MODEL_DEFAULT="openai/gpt-oss-120b"
 
-AGENTES=(agente-sin-tool agente-clima agente-pokemon agente-consejos agente-orquestador)
+AGENTES=(agente-sin-tool agente-clima agente-pokemon agente-consejos agente-orquestador llm-directo)
 
 # resolver la ruta del script funciona igual si se ejecuta o si se hace 'source'
 if [ -n "${BASH_SOURCE[0]:-}" ]; then

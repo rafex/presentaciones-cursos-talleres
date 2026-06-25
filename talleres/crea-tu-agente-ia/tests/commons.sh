@@ -3,7 +3,8 @@
 # No se ejecuta solo -- cada test_*.sh hace `source commons.sh`.
 
 DIR_TESTS="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DIR_AGENTES="$(cd "$DIR_TESTS/../agente-mini-python" && pwd)"
+DIR_TALLER="$(cd "$DIR_TESTS/.." && pwd)"
+DIR_AGENTES="$DIR_TALLER/agente-mini-python"
 
 AZUL=$'\033[0;34m'
 AMARILLO=$'\033[1;33m'
@@ -21,6 +22,13 @@ paso() {
 
 error() {
     echo "${ROJO}[ERROR] $1${SIN_COLOR}" >&2
+}
+
+# Para dependencias externas (jar de ether-brain, GROQ_API_KEY, etc.) que no
+# vienen en el repo -- avisa y deja que el script termine con exit 0, no es
+# una falla del codigo sino algo que falta configurar en esta maquina.
+advertencia() {
+    echo "${AMARILLO}[SKIP] $1${SIN_COLOR}"
 }
 
 verificar_uv() {

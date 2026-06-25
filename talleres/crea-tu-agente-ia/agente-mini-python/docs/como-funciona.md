@@ -131,6 +131,33 @@ Eso es justo lo que hace fácil pasar de "entendí `clima.py`" a "puedo
 escribir mi propio script con otra API pública" — que es el reto natural
 después de este ejercicio.
 
+## `llm-directo`: un nivel más abajo, sin SDK
+
+Antes de comparar "con tool" contra "sin tool", vale la pena ver que
+incluso `agente-sin-tool/sin_tool.py` ya usa el SDK de `openai` para
+armar la llamada. `llm-directo/llm_directo.py` quita esa capa también:
+ni `cliente.chat.completions.create(...)`, solo un `POST` armado a mano
+con `urllib` (de la libreria estandar, sin instalar nada):
+
+```python
+cuerpo = json.dumps({"model": MODELO, "messages": [...]}).encode("utf-8")
+peticion = urllib.request.Request(
+    url=f"{GROQ_BASE_URL}/chat/completions",
+    data=cuerpo,
+    method="POST",
+    headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+)
+with urllib.request.urlopen(peticion, timeout=30) as respuesta:
+    datos = json.loads(respuesta.read())
+return datos["choices"][0]["message"]["content"]
+```
+
+El SDK de `openai` no hace nada mágico: construye este mismo JSON, le
+pone estos mismos headers, y te devuelve un objeto en vez de un `dict`
+crudo. Ver esto primero ayuda a que ningún framework de los que vienen
+después (ni el SDK, ni LangGraph, ni ether-brain) se sienta como una caja
+negra — todos terminan en esta misma llamada HTTP.
+
 ## `agente-sin-tool`: el control del experimento
 
 `agente-sin-tool/sin_tool.py` llama al mismo modelo, con la misma

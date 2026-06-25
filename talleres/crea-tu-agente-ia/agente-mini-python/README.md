@@ -10,18 +10,22 @@ Cada agente vive en su propia carpeta, autocontenido:
 
 | Carpeta | Qué hace | API que usa |
 |---|---|---|
+| [`llm-directo/`](./llm-directo/) | El "antes del antes": un POST a mano por HTTP, sin SDK ni framework | — (ninguna) |
 | [`agente-sin-tool/`](./agente-sin-tool/) | El "antes": el mismo modelo, sin ninguna herramienta | — (ninguna) |
 | [`agente-clima/`](./agente-clima/) | Responde preguntas sobre el clima de una ciudad | [Open-Meteo](https://open-meteo.com/) (gratis, sin API key) |
 | [`agente-pokemon/`](./agente-pokemon/) | Responde preguntas sobre Pokemon (peso, altura, tipo) | [PokeAPI](https://pokeapi.co/) (gratis, sin API key) |
 | [`agente-consejos/`](./agente-consejos/) | Da consejos al azar o buscados por palabra clave | [Advice Slip API](https://api.adviceslip.com/) (gratis, sin API key) |
 | [`agente-orquestador/`](./agente-orquestador/) | Combina las tres tools anteriores y decide cuál(es) usar | Las tres de arriba |
 
-Empieza por `agente-sin-tool/`, sigue con `agente-clima/`,
+Empieza por `llm-directo/` para ver que, por debajo de cualquier
+framework, hablarle a un LLM siempre es un POST con una lista de
+mensajes. Sigue con `agente-sin-tool/` (mismo LLM, ya con el SDK de
+`openai`, pero sin ninguna tool), luego `agente-clima/`,
 `agente-pokemon/` y `agente-consejos/` en cualquier orden, y termina con
-`agente-orquestador/`. Ese orden cuenta una historia completa: sin
-herramientas el modelo solo inventa → con una herramienta el modelo
-resuelve un problema concreto → con varias herramientas el modelo decide
-cuál necesita en cada caso.
+`agente-orquestador/`. Ese orden cuenta una historia completa: un POST
+crudo → el SDK sin tools, el modelo solo inventa → con una herramienta el
+modelo resuelve un problema concreto → con varias herramientas el modelo
+decide cuál necesita en cada caso.
 
 Cada script se puede leer de arriba a abajo sin saltar a ningún otro
 archivo (excepto el orquestador, que junta las tools de los otros tres a
@@ -95,7 +99,8 @@ Hay dos formas de dejarle la key disponible — usa la que te quede más cómoda
 ```bash
 export GROQ_API_KEY=gsk_...
 
-cd agente-sin-tool       && uv run sin_tool.py "¿que clima hay en Tlaxcala en este momento?"
+cd llm-directo           && uv run llm_directo.py "¿que es un agente de IA en una frase?"
+cd ../agente-sin-tool    && uv run sin_tool.py "¿que clima hay en Tlaxcala en este momento?"
 cd ../agente-clima       && uv run clima.py "¿que clima hay en Tlaxcala?"
 cd ../agente-pokemon     && uv run pokemon.py "¿cuanto pesa pikachu?"
 cd ../agente-consejos    && uv run consejos.py "dame un consejo sobre el amor"
@@ -176,9 +181,13 @@ que cada `.gitignore` tenga la línea `.env` y la agrega si falta.
 
 ## Documentación
 
-Ver [`docs/como-funciona.md`](./docs/como-funciona.md) para una
-explicación línea por línea del ciclo que comparten estos agentes, y por
-qué `agente-sin-tool` no puede resolverlo.
+* [`docs/guia-paso-a-paso-pikachu.md`](./docs/guia-paso-a-paso-pikachu.md) —
+  cómo se construyen, línea por línea y desde cero, `llm-directo/` y
+  `agente-pokemon/` (el ejemplo de Pikachu). Pensada para explicar en
+  clase qué hace cada parte del código y por qué existe.
+* [`docs/como-funciona.md`](./docs/como-funciona.md) — explicación línea
+  por línea del ciclo que comparten `agente-clima`, `agente-pokemon` y
+  `agente-consejos`, y por qué `agente-sin-tool` no puede resolverlo.
 
 ## Siguiente paso
 

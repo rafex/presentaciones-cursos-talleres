@@ -13,3 +13,4 @@ Icon?
 *.odp
 
 /tmp/
+/dist/
