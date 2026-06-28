@@ -88,6 +88,12 @@ zip *args:
     dir=$(./scripts/resolve-target.sh "$name" "${type_flags[@]+"${type_flags[@]}"}")
     ./scripts/build-presentation-zip.sh "$dir" "$md" "$out"
 
+# Genera los zips de release pendientes (omite los ya publicados, salvo
+# que su .release*.yaml tenga republish: true). Deja todo en dist/ y
+# actualiza los .release*.yaml con published/published_at/sha256.
+release:
+    ./scripts/release.sh
+
 # Lista las presentaciones y talleres disponibles.
 list:
     #!/usr/bin/env bash

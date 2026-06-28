@@ -1,0 +1,61 @@
+name: Publicar release de presentaciones
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: presentaciones-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Generar zips pendientes (omite los ya publicados)
+        run: ./scripts/release.sh
+
+      - name: Verificar si hay artefactos nuevos
+        id: check
+        run: |
+          if compgen -G "dist/*.zip" > /dev/null; then
+            echo "has_artifacts=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_artifacts=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publicar/actualizar el GitHub Release
+        if: steps.check.outputs.has_artifacts == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="presentaciones-latest"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --title "Presentaciones — material descargable" \
+              --notes "Material de presentaciones publicado automáticamente. Se actualiza cuando hay nuevos zips o se fuerza un republish."
+          fi
+          gh release upload "$TAG" dist/*.zip dist/checksums.txt --clobber
+
+      - name: Commit de los .release*.yaml actualizados
+        if: steps.check.outputs.has_artifacts == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mapfile -t release_files < <(find presentaciones talleres -maxdepth 2 -iname '.release*.yaml' 2>/dev/null)
+          if [[ ${#release_files[@]} -gt 0 ]]; then
+            git add "${release_files[@]}"
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(release): marcar artefactos publicados [skip ci]"
+            git push
+          fi
