@@ -80,7 +80,7 @@ sops --version
 
 ```bash
 git clone https://github.com/rafex/presentaciones-cursos-talleres
-cd presentaciones-cursos-talleres/talleres/crea-tu-agente-ia/agente-mini-python
+cd presentaciones-cursos-talleres/talleres/crea-tu-agente-ia/ejercicios/agente-mini-python
 ```
 
 Sin `pip install`: cada script declara sus dependencias en su propio
