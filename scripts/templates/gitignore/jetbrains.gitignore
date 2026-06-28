@@ -1,0 +1,5 @@
+# --- JetBrains (IntelliJ, PyCharm, GoLand, WebStorm, etc.) ---
+.idea/
+*.iml
+*.iws
+out/

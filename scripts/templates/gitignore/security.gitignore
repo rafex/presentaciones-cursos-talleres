@@ -1,0 +1,29 @@
+# --- Seguridad / secretos (siempre incluido, no depende del lenguaje) ---
+# Nunca commitear secretos en texto plano -- solo *.enc.env (cifrado con
+# sops+age) y *.example.env (plantilla con placeholders, sin secretos reales).
+.env
+.env.local
+.env.*.local
+secrets/*.env
+!secrets/*.enc.env
+!secrets/*.example.env
+!*.example.env
+
+# Llaves privadas / certificados -- NUNCA deben vivir en el repo
+*.agekey
+key.txt
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Credenciales de proveedores cloud / tokens sueltos
+.aws/
+.netrc
+*credentials*
+!*credentials*.example*

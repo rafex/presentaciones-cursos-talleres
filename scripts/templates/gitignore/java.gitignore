@@ -1,0 +1,8 @@
+# --- Java / Maven / Gradle ---
+target/
+build/
+*.class
+*.jar
+!gradle-wrapper.jar
+.gradle/
+.mvn/wrapper/maven-wrapper.jar

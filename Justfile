@@ -94,6 +94,15 @@ zip *args:
 release:
     ./scripts/release.sh
 
+# Crea un nuevo taller en talleres/<nombre>/ (slides + assets/ + ejercicios/
+# con .gitignore de seguridad+SO+IDE(s)+lenguaje(s)). Sin argumentos, pregunta
+# interactivamente (recomendado si el título tiene espacios, ya que `just`
+# no preserva comillas en *args). Uso no interactivo (título sin espacios o
+# usa guiones, o mejor invoca ./scripts/new-taller.sh directo):
+#   just new-taller <nombre> [titulo] [langs] [ides]
+new-taller *args:
+    ./scripts/new-taller.sh {{args}}
+
 # Lista las presentaciones y talleres disponibles.
 list:
     #!/usr/bin/env bash
