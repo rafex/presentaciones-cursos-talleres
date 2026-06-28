@@ -103,6 +103,13 @@ release:
 new-taller *args:
     ./scripts/new-taller.sh {{args}}
 
+# Crea una nueva presentación en presentaciones/<nombre>/ (slides + assets/).
+# Sin argumentos, pregunta interactivamente (recomendado si el título tiene
+# espacios). Uso no interactivo:
+#   just new-presentacion <nombre> [titulo]
+new-presentacion *args:
+    ./scripts/new-presentacion.sh {{args}}
+
 # Lista las presentaciones y talleres disponibles.
 list:
     #!/usr/bin/env bash
