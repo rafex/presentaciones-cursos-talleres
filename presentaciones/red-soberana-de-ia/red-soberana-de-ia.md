@@ -19,17 +19,15 @@ Demo en vivo: 3 equipos reales (laptop + mini-PC + Raspberry Pi 4B)
 corriendo el protocolo FHS (Federation of Sovereign Hosts).
 -->
 
-<!-- _class: bg-dark -->
+<!-- _class: cover -->
+
+![bg](assets/images/bg-portada-soberania.png)
 
 # Reutiliza tus equipos viejos
 
 ## para una red soberana e IA
 
-Raúl Eduardo González Argote
-
-## github.com/rafex/galaxIA
-
-rafex@rafex.dev
+Raúl Eduardo González Argote — github.com/rafex/galaxIA
 
 <!-- notes:
 Gancho de apertura: todos tenemos un cajón con una laptop vieja, un mini-PC
@@ -105,13 +103,14 @@ proveedor por otro, sino no depender de ningún proveedor único.
 
 ## El objetivo
 
-Que **cualquier comunidad** — un equipo de trabajo, una escuela, un
-colectivo — pueda armar su propia red de IA:
+![bg right:38% contain](assets/images/nodo-concepto.png)
 
-- Con el **hardware que ya tiene**, no con presupuesto nuevo.
+Que **cualquier comunidad** — un equipo, una escuela, un colectivo —
+pueda armar su propia red de IA:
+
+- Con el **hardware que ya tiene**, no presupuesto nuevo.
 - **Sin ceder control** de sus datos a un tercero.
-- Donde cualquiera puede **sumar un nodo** sin pedir permiso a un
-  operador central.
+- Donde cualquiera puede **sumar un nodo** sin pedir permiso.
 - Donde la **privacidad es parte del protocolo**, no un aviso legal.
 
 <!-- notes:
@@ -122,6 +121,8 @@ donde las máquinas se anuncian, se descubren y se usan entre sí.
 ---
 
 <!-- _class: bg-dark -->
+
+![bg opacity:.42](assets/images/bg-protocolo-fhs.png)
 
 # FHS
 
@@ -201,6 +202,8 @@ Cada paso queda registrado: qué nodo hizo qué.
 
 <!-- _class: bg-dark -->
 
+![bg opacity:.5](assets/images/bg-demo-en-vivo.png)
+
 # Demo en vivo
 
 ## Laptop + mini-PC (LLM) + Raspberry Pi 4B (OCR)
@@ -234,15 +237,17 @@ respuesta del chat, siempre.
 
 ---
 
-## Súmate: sé un nodo de la red
+## Súmate a la red
+
+![bg right:38% contain](assets/images/nodo-componentes.png)
 
 Cualquier computadora puede aportar una capacidad:
 
-- **LLM provider**: envuelve un modelo local (llama.cpp, Ollama, vLLM) y lo expone por WebSocket.
-- **Tool provider**: OCR, búsqueda, un servicio interno — cualquier capacidad reutilizable.
-- El Registry **no necesita cambios de código** para reconocer tu nodo — solo que cumpla el contrato.
+- **LLM provider**: envuelve un modelo local (llama.cpp, Ollama, vLLM).
+- **Tool provider**: OCR, búsqueda, un servicio interno.
+- El Registry **no necesita cambios de código** — solo que tu nodo cumpla el contrato.
 
-`github.com/rafex/galaxIA` — documentación completa, guía de integración, decisiones de diseño.
+`github.com/rafex/galaxIA`
 
 <!-- notes:
 Insistir: no hace falta escribir TypeScript. FHS es JSON sobre
@@ -267,21 +272,30 @@ funciona de punta a punta con hardware real y heterogéneo.
 
 <!-- _class: bg-dark -->
 
-# Gracias
+![bg opacity:.55](assets/images/bg-cierre.png)
 
+# Gracias
 
 *"La IA no elimina la ingeniería de software. La vuelve más importante."*
 
+<!-- notes:
+Cierre inspiracional antes de pasar a los datos de contacto.
+-->
+
+---
+
 <!-- _class: bg-dark -->
 
-![bg opacity:.48](assets/images/rafex.png)
+![bg right:30% contain opacity:.9](assets/images/rafex.png)
+
+## Contacto
 
 > Raúl Eduardo González Argote
 
 - 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
 - ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
-- 💻 [**https://github.com/rafex**](https://github.com/rafex)
-- 📝 [**https://theworldofrafex.blog**](https://theworldofrafex.blog/)
+- 💻 [**github.com/rafex**](https://github.com/rafex) — código de galaxIA
+- 📝 [**theworldofrafex.blog**](https://theworldofrafex.blog/)
 
 <!-- notes:
 Cierre: invitar a clonar el repo, probar el chat, y — sobre todo —

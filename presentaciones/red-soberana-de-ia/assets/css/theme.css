@@ -190,7 +190,10 @@ section.cover {
 }
 
 section.cover::before {
-  background: rgba(4, 10, 18, 0.5);
+  /* Más oscuro que un overlay típico a propósito: la imagen de portada
+     puede tener zonas claras, y en un proyector de pocos lúmenes el
+     texto blanco necesita un fondo bien oscuro detrás para no perderse. */
+  background: rgba(3, 8, 15, 0.72);
   content: "";
   inset: 0;
   position: absolute;
@@ -231,6 +234,21 @@ section.bg-dark strong {
 
 section.bg-dark li::marker {
   color: #7fb2e6;
+}
+
+section.bg-dark em {
+  color: #fff !important;
+}
+
+/* La tarjeta blanca del blockquote no tiene sentido sobre bg-dark (texto
+   blanco forzado quedaría invisible contra su propio fondo) — se vuelve
+   un panel oscuro translúcido con borde claro en vez de tarjeta clara. */
+section.bg-dark blockquote {
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: #7fb2e6;
+  box-shadow: none;
+  color: #fff !important;
+  text-shadow: none;
 }
 
 section.bg-dark a {
