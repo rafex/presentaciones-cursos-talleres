@@ -27,6 +27,10 @@ corriendo el protocolo FHS (Federation of Sovereign Hosts).
 
 Raúl Eduardo González Argote
 
+## github.com/rafex/galaxIA
+
+rafex@rafex.dev
+
 <!-- notes:
 Gancho de apertura: todos tenemos un cajón con una laptop vieja, un mini-PC
 que ya no usamos, una Raspberry Pi de un proyecto que quedó a medias.
@@ -265,10 +269,19 @@ funciona de punta a punta con hardware real y heterogéneo.
 
 # Gracias
 
-## github.com/rafex/galaxIA
 
-Raúl Eduardo González Argote
-rafex@rafex.dev
+*"La IA no elimina la ingeniería de software. La vuelve más importante."*
+
+<!-- _class: bg-dark -->
+
+![bg opacity:.48](assets/images/rafex.png)
+
+> Raúl Eduardo González Argote
+
+- 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
+- 💻 [**https://github.com/rafex**](https://github.com/rafex)
+- 📝 [**https://theworldofrafex.blog**](https://theworldofrafex.blog/)
 
 <!-- notes:
 Cierre: invitar a clonar el repo, probar el chat, y — sobre todo —

@@ -38,14 +38,19 @@ prompt() {
   fi
 }
 
+normalize_name() {
+  local name="$1"
+  # Convierte a minúsculas, reemplaza espacios y caracteres especiales por guiones
+  name=$(echo "$name" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]\+/-/g' | sed 's/[^a-z0-9-]//g' | sed 's/-\+/-/g' | sed 's/^-\|-$//g')
+  echo "$name"
+}
+
 if [[ -z "$NAME" ]]; then
-  NAME="$(prompt "Nombre del taller (carpeta, kebab-case)")"
+  NAME="$(prompt "Nombre del taller (espacios se convierten a guiones)")"
 fi
 [[ -n "$NAME" ]] || { echo "Error: el nombre no puede estar vacío." >&2; exit 1; }
-if ! [[ "$NAME" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
-  echo "Error: usa solo minúsculas, números y guiones (kebab-case). Recibido: '$NAME'" >&2
-  exit 1
-fi
+NAME="$(normalize_name "$NAME")"
+[[ -n "$NAME" ]] || { echo "Error: el nombre no puede estar vacío después de normalizar." >&2; exit 1; }
 
 TALLER_DIR="$REPO_ROOT/talleres/$NAME"
 if [[ -e "$TALLER_DIR" ]]; then

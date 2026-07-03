@@ -96,21 +96,22 @@ release:
 
 # Crea un nuevo taller en talleres/<nombre>/ (slides + assets/ + ejercicios/
 # con .gitignore de seguridad+SO+IDE(s)+lenguaje(s)). Sin argumentos, pregunta
-# interactivamente (recomendado si el título tiene espacios, ya que `just`
-# no preserva comillas en *args). Uso no interactivo (título sin espacios o
-# usa guiones, o mejor invoca ./scripts/new-taller.sh directo):
+# interactivamente (recomendado si el título tiene espacios). Uso no interactivo:
 #   just new-taller <nombre> [titulo] [langs] [ides]
 new-taller *args:
-    ./scripts/new-taller.sh {{args}}
+    #!/usr/bin/env bash
+    python3 ./scripts/new-taller.py "$@"
 
 # Crea una nueva presentación en presentaciones/<nombre>/ (slides + assets/).
-# Sin argumentos, pregunta interactivamente (recomendado si el título tiene
-# espacios). Uso no interactivo:
-#   just new-presentacion <nombre> [titulo]
+# 
+# Modo interactivo (recomendado):
+#   just new-presentacion
+#
+# Con argumentos (pasar nombre y título entre comillas):
+#   python3 ./scripts/new-presentacion.py "red soberana de IA" "Reutiliza tus equipos..."
 new-presentacion *args:
-    ./scripts/new-presentacion.sh {{args}}
-
-# Lista las presentaciones y talleres disponibles.
+    #!/usr/bin/env bash
+    python3 ./scripts/new-presentacion.py "$@"
 list:
     #!/usr/bin/env bash
     set -euo pipefail
