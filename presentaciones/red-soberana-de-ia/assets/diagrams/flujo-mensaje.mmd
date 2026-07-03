@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant U as Usuario (Web)
+    participant AS as Laptop (Registry+Chat)
+    participant LLM as Bastion (LLM)
+    participant OCR as Raspberry Pi (OCR)
+
+    U->>AS: Adjunta documento + pregunta
+    AS->>OCR: tool.call ocr_extract
+    OCR-->>AS: texto extraído
+    AS-->>U: confirmar uso del texto
+    U->>AS: Usar documento
+    AS->>LLM: chat.request (texto + pregunta)
+    LLM-->>AS: respuesta
+    AS-->>U: respuesta final + procedencia

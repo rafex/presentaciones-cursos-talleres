@@ -1,0 +1,19 @@
+flowchart LR
+  U(("Usuario\nChat web"))
+  L["Laptop vieja\nRegistry + Chat\nagent-server"]
+  B["Bastion\nLLM local\nQwen2.5-Coder-3B"]
+  P["Raspberry Pi 4B\nOCR\nTesseract"]
+
+  U --> L
+  L <-- "wss:// hello/register/ping" --> B
+  L <-- "wss:// hello/register/ping" --> P
+
+  classDef core fill:#0b5fae,color:#ffffff,stroke:#06304f,stroke-width:3px
+  classDef llm fill:#157347,color:#ffffff,stroke:#0c4a2c,stroke-width:3px
+  classDef ocr fill:#8a1e61,color:#ffffff,stroke:#571040,stroke-width:3px
+  classDef user fill:#eef0f2,color:#14181c,stroke:#565f66,stroke-width:3px
+
+  class L core
+  class B llm
+  class P ocr
+  class U user

@@ -1,0 +1,266 @@
+/*
+ * Tema para "Reutiliza tus equipos viejos para una red soberana e IA".
+ *
+ * Pensado para proyectores de pocos lúmenes (salones con luz ambiental,
+ * proyectores viejos/baratos de un evento): fondo claro por defecto en vez
+ * de oscuro. Un proyector débil no reproduce negro real — lo muestra como
+ * gris lavado y se come el contraste — mientras que un fondo claro con
+ * texto casi negro y trazos gruesos sigue leyéndose bien aunque el
+ * proyector no tenga buen brillo. Los fondos oscuros (`bg-dark`) se
+ * reservan para portada y cierres de sección, con texto blanco grande y
+ * sin detalle fino que se pueda perder.
+ */
+
+:root {
+  --bg: #fbfaf7;
+  --ink: #14181c;
+  --muted: #565f66;
+  --blue: #0b5fae;
+  --green: #157347;
+  --orange: #c2540a;
+  --magenta: #8a1e61;
+  --line: #d9d3ca;
+  --code-bg: #eef0f2;
+  --card-bg: #ffffff;
+}
+
+section {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1.32;
+  padding: 60px 76px;
+}
+
+section::after {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--blue);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0 0 26px;
+}
+
+h2 {
+  color: var(--green);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.14;
+  margin: 0 0 22px;
+}
+
+h3 {
+  color: var(--magenta);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0.4em 0;
+}
+
+ul,
+ol {
+  margin: 0.4em 0 0;
+  padding-left: 1.15em;
+}
+
+li {
+  margin: 0.22em 0;
+}
+
+li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+strong {
+  color: var(--orange);
+  font-weight: 800;
+}
+
+em {
+  color: var(--blue);
+}
+
+a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--blue);
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.72em;
+  padding: 0.08em 0.34em;
+}
+
+pre {
+  background: #1c2128;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+pre code {
+  background: transparent;
+  border: 0;
+  color: #e6edf3;
+  font-size: 0.62em;
+  line-height: 1.5;
+}
+
+header {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  left: 76px;
+  right: 76px;
+  top: 26px;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  left: 76px;
+  right: 76px;
+  bottom: 24px;
+}
+
+img {
+  max-width: 100%;
+}
+
+blockquote {
+  background: var(--card-bg);
+  border-left: 8px solid var(--green);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 10px rgba(20, 24, 28, 0.08);
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0.8em 0;
+  padding: 0.6em 1em;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.85em;
+  width: 100%;
+}
+
+th,
+td {
+  border: 2px solid var(--line);
+  padding: 0.4em 0.65em;
+  text-align: left;
+}
+
+th {
+  background: var(--card-bg);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+/* ── Tarjeta para envolver imágenes/diagramas sobre fondos claros ──────────
+   Un marco blanco sólido detrás del diagrama evita que colores tenues del
+   SVG se laven contra el fondo crema, y da un borde definido incluso si el
+   proyector reproduce mal los tonos intermedios. */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(20, 24, 28, 0.08);
+  padding: 18px;
+}
+
+/* ── Portada e interludios oscuros (uso deliberadamente limitado) ────────── */
+
+section.cover {
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+section.cover::before {
+  background: rgba(4, 10, 18, 0.5);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+section.cover h1,
+section.cover h2,
+section.cover p {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+section.cover header,
+section.cover footer {
+  color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  z-index: 1;
+}
+
+/* Fondo oscuro sólido (no negro puro) — suficiente contraste incluso en
+   proyectores débiles, sin el "gris lavado" de un negro que no se logra
+   reproducir bien. Reservado para portada/cierre y quiebres de sección. */
+section.bg-dark {
+  background: #071a2c;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+section.bg-dark p,
+section.bg-dark li,
+section.bg-dark h1,
+section.bg-dark h2,
+section.bg-dark h3,
+section.bg-dark strong {
+  color: #fff !important;
+}
+
+section.bg-dark li::marker {
+  color: #7fb2e6;
+}
+
+section.bg-dark a {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.75);
+}
+
+section.bg-dark header,
+section.bg-dark footer,
+section.bg-dark::after {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+section.bg-light {
+  background: var(--bg);
+}
+
+/* ── Slide de "pregunta al público" — texto grande, centrado, sin adornos ── */
+section.question {
+  align-items: center;
+  display: flex;
+  font-size: 42px;
+  font-weight: 700;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ── Grid de 2 columnas simple (usar con <div class="cols"><div>...</div><div>...</div></div>) ── */
+.cols {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr;
+}

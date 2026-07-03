@@ -1,0 +1,7 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "28px",
+    "fontFamily": "Helvetica Neue, Arial, sans-serif"
+  }
+}

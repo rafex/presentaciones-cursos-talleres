@@ -1,0 +1,9 @@
+flowchart LR
+  U1(("Tú")) --> P1["Un solo\nproveedor"]
+  P1 --> D1[("Tus datos\nen su servidor")]
+
+  classDef nube fill:#c2540a,color:#ffffff,stroke:#7a3506,stroke-width:3px
+  classDef user fill:#eef0f2,color:#14181c,stroke:#565f66,stroke-width:3px
+
+  class P1,D1 nube
+  class U1 user
