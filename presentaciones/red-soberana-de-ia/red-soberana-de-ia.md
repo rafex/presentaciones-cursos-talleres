@@ -276,7 +276,7 @@ funciona de punta a punta con hardware real y heterogéneo.
 
 # Gracias
 
-*"La IA no elimina la ingeniería de software. La vuelve más importante."*
+*"GalaxIA demuestra que una IA soberana no empieza comprando más hardware, **sino conectando mejor el que ya tenemos**."*
 
 <!-- notes:
 Cierre inspiracional antes de pasar a los datos de contacto.
