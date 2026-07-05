@@ -1,0 +1,19 @@
+flowchart TB
+  R["📡 TP-Link · OpenWrt\n192.168.1.0/24"]
+  L["💻 Laptop — i5 · Debian 13\nRegistry + Chat"]
+  B["🖥️ Bastion — i7 · Debian 13\nLLM (llama.cpp)"]
+  P["🍓 Raspi 4B — DietPi/Debian 13\nOCR (Tesseract)"]
+
+  R --- L
+  R --- B
+  R --- P
+
+  classDef router fill:#565f66,color:#ffffff,stroke:#2c3238,stroke-width:3px
+  classDef core fill:#0b5fae,color:#ffffff,stroke:#06304f,stroke-width:3px
+  classDef llm fill:#157347,color:#ffffff,stroke:#0c4a2c,stroke-width:3px
+  classDef ocr fill:#8a1e61,color:#ffffff,stroke:#571040,stroke-width:3px
+
+  class R router
+  class L core
+  class B llm
+  class P ocr

@@ -166,6 +166,28 @@ Cada uno en su propia red, cada uno aportando una capacidad distinta.
 
 ---
 
+## El hardware real, sin nada especial
+
+<div class="card">
+
+![w:560](assets/images/hardware-real.svg)
+
+</div>
+
+Ni servidores dedicados ni nube: un router de casa y equipos que ya
+tenían — todos con software libre.
+
+<!-- notes:
+Insistir en el punto central de la charla: nada de esto es hardware
+especial ni comprado para la demo. Un router TP-Link con OpenWrt (firmware
+libre) arma la red soberana; la laptop y el bastion son equipos de oficina
+reutilizados corriendo Debian 13; la Raspberry Pi 4B corre DietPi (basado
+en Debian 13), pensado para hardware pequeño. Mismo protocolo FHS,
+mismo sistema operativo base, tres roles distintos.
+-->
+
+---
+
 ## Cómo se registra un nodo
 
 - El nodo se conecta al Registry: `hello` → `register` → `heartbeat` cada 10s.
