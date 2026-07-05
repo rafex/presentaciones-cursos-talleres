@@ -16,7 +16,7 @@ date: 3 julio 2026
 <!--
 Charla: Red soberana de IA con hardware reutilizado.
 Demo en vivo: 3 equipos reales (laptop + mini-PC + Raspberry Pi 4B)
-corriendo el protocolo FHS (Federation of Sovereign Hosts).
+corriendo el protocolo FHS (Federation of Sovereign Horizons).
 -->
 
 <!-- _class: cover -->
@@ -126,9 +126,9 @@ donde las máquinas se anuncian, se descubren y se usan entre sí.
 
 # FHS
 
-## Federation of Sovereign Hosts
+## Federation of Sovereign Horizons
 
-Federación de Nodos Soberanos
+Federación de Horizontes Soberanos
 
 <!-- notes:
 FHS es el protocolo que hace posible esta red. JSON sobre WebSocket —
