@@ -11,6 +11,7 @@
 #
 # Formato de .release*.yaml (claves planas, sin anidar):
 #   name: nombre-del-artefacto      # base del .zip, default: nombre de carpeta
+#   engine: marp|slidev             # default: marp
 #   md: archivo.md                  # opcional, solo si hay >1 .md en la carpeta
 #   published: true|false
 #   published_at: "2026-06-28T12:00:00Z"
@@ -55,9 +56,11 @@ while IFS= read -r release_file; do
   published="$(get_yaml_value "$release_file" "published")"
   republish="$(get_yaml_value "$release_file" "republish")"
   name="$(get_yaml_value "$release_file" "name")"
+  engine="$(get_yaml_value "$release_file" "engine")"
   md="$(get_yaml_value "$release_file" "md")"
 
   [[ -n "$name" ]] || name="$folder_name"
+  [[ -n "$engine" ]] || engine="marp"
 
   if [[ "$published" == "true" && "$republish" != "true" ]]; then
     echo "⏭️  $name: ya publicado, se omite (republish: false)."
@@ -67,8 +70,21 @@ while IFS= read -r release_file; do
 
   echo "📦 Generando zip para '$name' ($release_file)..."
   out_zip="$DIST_DIR/$name.zip"
-  if ! "$REPO_ROOT/scripts/build-presentation-zip.sh" "$dir" "$md" "$out_zip"; then
-    echo "❌ Falló la generación del zip para '$name'." >&2
+  if [[ "$engine" == "slidev" ]]; then
+    slidev_md="${md:-slidev/slides.md}"
+    if ! "$REPO_ROOT/scripts/build-slidev-presentation-zip.sh" "$dir/$slidev_md" "$out_zip"; then
+      echo "❌ Falló la generación del zip Slidev para '$name'." >&2
+      FAILED=$((FAILED + 1))
+      continue
+    fi
+  elif [[ "$engine" == "marp" ]]; then
+    if ! "$REPO_ROOT/scripts/build-presentation-zip.sh" "$dir" "$md" "$out_zip"; then
+      echo "❌ Falló la generación del zip Marp para '$name'." >&2
+      FAILED=$((FAILED + 1))
+      continue
+    fi
+  else
+    echo "❌ Engine desconocido '$engine' en $release_file (usa marp o slidev)." >&2
     FAILED=$((FAILED + 1))
     continue
   fi
@@ -78,6 +94,7 @@ while IFS= read -r release_file; do
 
   cat > "$release_file" <<EOF
 name: $name
+engine: $engine
 md: $md
 published: true
 published_at: "$now"

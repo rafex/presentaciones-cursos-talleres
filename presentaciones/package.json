@@ -4,12 +4,16 @@
   "description": "Para generar las presentaciones en formato PDF y ODP a partir de los archivos Markdown, utiliza el script `generate.sh`.",
   "main": "index.js",
   "scripts": {
-    "start": "bash ./generate.sh"
+    "start": "bash ./generate.sh",
+    "slidev": "slidev"
   },
   "keywords": [],
   "author": "Raúl Eduardo González Argote",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.3.1"
+    "@marp-team/marp-cli": "^4.3.1",
+    "@slidev/cli": "^52.1.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "playwright-chromium": "^1.61.1"
   }
 }

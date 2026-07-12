@@ -59,6 +59,8 @@ is_excluded() {
     .git|.git/*|*/.git|*/.git/*) return 0 ;;
     node_modules|node_modules/*|*/node_modules|*/node_modules/*) return 0 ;;
     .DS_Store|*/.DS_Store) return 0 ;;
+    # Los proyectos Slidev se empaquetan con build-slidev-presentation-zip.sh.
+    slidev|slidev/*|*/slidev|*/slidev/*|.slidev|.slidev/*|*/.slidev|*/.slidev/*) return 0 ;;
     *.pdf|*.odp) return 0 ;;
     *backup-*) return 0 ;;
   esac

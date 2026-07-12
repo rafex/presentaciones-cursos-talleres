@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071a2c" />
+    <title>Presentaciones · rafex</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="eyebrow">RAFEX / PRESENTACIONES</div>
+      <h1>Ideas que se pueden ejecutar.</h1>
+      <p>Charlas y talleres técnicos, organizados en un solo lugar.</p>
+      <div class="hero-rule" aria-hidden="true"></div>
+    </header>
+
+    <main class="shell">
+      <section class="toolbar" aria-label="Filtros de presentaciones">
+        <div class="stats" id="stats"></div>
+        <label class="search">
+          <span class="sr-only">Buscar</span>
+          <input id="search" type="search" placeholder="Buscar una charla..." autocomplete="off" />
+        </label>
+        <div class="filters" role="group" aria-label="Filtrar por motor">
+          <button class="filter is-active" data-filter="all">Todas</button>
+          <button class="filter" data-filter="slidev">Slidev</button>
+          <button class="filter" data-filter="marp">Marp</button>
+        </div>
+      </section>
+
+      <section id="catalog" class="catalog" aria-live="polite"></section>
+    </main>
+
+    <footer class="footer shell">
+      <span>Markdown versionable · Marp + Slidev</span>
+      <code>just portal-build</code>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

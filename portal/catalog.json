@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-07-12T16:24:54.175Z",
+  "presentations": [
+    {
+      "id": "talleres-crea-tu-agente-ia-crea-tu-agente-ia-marp",
+      "title": "Cómo crear tu propio agente de IA usando solo software libre",
+      "description": "Taller práctico para construir un agente de IA con herramientas Open Source.",
+      "type": "marp",
+      "collection": "talleres",
+      "source": "talleres/crea-tu-agente-ia/crea-tu-agente-ia.md",
+      "url": "generated/marp/talleres-crea-tu-agente-ia-crea-tu-agente-ia/index.html"
+    },
+    {
+      "id": "presentaciones-boost-desarrollo-con-ia-con-opensource-boost-desarrollo-con-ia-con-opensource-marp",
+      "title": "Dale un boost a tus desarrollos con IA usando herramientas Open Source",
+      "description": "Cómo la IA y el software libre están transformando la ingeniería de software.",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/boost-desarrollo-con-ia-con-opensource/boost-desarrollo-con-ia-con-opensource.md",
+      "url": "generated/marp/presentaciones-boost-desarrollo-con-ia-con-opensource-boost-desarrollo-con-ia-con-opensource/index.html"
+    },
+    {
+      "id": "presentaciones-de-estudiante-a-desarrollador-y-a-trabajador-de-estudiante-a-desarrollador-y-a-trabajador-marp",
+      "title": "De estudiante a desarrollador y a trabajador",
+      "description": "Reflexiones sobre la transición de estudiante a desarrollador y trabajador en el ámbito de la programación.",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/de-estudiante-a-desarrollador-y-a-trabajador/de_estudiante_a_desarrollador_y_a_trabajador.md",
+      "url": "generated/marp/presentaciones-de-estudiante-a-desarrollador-y-a-trabajador-de-estudiante-a-desarrollador-y-a-trabajador/index.html"
+    },
+    {
+      "id": "presentaciones-desarrollando-con-ia-desarrollando-con-ia-corta-marp",
+      "title": "Desarrollando con IA",
+      "description": "Se muestra cómo ha cambiado el desarrollo de software con la llegada de la inteligencia artificial, y cómo adaptarse a este nuevo entorno laboral/profesional/personal.",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/desarrollando-con-ia/desarrollando_con_ia-corta.md",
+      "url": "generated/marp/presentaciones-desarrollando-con-ia-desarrollando-con-ia-corta/index.html"
+    },
+    {
+      "id": "presentaciones-desarrollando-con-ia-desarrollando-con-ia-marp",
+      "title": "Desarrollando con IA",
+      "description": "Se muestra cómo ha cambiado el desarrollo de software con la llegada de la inteligencia artificial, y cómo adaptarse a este nuevo entorno laboral/profesional/personal.",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/desarrollando-con-ia/desarrollando_con_ia.md",
+      "url": "generated/marp/presentaciones-desarrollando-con-ia-desarrollando-con-ia/index.html"
+    },
+    {
+      "id": "presentaciones-la-ia-no-es-solo-de-las-big-tech-la-ia-no-es-solo-de-las-big-tech-construyendo-con-ia-open-source-marp",
+      "title": "La IA no es solo de las Big Tech - construyendo con IA Open Source",
+      "description": "Hay pocas tecnologías que se logran proliferar tan rápido como la IA",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/La_IA_no_es_solo_de_las_Big_Tech/La_IA_no_es_solo_de_las_Big_Tech-construyendo_con_IA_Open_Source.md",
+      "url": "generated/marp/presentaciones-la-ia-no-es-solo-de-las-big-tech-la-ia-no-es-solo-de-las-big-tech-construyendo-con-ia-open-source/index.html"
+    },
+    {
+      "id": "presentaciones-red-soberana-de-ia-slidev",
+      "title": "Red soberana e IA local",
+      "description": "",
+      "type": "slidev",
+      "collection": "presentaciones",
+      "source": "presentaciones/red-soberana-de-ia/slidev/slides.md",
+      "url": "generated/slidev/presentaciones-red-soberana-de-ia/index.html"
+    },
+    {
+      "id": "presentaciones-red-soberana-de-ia-red-soberana-de-ia-marp",
+      "title": "Reutiliza tus equipos viejos para una red soberana e IA",
+      "description": "Cómo una laptop, un mini-PC y una Raspberry Pi olvidados pueden federarse en una red de IA propia, sin nube ni dueño único.",
+      "type": "marp",
+      "collection": "presentaciones",
+      "source": "presentaciones/red-soberana-de-ia/red-soberana-de-ia.md",
+      "url": "generated/marp/presentaciones-red-soberana-de-ia-red-soberana-de-ia/index.html"
+    }
+  ]
+}

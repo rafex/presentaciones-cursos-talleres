@@ -9,6 +9,8 @@
 #   just generate crea-tu-agente-ia pdf -t taller
 #   just zip desarrollando-con-ia desarrollando_con_ia-corta.md
 #   just zip crea-tu-agente-ia -t taller
+#   just zip red-soberana-de-ia --engine slidev
+#   just slidev-zip presentaciones/red-soberana-de-ia/slidev/slides.md
 #   just list
 
 default:
@@ -52,14 +54,62 @@ generate *args:
     dir=$(./scripts/resolve-target.sh "$name" "${type_flags[@]+"${type_flags[@]}"}")
     ./scripts/generate-slides.sh "$dir" "$format"
 
+# Ejecuta o exporta un proyecto Slidev sin alterar la ruta Marp existente.
+# Uso: just slidev-dev presentaciones/red-soberana-de-ia/slidev/slides.md
+#      just slidev-export presentaciones/red-soberana-de-ia/slidev/slides.md pdf
+slidev-dev source:
+    ./scripts/generate-slidev.sh "{{source}}" dev
+
+slidev-export source format="pdf":
+    ./scripts/generate-slidev.sh "{{source}}" "{{format}}"
+
+# Empaqueta un proyecto Slidev transportable para InsightBloom.
+slidev-zip source out="":
+    ./scripts/build-slidev-presentation-zip.sh "{{source}}" "{{out}}"
+
+# Construye el catálogo HTML de presentaciones Marp y Slidev.
+portal-build:
+    node ./scripts/build-portal.mjs
+
+# Sirve el portal local en http://localhost:4173 y genera sus artefactos antes.
+portal-dev:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    port="${PORT:-4173}"
+    node ./scripts/build-portal.mjs
+    listeners="$(lsof -nP -iTCP:"$port" -sTCP:LISTEN -t 2>/dev/null || true)"
+    for pid in $listeners; do
+        command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
+        if [[ "$command_line" == *"http.server $port --directory portal"* ]]; then
+            if curl -fsS --max-time 2 "http://127.0.0.1:$port/" >/dev/null; then
+                echo "Portal ya está disponible en http://localhost:$port/ (PID $pid)."
+                exit 0
+            fi
+            echo "La instancia anterior del portal (PID $pid) no responde; se reiniciará." >&2
+            kill "$pid" 2>/dev/null || true
+        fi
+    done
+    for _ in 1 2 3 4 5; do
+        listeners="$(lsof -nP -iTCP:"$port" -sTCP:LISTEN -t 2>/dev/null || true)"
+        [[ -z "$listeners" ]] && break
+        sleep 0.2
+    done
+    if [[ -n "$listeners" ]]; then
+        echo "El puerto $port ya está ocupado por otro proceso (PID(s): $listeners)." >&2
+        echo "Cierra ese proceso o ejecuta: PORT=4174 just portal-dev" >&2
+        exit 1
+    fi
+    exec python3 -m http.server "$port" --directory portal
+
 # Genera el ZIP listo para subir a InsightBloom.
-# Uso: just zip <nombre> [archivo.md] [salida.zip] [-t|--type presentation|taller]
+# Uso: just zip <nombre> [archivo.md] [salida.zip] [-t|--type presentation|taller] [--engine marp|slidev]
 zip *args:
     #!/usr/bin/env bash
     set -euo pipefail
     args=({{args}})
     positional=()
     type_flags=()
+    engine="marp"
     i=0
     while [[ $i -lt ${#args[@]} ]]; do
       a="${args[$i]}"
@@ -72,6 +122,14 @@ zip *args:
           type_flags+=("$a")
           i=$((i+1))
           ;;
+        -e|--engine)
+          engine="${args[$((i+1))]}"
+          i=$((i+2))
+          ;;
+        -e=*|--engine=*)
+          engine="${a#*=}"
+          i=$((i+1))
+          ;;
         *)
           positional+=("$a")
           i=$((i+1))
@@ -82,11 +140,19 @@ zip *args:
     md="${positional[1]:-}"
     out="${positional[2]:-}"
     if [[ -z "$name" ]]; then
-      echo "Uso: just zip <nombre> [archivo.md] [salida.zip] [-t presentation|taller]" >&2
+      echo "Uso: just zip <nombre> [archivo.md] [salida.zip] [-t presentation|taller] [--engine marp|slidev]" >&2
       exit 1
     fi
     dir=$(./scripts/resolve-target.sh "$name" "${type_flags[@]+"${type_flags[@]}"}")
-    ./scripts/build-presentation-zip.sh "$dir" "$md" "$out"
+    if [[ "$engine" == "slidev" ]]; then
+      slidev_md="${md:-slidev/slides.md}"
+      ./scripts/build-slidev-presentation-zip.sh "$dir/$slidev_md" "$out"
+    elif [[ "$engine" == "marp" ]]; then
+      ./scripts/build-presentation-zip.sh "$dir" "$md" "$out"
+    else
+      echo "Uso: --engine marp|slidev" >&2
+      exit 1
+    fi
 
 # Genera los zips de release pendientes (omite los ya publicados, salvo
 # que su .release*.yaml tenga republish: true). Deja todo en dist/ y
