@@ -17,6 +17,7 @@ Elige el motor que mejor se adapte a tu presentación:
 - **[Guía Marp](./02-marp.md)** — Paso a paso para crear una presentación con Marp
 - **[Guía Slidev](./03-slidev.md)** — Paso a paso para crear una presentación con Slidev
 - **[Exportación y ZIP](./04-exportacion.md)** — Cómo empaquetar tu presentación para InsightBloom
+- **[ZIP InsightBloom MVP Slidev](./05-insightbloom-mvp.md)** — Formato específico del MVP (sin dist/, node_modules/, componentes Vue)
 
 ## Inicio rápido
 

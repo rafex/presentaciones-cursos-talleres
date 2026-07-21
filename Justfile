@@ -67,6 +67,11 @@ slidev-export source format="pdf":
 slidev-zip source out="":
     ./scripts/build-slidev-presentation-zip.sh "{{source}}" "{{out}}"
 
+# Empaqueta un proyecto Slidev para el MVP de InsightBloom (sin dist/, node_modules/, etc).
+# Uso: just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev [salida.zip]
+slidev-insightbloom-zip source out="":
+    ./scripts/build-slidev-insightbloom-zip.sh "{{source}}" "{{out}}"
+
 # Construye el catálogo HTML de presentaciones Marp y Slidev.
 portal-build:
     node ./scripts/build-portal.mjs

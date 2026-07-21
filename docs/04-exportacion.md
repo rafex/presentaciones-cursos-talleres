@@ -53,15 +53,19 @@ mi-presentacion.zip
 
 ### Generar el ZIP
 
-```bash
-just zip mi-presentacion --engine slidev
-```
-
-O desde la línea de comandos:
+**Opción 1: ZIP completo (transportable, incluye fuente)**
 
 ```bash
-./scripts/build-slidev-presentation-zip.sh presentaciones/mi-presentacion/slidev/slides.md
+just slidev-zip presentaciones/mi-presentacion/slidev
 ```
+
+**Opción 2: ZIP para MVP de InsightBloom (recomendado)**
+
+```bash
+just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev
+```
+
+⚠️ **Importante:** Si planeas subir a InsightBloom, usa **`slidev-insightbloom-zip`** que genera un ZIP compatible con el MVP (sin `dist/`, `node_modules/`, componentes Vue, etc.).
 
 ### Estructura del ZIP
 
@@ -163,15 +167,20 @@ El ZIP de Slidev incluye un `slidev.project.json`:
 
 ## Comparación: ¿Cuál ZIP elegir?
 
-| Aspecto | Marp | Slidev |
-|---|---|---|
-| **Tamaño ZIP** | Pequeño (~2-5 MB) | Medio (~10-20 MB) |
-| **Portabilidad** | PDF + ODP estándar | HTML + fuente |
-| **Interactividad** | No | Sí (web) |
-| **Reconstruible** | Sí, con Marp CLI | Sí, con Node.js |
-| **Presenter mode** | No | Sí (integrado) |
-| **Demos en vivo** | No | Sí (Vue) |
-| **Mejor para** | Archivo final | Web + actualización |
+| Aspecto | Marp | Slidev (Completo) | Slidev (MVP) |
+|---|---|---|---|
+| **Comando** | `just zip` | `just slidev-zip` | `just slidev-insightbloom-zip` |
+| **Tamaño** | Pequeño (~2-5 MB) | Grande (~20-50 MB) | Pequeño (~1-2 MB) |
+| **Incluye** | PDF, ODP, fuente | Fuente + dist/ + node_modules/ | Solo slides.md + assets |
+| **Reconstruible** | Con Marp CLI | Con `npm install && npm run build` | Solo lectura (compila en InsightBloom) |
+| **Componentes Vue** | No | Sí | No permitidos |
+| **Para InsightBloom** | No soportado | Soportado pero innecesario | ✅ **Recomendado** |
+| **Para archivo local** | ✅ Sí | ✅ Sí | No (necesita servidor) |
+
+**Decisión:**
+- **Marp:** `just zip mi-presentacion`
+- **Slidev local/portabilidad:** `just slidev-zip presentaciones/mi-presentacion/slidev`
+- **Slidev para InsightBloom MVP:** `just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev` ✅
 
 ## Subir a InsightBloom
 
