@@ -68,8 +68,12 @@ fi
 
 # Nombre del proyecto para el ZIP
 PROJECT_NAME=$(basename "$(dirname "$PROJECT_DIR")")
+
+# Directorio de salida: dist/
+OUT_DIR="$REPO_ROOT/dist"
+mkdir -p "$OUT_DIR"
 if [[ -z "$OUTPUT_ZIP" ]]; then
-  OUTPUT_ZIP="$REPO_ROOT/${PROJECT_NAME}-insightbloom.zip"
+  OUTPUT_ZIP="$OUT_DIR/${PROJECT_NAME}-insightbloom.zip"
 fi
 
 # Crear directorio temporal
@@ -164,7 +168,7 @@ echo "  ✓ slides.md presente"
 # 3. Verificar que no hay archivos prohibidos
 HAS_PROHIBITED=0
 for pattern in "${PROHIBITED_PATTERNS[@]}"; do
-  if unzip -l "$OUTPUT_ZIP" | grep -E "$pattern" >/dev/null 2>&1; then
+  if unzip -l "$OUTPUT_ZIP" 2>/dev/null | grep -v "^Archive:" | grep -E "$pattern" >/dev/null 2>&1; then
     echo "  ✗ Encontrado patrón prohibido: $pattern"
     HAS_PROHIBITED=1
   fi

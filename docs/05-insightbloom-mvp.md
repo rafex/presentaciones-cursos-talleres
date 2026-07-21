@@ -96,12 +96,12 @@ También está prohibido:
 just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev
 ```
 
-Genera: `mi-presentacion-insightbloom.zip`
+Genera: `dist/mi-presentacion-insightbloom.zip`
 
 Con salida personalizada:
 
 ```bash
-just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev mi-presentacion.zip
+just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev dist/mi-presentacion-custom.zip
 ```
 
 ### Opción 2: Manualmente

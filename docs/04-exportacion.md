@@ -59,11 +59,15 @@ mi-presentacion.zip
 just slidev-zip presentaciones/mi-presentacion/slidev
 ```
 
-**Opción 2: ZIP para MVP de InsightBloom (recomendado)**
+Genera: `dist/mi-presentacion-slidev.zip`
+
+### Opción 2: ZIP para MVP de InsightBloom (recomendado)
 
 ```bash
 just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev
 ```
+
+Genera: `dist/mi-presentacion-insightbloom.zip`
 
 ⚠️ **Importante:** Si planeas subir a InsightBloom, usa **`slidev-insightbloom-zip`** que genera un ZIP compatible con el MVP (sin `dist/`, `node_modules/`, componentes Vue, etc.).
 
@@ -194,9 +198,11 @@ El ZIP de Slidev incluye un `slidev.project.json`:
 
 1. **Generar el ZIP**
    ```bash
-   just zip mi-presentacion                    # Marp
+   just zip mi-presentacion                    # Marp → dist/mi-presentacion.zip
    # o
-   just zip mi-presentacion --engine slidev    # Slidev
+   just zip mi-presentacion --engine slidev    # Slidev completo → dist/mi-presentacion-slidev.zip
+   # o
+   just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev   # Slidev MVP → dist/mi-presentacion-insightbloom.zip
    ```
 
 2. **Iniciar sesión en InsightBloom**
@@ -204,7 +210,7 @@ El ZIP de Slidev incluye un `slidev.project.json`:
 
 3. **Importar presentación**
    - Botón "Importar" o "Upload ZIP"
-   - Selecciona el archivo `.zip` generado
+   - Selecciona el archivo `.zip` de `dist/`
    - Verifica metadatos (título, descripción, etc.)
 
 4. **Publicar**
