@@ -90,27 +90,44 @@ También está prohibido:
 
 ## Generar el ZIP correctamente
 
-### Opción 1: Usar el script (recomendado)
+### Opción 1: Usar el script con nombre de proyecto (recomendado)
+
+El script resuelve automáticamente si el proyecto está en `presentaciones/` o `talleres/`:
 
 ```bash
-just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev
+# Resolución automática
+just slidev-insightbloom-zip slidev-en-10-minutos
+
+# Con tipo explícito (si existe ambigüedad)
+just slidev-insightbloom-zip slidev-en-10-minutos -t presentation
+
+# Con salida personalizada
+just slidev-insightbloom-zip slidev-en-10-minutos dist/custom.zip
+
+# Tipo + salida
+just slidev-insightbloom-zip slidev-en-10-minutos -t taller dist/custom.zip
 ```
 
-Genera: `dist/mi-presentacion-insightbloom.zip`
+Genera: `dist/slidev-en-10-minutos-insightbloom.zip` (o la ruta especificada)
 
-Con salida personalizada:
+### Opción 2: Usar el script con ruta completa
+
+Para rutas absolutas o complejas:
 
 ```bash
-just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev dist/mi-presentacion-custom.zip
+./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev
+./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev dist/mi-presentacion.zip
 ```
 
-### Opción 2: Manualmente
+### Opción 3: Manualmente (sin script)
+
+Si prefieres no usar el script:
 
 ```bash
 #!/bin/bash
 SOURCE_DIR="presentaciones/mi-presentacion/slidev"
 PACKAGE_DIR="/tmp/mi-presentacion-package"
-OUTPUT_ZIP="mi-presentacion-insightbloom.zip"
+OUTPUT_ZIP="dist/mi-presentacion-insightbloom.zip"
 
 # Crear staging
 mkdir -p "$PACKAGE_DIR/assets/css" "$PACKAGE_DIR/assets/images"

@@ -5,12 +5,12 @@
 # El ZIP contiene solo slides.md + assets permitidos (CSS, imágenes, fuentes).
 # No incluye dist/, node_modules/, package.json, .vue, .ts, .js, etc.
 #
-# Uso:
-#   ./scripts/build-slidev-insightbloom-zip.sh <proyecto-slidev> [salida.zip]
+# Uso (con nombre de proyecto — busca en presentaciones/ y talleres/):
+#   ./scripts/build-slidev-insightbloom-zip.sh <nombre> [-t|--type presentation|taller] [salida.zip]
 #
-# Ejemplo:
-#   ./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev
-#   ./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev mi-presentacion-insightbloom.zip
+# Uso (con ruta completa):
+#   ./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev [salida.zip]
+#   ./scripts/build-slidev-insightbloom-zip.sh presentaciones/mi-presentacion/slidev dist/mi-presentacion.zip
 #
 set -euo pipefail
 
@@ -19,13 +19,16 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 usage() {
   cat >&2 <<EOF
-Uso: $(basename "$0") <proyecto-slidev> [salida.zip]
+Uso: $(basename "$0") <nombre> [-t|--type presentation|taller] [salida.zip]
+  o: $(basename "$0") <ruta/slidev> [salida.zip]
 
 Genera un ZIP compatible con InsightBloom (MVP Slidev).
 
-Ejemplo:
-  $(basename "$0") presentaciones/mi-presentacion/slidev
-  $(basename "$0") presentaciones/mi-presentacion/slidev mi-presentacion.zip
+Ejemplos:
+  $(basename "$0") slidev-en-10-minutos                           # Resuelve automáticamente
+  $(basename "$0") slidev-en-10-minutos -t presentation           # Desambigua si existe en ambos
+  $(basename "$0") presentaciones/mi-presentacion/slidev          # Ruta completa
+  $(basename "$0") mi-presentacion -t taller dist/mi-presentacion.zip
 
 El ZIP contendrá solo:
   - slides.md (obligatorio)
@@ -47,17 +50,67 @@ EOF
 
 [[ $# -ge 1 ]] || usage
 
-PROJECT_PATH="$1"
-OUTPUT_ZIP="${2:-}"
+# Parsear argumentos
+FIRST_ARG="$1"
+TYPE=""
+OUTPUT_ZIP=""
+shift
 
-# Resolver rutas
-if [[ -d "$PROJECT_PATH" ]]; then
-  PROJECT_DIR="$(cd "$PROJECT_PATH" && pwd)"
-elif [[ -d "$REPO_ROOT/$PROJECT_PATH" ]]; then
-  PROJECT_DIR="$(cd "$REPO_ROOT/$PROJECT_PATH" && pwd)"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -t|--type)
+      [[ $# -ge 2 ]] || usage
+      TYPE="$2"
+      shift 2
+      ;;
+    -t=*|--type=*)
+      TYPE="${1#*=}"
+      shift
+      ;;
+    *)
+      if [[ -z "$OUTPUT_ZIP" ]]; then
+        OUTPUT_ZIP="$1"
+      else
+        echo "Error: argumento inesperado '$1'." >&2
+        usage
+      fi
+      shift
+      ;;
+  esac
+done
+
+# Detectar si es una ruta o un nombre de proyecto
+if [[ "$FIRST_ARG" == */* ]]; then
+  # Es una ruta (contiene /)
+  PROJECT_PATH="$FIRST_ARG"
+  if [[ -d "$PROJECT_PATH" ]]; then
+    PROJECT_DIR="$(cd "$PROJECT_PATH" && pwd)"
+  elif [[ -d "$REPO_ROOT/$PROJECT_PATH" ]]; then
+    PROJECT_DIR="$(cd "$REPO_ROOT/$PROJECT_PATH" && pwd)"
+  else
+    echo "❌ Error: no existe la ruta '$PROJECT_PATH'." >&2
+    exit 1
+  fi
 else
-  echo "❌ Error: no existe el proyecto Slidev en '$PROJECT_PATH'." >&2
-  exit 1
+  # Es un nombre de proyecto — resolver con resolve-target.sh
+  if [[ -n "$TYPE" ]]; then
+    if ! TARGET_DIR=$("$SCRIPT_DIR/resolve-target.sh" "$FIRST_ARG" -t "$TYPE" 2>&1); then
+      echo "❌ Error: $TARGET_DIR" >&2
+      exit 1
+    fi
+  else
+    if ! TARGET_DIR=$("$SCRIPT_DIR/resolve-target.sh" "$FIRST_ARG" 2>&1); then
+      echo "❌ Error: $TARGET_DIR" >&2
+      exit 1
+    fi
+  fi
+  # El target es presentaciones/<nombre> o talleres/<nombre>. Buscamos slidev/slides.md dentro.
+  if [[ -d "$TARGET_DIR/slidev" ]]; then
+    PROJECT_DIR="$TARGET_DIR/slidev"
+  else
+    echo "❌ Error: no se encontró carpeta 'slidev' dentro de '$TARGET_DIR'." >&2
+    exit 1
+  fi
 fi
 
 # Verificar que existe slides.md
@@ -74,6 +127,13 @@ OUT_DIR="$REPO_ROOT/dist"
 mkdir -p "$OUT_DIR"
 if [[ -z "$OUTPUT_ZIP" ]]; then
   OUTPUT_ZIP="$OUT_DIR/${PROJECT_NAME}-insightbloom.zip"
+else
+  # Convertir a ruta absoluta si es relativa
+  if [[ ! "$OUTPUT_ZIP" = /* ]]; then
+    OUTPUT_ZIP="$REPO_ROOT/$OUTPUT_ZIP"
+  fi
+  # Crear el directorio padre si no existe
+  mkdir -p "$(dirname "$OUTPUT_ZIP")"
 fi
 
 # Crear directorio temporal

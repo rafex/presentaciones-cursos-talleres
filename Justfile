@@ -68,9 +68,46 @@ slidev-zip source out="":
     ./scripts/build-slidev-presentation-zip.sh "{{source}}" "{{out}}"
 
 # Empaqueta un proyecto Slidev para el MVP de InsightBloom (sin dist/, node_modules/, etc).
-# Uso: just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev [salida.zip]
-slidev-insightbloom-zip source out="":
-    ./scripts/build-slidev-insightbloom-zip.sh "{{source}}" "{{out}}"
+# Uso: just slidev-insightbloom-zip <nombre> [-t presentation|taller] [salida.zip]
+#      just slidev-insightbloom-zip slidev-en-10-minutos
+#      just slidev-insightbloom-zip slidev-en-10-minutos -t presentation
+#      just slidev-insightbloom-zip slidev-en-10-minutos dist/custom.zip
+slidev-insightbloom-zip *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    args=({{args}})
+    name=""
+    out=""
+    type_flags=()
+    i=0
+    while [[ $i -lt ${#args[@]} ]]; do
+      a="${args[$i]}"
+      case "$a" in
+        -t|--type)
+          type_flags+=("$a" "${args[$((i+1))]}")
+          i=$((i+2))
+          ;;
+        -t=*|--type=*)
+          type_flags+=("$a")
+          i=$((i+1))
+          ;;
+        *)
+          if [[ -z "$name" ]]; then
+            name="$a"
+          elif [[ -z "$out" ]]; then
+            out="$a"
+          else
+            i=$((i+1))
+          fi
+          i=$((i+1))
+          ;;
+      esac
+    done
+    if [[ -z "$name" ]]; then
+      echo "Uso: just slidev-insightbloom-zip <nombre> [-t presentation|taller] [salida.zip]" >&2
+      exit 1
+    fi
+    ./scripts/build-slidev-insightbloom-zip.sh "$name" "${type_flags[@]+"${type_flags[@]}"}" "$out"
 
 # Construye el catálogo HTML de presentaciones Marp y Slidev.
 portal-build:
