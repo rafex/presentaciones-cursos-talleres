@@ -1,0 +1,182 @@
+/* Tema personalizado para Slidev - Slidev en 10 minutos */
+
+:root {
+  --slidev-color-primary: #0066cc;
+  --slidev-color-secondary: #00d4ff;
+  --slidev-font-size: 20px;
+  --slidev-font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Estilos globales */
+.slidev-layout {
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--slidev-font-family);
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--slidev-color-primary);
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+/* Párrafos */
+p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+/* Listas */
+ul, ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+/* Código */
+code {
+  background: #f0f0f0;
+  color: #d63384;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Links */
+a {
+  color: var(--slidev-color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--slidev-color-primary);
+  padding-left: 1em;
+  margin: 0.5em 0;
+  font-style: italic;
+  color: #666;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+table th {
+  background: var(--slidev-color-primary);
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Layout cover */
+.slidev-layout.cover {
+  background: linear-gradient(135deg, var(--slidev-color-primary) 0%, var(--slidev-color-secondary) 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slidev-layout.cover h1,
+.slidev-layout.cover h2,
+.slidev-layout.cover h3,
+.slidev-layout.cover p {
+  color: white;
+}
+
+/* Layout intro */
+.slidev-layout.intro {
+  background: linear-gradient(to right, #f0f0f0 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Layout statement */
+.slidev-layout.statement {
+  background: linear-gradient(135deg, var(--slidev-color-primary) 0%, var(--slidev-color-secondary) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+}
+
+.slidev-layout.statement h1,
+.slidev-layout.statement p {
+  color: white;
+}
+
+/* Layout two-cols */
+.slidev-layout.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+/* Paginación */
+.slidev-page-number {
+  color: var(--slidev-color-primary);
+}
+
+/* Transiciones */
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+}
