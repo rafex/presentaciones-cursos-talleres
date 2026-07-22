@@ -182,11 +182,17 @@ Presenter:
 
 ---
 
+---
+
 # Componentes Vue personalizados
 
-Puedes insertar componentes Vue directamente:
+Slidev permite componentes Vue, pero el MVP de InsightBloom solo acepta Markdown y CSS declarativo.
 
-<Counter />
+Para que sea compatible, usa HTML puro + estilos CSS:
+
+<div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; text-align: center; font-weight: bold;">
+  ✨ Presentación compatible con InsightBloom MVP
+</div>
 
 ---
 
