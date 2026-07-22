@@ -56,7 +56,9 @@ mi-presentacion.zip
 **Opción 1: ZIP completo (transportable, incluye fuente)**
 
 ```bash
-just slidev-zip presentaciones/mi-presentacion/slidev
+just slidev-zip mi-presentacion
+# o con tipo explícito si existe ambigüedad
+just slidev-zip mi-presentacion -t presentation
 ```
 
 Genera: `dist/mi-presentacion-slidev.zip`
@@ -64,7 +66,11 @@ Genera: `dist/mi-presentacion-slidev.zip`
 ### Opción 2: ZIP para MVP de InsightBloom (recomendado)
 
 ```bash
-just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev
+just slidev-insightbloom-zip mi-presentacion
+# o con tipo explícito si existe ambigüedad
+just slidev-insightbloom-zip mi-presentacion -t presentation
+# o con salida personalizada
+just slidev-insightbloom-zip mi-presentacion dist/custom.zip
 ```
 
 Genera: `dist/mi-presentacion-insightbloom.zip`
@@ -183,8 +189,8 @@ El ZIP de Slidev incluye un `slidev.project.json`:
 
 **Decisión:**
 - **Marp:** `just zip mi-presentacion`
-- **Slidev local/portabilidad:** `just slidev-zip presentaciones/mi-presentacion/slidev`
-- **Slidev para InsightBloom MVP:** `just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev` ✅
+- **Slidev local/portabilidad:** `just slidev-zip mi-presentacion`
+- **Slidev para InsightBloom MVP:** `just slidev-insightbloom-zip mi-presentacion` ✅
 
 ## Subir a InsightBloom
 
@@ -198,11 +204,11 @@ El ZIP de Slidev incluye un `slidev.project.json`:
 
 1. **Generar el ZIP**
    ```bash
-   just zip mi-presentacion                    # Marp → dist/mi-presentacion.zip
+   just zip mi-presentacion                      # Marp → dist/mi-presentacion.zip
    # o
-   just zip mi-presentacion --engine slidev    # Slidev completo → dist/mi-presentacion-slidev.zip
+   just slidev-zip mi-presentacion               # Slidev completo → dist/mi-presentacion-slidev.zip
    # o
-   just slidev-insightbloom-zip presentaciones/mi-presentacion/slidev   # Slidev MVP → dist/mi-presentacion-insightbloom.zip
+   just slidev-insightbloom-zip mi-presentacion  # Slidev MVP → dist/mi-presentacion-insightbloom.zip
    ```
 
 2. **Iniciar sesión en InsightBloom**
