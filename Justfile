@@ -109,6 +109,53 @@ slidev-insightbloom-zip *args:
     fi
     ./scripts/build-slidev-insightbloom-zip.sh "$name" "${type_flags[@]+"${type_flags[@]}"}" "$out"
 
+# Empaqueta un proyecto Slidev compilado para InsightBloom FAT (con dist/, manifiesto y hashes).
+# Formato experimental que requiere auditoría de InsightBloom antes de servirse.
+# Uso: just slidev-insightbloom-fat-zip <nombre> [-t presentation|taller] [salida.zip]
+#      just slidev-insightbloom-fat-zip slidev-en-10-minutos
+#      just slidev-insightbloom-fat-zip slidev-en-10-minutos -t presentation
+#      just slidev-insightbloom-fat-zip slidev-en-10-minutos dist/custom.zip
+slidev-insightbloom-fat-zip *args:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    args=({{args}})
+    name=""
+    out=""
+    type_flags=()
+    i=0
+    while [[ $i -lt ${#args[@]} ]]; do
+      a="${args[$i]}"
+      case "$a" in
+        -t|--type)
+          type_flags+=("$a" "${args[$((i+1))]}")
+          i=$((i+2))
+          ;;
+        -t=*|--type=*)
+          type_flags+=("$a")
+          i=$((i+1))
+          ;;
+        *)
+          if [[ -z "$name" ]]; then
+            name="$a"
+          elif [[ -z "$out" ]]; then
+            out="$a"
+          else
+            i=$((i+1))
+          fi
+          i=$((i+1))
+          ;;
+      esac
+    done
+    if [[ -z "$name" ]]; then
+      echo "Uso: just slidev-insightbloom-fat-zip <nombre> [-t presentation|taller] [salida.zip]" >&2
+      exit 1
+    fi
+    if [[ -n "$out" ]]; then
+      ./scripts/build-slidev-insightbloom-fat-zip.sh "$name" "${type_flags[@]+"${type_flags[@]}"}" "$out"
+    else
+      ./scripts/build-slidev-insightbloom-fat-zip.sh "$name" "${type_flags[@]+"${type_flags[@]}"}"
+    fi
+
 # Construye el catálogo HTML de presentaciones Marp y Slidev.
 portal-build:
     node ./scripts/build-portal.mjs
