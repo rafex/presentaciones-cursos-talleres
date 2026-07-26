@@ -149,19 +149,41 @@ echo
 cp "$PROJECT_DIR/slides.md" "$STAGING_DIR/slides.md"
 echo "✅ Copiado: slides.md"
 
-# Copiar assets permitidos (solo directorios específicos)
+# Copiar assets permitidos (solo directorios específicos). Un proyecto Slidev
+# puede reutilizar los assets del taller mediante public -> ../assets; también
+# aceptamos assets/ dentro de slidev para proyectos autocontenidos.
 ASSETS_ALLOWED=("css" "images" "fonts" "videos" "audio")
-if [[ -d "$PROJECT_DIR/assets" ]]; then
+copy_allowed_assets() {
+  local source_root="$1"
+  [[ -d "$source_root" ]] || return 0
   mkdir -p "$STAGING_DIR/assets"
-  
+
   for asset_type in "${ASSETS_ALLOWED[@]}"; do
-    if [[ -d "$PROJECT_DIR/assets/$asset_type" ]]; then
-      cp -R "$PROJECT_DIR/assets/$asset_type" "$STAGING_DIR/assets/"
-      # Contar archivos
+    if [[ -d "$source_root/$asset_type" ]]; then
+      mkdir -p "$STAGING_DIR/assets/$asset_type"
+      cp -R "$source_root/$asset_type/." "$STAGING_DIR/assets/$asset_type/"
       count=$(find "$STAGING_DIR/assets/$asset_type" -type f | wc -l)
       echo "✅ Copiado: assets/$asset_type/ ($count archivos)"
     fi
   done
+}
+
+copy_allowed_assets "$PROJECT_DIR/assets"
+copy_allowed_assets "$PROJECT_DIR/public"
+copy_allowed_assets "$(dirname "$PROJECT_DIR")/assets"
+
+# Slidev permite un style.css global en la raíz del proyecto. InsightBloom
+# reconoce el CSS declarativo del paquete bajo assets/css/theme.css, así que
+# lo materializamos con ese nombre cuando no existe otro tema explícito.
+if [[ -f "$PROJECT_DIR/style.css" ]]; then
+  mkdir -p "$STAGING_DIR/assets/css"
+  if [[ ! -f "$STAGING_DIR/assets/css/theme.css" ]]; then
+    cp "$PROJECT_DIR/style.css" "$STAGING_DIR/assets/css/theme.css"
+    echo "✅ Copiado: style.css como assets/css/theme.css"
+  else
+    cp "$PROJECT_DIR/style.css" "$STAGING_DIR/assets/css/slidev-style.css"
+    echo "✅ Copiado: style.css como assets/css/slidev-style.css"
+  fi
 fi
 
 # Validar que no hay archivos prohibidos en STAGING_DIR
@@ -219,7 +241,9 @@ fi
 echo "  ✓ ZIP íntegro"
 
 # 2. Verificar que existe slides.md
-if ! unzip -l "$OUTPUT_ZIP" | grep -q "slides.md"; then
+ZIP_LIST="$STAGING_DIR/zip-list.txt"
+unzip -Z1 "$OUTPUT_ZIP" > "$ZIP_LIST"
+if ! grep -Fxq "slides.md" "$ZIP_LIST"; then
   echo "❌ Error: slides.md no encontrado en el ZIP." >&2
   exit 1
 fi
@@ -228,7 +252,7 @@ echo "  ✓ slides.md presente"
 # 3. Verificar que no hay archivos prohibidos
 HAS_PROHIBITED=0
 for pattern in "${PROHIBITED_PATTERNS[@]}"; do
-  if unzip -l "$OUTPUT_ZIP" 2>/dev/null | grep -v "^Archive:" | grep -E "$pattern" >/dev/null 2>&1; then
+  if grep -E "$pattern" "$ZIP_LIST" >/dev/null 2>&1; then
     echo "  ✗ Encontrado patrón prohibido: $pattern"
     HAS_PROHIBITED=1
   fi
@@ -243,7 +267,7 @@ echo "  ✓ Sin archivos prohibidos"
 # Obtener información del ZIP
 ZIP_SIZE=$(du -sh "$OUTPUT_ZIP" | awk '{print $1}')
 ZIP_SIZE_BYTES=$(stat -f%z "$OUTPUT_ZIP" 2>/dev/null || stat -c%s "$OUTPUT_ZIP" 2>/dev/null)
-FILE_COUNT=$(unzip -l "$OUTPUT_ZIP" 2>/dev/null | grep -E "^-" | wc -l)
+FILE_COUNT=$(wc -l < "$ZIP_LIST")
 
 echo
 echo "✅ ZIP generado exitosamente"
@@ -251,8 +275,9 @@ echo
 echo "📊 Resumen:"
 echo "   Archivo: $OUTPUT_ZIP"
 echo "   Tamaño: $ZIP_SIZE ($ZIP_SIZE_BYTES bytes)"
+echo "   Archivos: $FILE_COUNT"
 echo
 echo "📋 Contenido del ZIP:"
-unzip -l "$OUTPUT_ZIP" 2>/dev/null | grep -v "^Archive:" | grep -v "Length" | grep -v "^--------" | awk 'NF {print "   " $0}'
+sed 's/^/   /' "$ZIP_LIST"
 echo
 echo "✓ Compatible con InsightBloom MVP (Slidev)"

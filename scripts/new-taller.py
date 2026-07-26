@@ -5,6 +5,10 @@ Uso:
   ./scripts/new-taller.py                              # Modo interactivo
   ./scripts/new-taller.py "nombre" "título"            # Con título
   ./scripts/new-taller.py "nombre" "título" "python"   # Con lenguajes
+  ./scripts/new-taller.py "nombre" "título" "python" "vscode" --engine slidev
+
+El motor predeterminado es Marp. `--engine slidev` agrega una fuente Slidev
+paralela; no elimina ni reemplaza la presentación Marp.
 """
 
 import sys
@@ -72,6 +76,35 @@ def get_fecha_actual() -> str:
     anio = ahora.year
     return f"{dia} {mes} {anio}"
 
+def parse_args():
+    """Separa opciones del motor de los argumentos posicionales existentes."""
+    positional = []
+    engine = "marp"
+    args = sys.argv[1:]
+    i = 0
+
+    while i < len(args):
+        arg = args[i]
+        if arg in ("-e", "--engine"):
+            if i + 1 >= len(args):
+                print("❌ Error: --engine requiere marp, slidev o both.", file=sys.stderr)
+                sys.exit(1)
+            engine = args[i + 1]
+            i += 2
+            continue
+        if arg.startswith("--engine="):
+            engine = arg.split("=", 1)[1]
+            i += 1
+            continue
+        positional.append(arg)
+        i += 1
+
+    if engine not in ("marp", "slidev", "both"):
+        print("❌ Error: --engine debe ser marp, slidev o both.", file=sys.stderr)
+        sys.exit(1)
+
+    return positional, engine
+
 def main():
     script_dir = Path(__file__).parent
     repo_root = script_dir.parent
@@ -79,21 +112,22 @@ def main():
     gitignore_dir = templates_dir / "gitignore"
     
     # Procesar argumentos
+    positional, engine = parse_args()
     nombre = None
     titulo = None
     langs = []
     ides = []
     
-    if len(sys.argv) > 1:
-        nombre = sys.argv[1]
-        if len(sys.argv) > 2:
-            titulo = sys.argv[2]
-        if len(sys.argv) > 3:
-            langs_str = sys.argv[3]
+    if positional:
+        nombre = positional[0]
+        if len(positional) > 1:
+            titulo = positional[1]
+        if len(positional) > 2:
+            langs_str = positional[2]
             langs = re.split(r'[,\s]+', langs_str)
             langs = [l.strip() for l in langs if l.strip()]
-        if len(sys.argv) > 4:
-            ides_str = sys.argv[4]
+        if len(positional) > 3:
+            ides_str = positional[3]
             ides = re.split(r'[,\s]+', ides_str)
             ides = [i.strip() for i in ides if i.strip()]
     
@@ -135,6 +169,7 @@ def main():
     
     # Crear estructura de directorios
     print(f"\n📁 Creando talleres/{nombre_normalizado} ...")
+    print(f"   Motor: {engine}")
     (taller_dir / "assets" / "css").mkdir(parents=True, exist_ok=True)
     (taller_dir / "assets" / "images").mkdir(parents=True, exist_ok=True)
     (taller_dir / "ejercicios").mkdir(parents=True, exist_ok=True)
@@ -158,6 +193,23 @@ def main():
     
     # Crear .gitkeep en images
     (taller_dir / "assets" / "images" / ".gitkeep").touch()
+
+    # Slidev es una fuente adicional: el Markdown Marp y los ejercicios siguen
+    # siendo parte del taller aunque se solicite el segundo engine.
+    if engine in ("slidev", "both"):
+        slidev_dir = taller_dir / "slidev"
+        slidev_template_dir = templates_dir / "slidev"
+        slidev_dir.mkdir(parents=True, exist_ok=True)
+        for template in slidev_template_dir.iterdir():
+            destination = slidev_dir / template.name
+            if template.name == "slides.md":
+                slidev_content = template.read_text(encoding="utf-8")
+                slidev_content = slidev_content.replace("__TITULO__", titulo)
+                slidev_content = slidev_content.replace("__NOMBRE__", nombre_normalizado)
+                destination.write_text(slidev_content, encoding="utf-8")
+            else:
+                shutil.copy(template, destination)
+        (slidev_dir / "public").symlink_to(Path("../assets"), target_is_directory=True)
     
     # Generar ejercicios/.gitignore
     gitignore_parts = ["security"]  # Siempre incluir security
@@ -188,6 +240,9 @@ def main():
     print(f"  - Personaliza talleres/{nombre_normalizado}/assets/css/theme.css")
     print(f"  - Agrega código de ejemplo en talleres/{nombre_normalizado}/ejercicios/")
     print(f"  - just generate {nombre_normalizado} -t taller")
+    if engine in ("slidev", "both"):
+        print(f"  - just slidev-dev talleres/{nombre_normalizado}/slidev/slides.md")
+        print(f"  - just slidev-insightbloom-zip {nombre_normalizado} -t taller")
     print(f"  - Cuando esté listo: crea talleres/{nombre_normalizado}/.release.yaml")
 
 if __name__ == "__main__":

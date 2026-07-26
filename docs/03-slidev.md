@@ -591,6 +591,38 @@ code {
 }
 ```
 
+## Talleres con Marp y Slidev
+
+Un taller puede conservar su fuente Marp y agregar una versión Slidev paralela.
+El contenido práctico sigue viviendo en `ejercicios/`; Slidev sólo agrega otro
+engine para presentar o publicar el material.
+
+```bash
+just new-taller mi-taller "Mi taller" "python" "vscode" --engine slidev
+just generate mi-taller -t taller                 # Marp: PDF/ODP
+just slidev-dev talleres/mi-taller/slidev/slides.md
+just slidev-insightbloom-zip mi-taller -t taller # ZIP MVP
+```
+
+La estructura resultante es:
+
+```text
+talleres/mi-taller/
+├── mi-taller.md       # fuente Marp, permanece vigente
+├── assets/
+├── ejercicios/
+└── slidev/
+    ├── slides.md
+    ├── package.json
+    ├── slidev.config.ts
+    ├── vite.config.ts
+    └── public -> ../assets
+```
+
+El ZIP MVP materializa el enlace `public` y conserva sólo `slides.md` y los
+assets permitidos; no sube ejercicios, dependencias ni configuraciones de
+build.
+
 ## Ejemplos en el repositorio
 
 Mira el piloto de Slidev como referencia:

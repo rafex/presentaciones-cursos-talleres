@@ -249,10 +249,11 @@ zip *args:
 release:
     ./scripts/release.sh
 
-# Crea un nuevo taller en talleres/<nombre>/ (slides + assets/ + ejercicios/
-# con .gitignore de seguridad+SO+IDE(s)+lenguaje(s)). Sin argumentos, pregunta
-# interactivamente (recomendado si el título tiene espacios). Uso no interactivo:
-#   just new-taller <nombre> [titulo] [langs] [ides]
+# Crea un nuevo taller en talleres/<nombre>/ (Marp + assets/ + ejercicios/).
+# Slidev es opcional y se agrega como una fuente paralela con --engine slidev
+# o --engine both; nunca reemplaza el Markdown Marp.
+# Uso no interactivo:
+#   just new-taller <nombre> [titulo] [langs] [ides] [--engine slidev]
 new-taller *args:
     #!/usr/bin/env bash
     python3 ./scripts/new-taller.py "$@"

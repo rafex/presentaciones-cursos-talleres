@@ -35,9 +35,9 @@ Usa Slidev si necesitas:
 
 Ambos motores usan la misma estructura base; la diferencia está en los archivos internos.
 
-### Marp
+### Marp (presentaciones y talleres)
 ```
-presentaciones/mi-presentacion/
+presentaciones/mi-presentacion/ # o talleres/mi-taller/
 ├── mi-presentacion.md          # Archivo principal (Marp Markdown)
 └── assets/
     ├── css/
@@ -46,9 +46,10 @@ presentaciones/mi-presentacion/
         └── ...                 # Imágenes de la presentación
 ```
 
-### Slidev
+### Slidev como engine adicional
 ```
-presentaciones/mi-presentacion/
+presentaciones/mi-presentacion/ # o talleres/mi-taller/
+├── mi-presentacion.md          # Marp se conserva como fuente principal
 ├── slidev/
 │   ├── slides.md               # Archivo principal (Slidev Markdown)
 │   ├── vite.config.ts          # Configuración Vite
@@ -74,9 +75,9 @@ presentaciones/mi-presentacion/
 # Ingresa el título: Mi presentación increíble
 ```
 
-**Slidev:**
+**Slidev (opcional para talleres y presentaciones):**
 ```bash
-./scripts/new-presentacion.sh --engine slidev
+./scripts/new-taller.py "mi-taller" "Mi taller" "python" "vscode" --engine slidev
 # Ingresa el nombre: mi-presentacion
 # Ingresa el título: Mi presentación increíble
 ```
@@ -84,7 +85,8 @@ presentaciones/mi-presentacion/
 ### 2. Editar el contenido
 
 - **Marp:** Edita `presentaciones/mi-presentacion/mi-presentacion.md`
-- **Slidev:** Edita `presentaciones/mi-presentacion/slidev/slides.md`
+- **Slidev:** Edita `presentaciones/mi-presentacion/slidev/slides.md` o
+  `talleres/mi-taller/slidev/slides.md`
 
 Ver [Guía Marp](./02-marp.md) o [Guía Slidev](./03-slidev.md) para sintaxis específica.
 
@@ -113,8 +115,12 @@ Ambos motores generan un ZIP listo para importar:
 
 ```bash
 just zip mi-presentacion                    # Marp (por defecto)
-just zip mi-presentacion --engine slidev    # Slidev
+just zip mi-taller mi-taller.md -t taller   # Marp del taller
+just zip mi-taller --engine slidev -t taller # Slidev del taller, si existe
 ```
+
+En ambos casos Marp y Slidev son fuentes paralelas: los ejercicios siguen
+viviendo en `ejercicios/` y no se reemplazan al crear `slidev/`.
 
 ## Convenciones de nombres
 
