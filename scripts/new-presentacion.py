@@ -120,6 +120,13 @@ def main():
     output_md = pres_dir / f"{nombre_normalizado}.md"
     with open(output_md, 'w', encoding='utf-8') as f:
         f.write(contenido)
+
+    # Toda conferencia nace con un cronograma editable y estandarizado.
+    template_cronograma = templates_dir / "cronograma.md"
+    cronograma = template_cronograma.read_text(encoding='utf-8')
+    cronograma = cronograma.replace("__TITULO__", titulo)
+    cronograma = cronograma.replace("__TIPO__", "Conferencia")
+    (pres_dir / "cronograma.md").write_text(cronograma, encoding='utf-8')
     
     # Copiar theme.css
     template_css = templates_dir / "theme.css"
@@ -137,6 +144,7 @@ def main():
     
     print("\n📋 Próximos pasos:")
     print(f"  - Edita presentaciones/{nombre_normalizado}/{nombre_normalizado}.md")
+    print(f"  - Completa presentaciones/{nombre_normalizado}/cronograma.md")
     print(f"  - Personaliza presentaciones/{nombre_normalizado}/assets/css/theme.css")
     print(f"  - just generate {nombre_normalizado} -t presentation")
     print(f"  - Cuando esté lista: crea presentaciones/{nombre_normalizado}/.release.yaml")

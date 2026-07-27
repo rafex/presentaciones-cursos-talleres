@@ -254,7 +254,7 @@ zip *args:
 release:
     ./scripts/release.sh
 
-# Crea un nuevo taller en talleres/<nombre>/ (Marp + assets/ + ejercicios/).
+# Crea un nuevo taller en talleres/<nombre>/ (Marp + cronograma.md + assets/ + ejercicios/).
 # Slidev es opcional y se agrega como una fuente paralela con --engine slidev
 # o --engine both; nunca reemplaza el Markdown Marp.
 # Uso no interactivo:
@@ -263,7 +263,7 @@ new-taller *args:
     #!/usr/bin/env bash
     python3 ./scripts/new-taller.py "$@"
 
-# Crea una nueva presentación en presentaciones/<nombre>/ (slides + assets/).
+# Crea una nueva conferencia en presentaciones/<nombre>/ (slides + cronograma.md + assets/).
 # 
 # Modo interactivo (recomendado):
 #   just new-presentacion

@@ -16,8 +16,21 @@ class: cover-slide
 <div class="cover-meta">Curso básico · ejemplos con archivos de texto</div>
 
 <!--
+Notas del orador:
+- Presenta el curso como una explicación del modelo mental de Git, no como una lista de recetas.
+- El hilo conductor será un archivo de texto que pasa por commits, ramas y remotes.
+- Indica que la práctica completa vive en:
+  https://github.com/rafex/IB-git
+
+Arranque para el grupo:
+~~~bash
+git clone https://github.com/rafex/IB-git.git git-taller
+cd git-taller
+bash setup-global.sh
+~~~
+
 [Sources]
-No hay assets externos. El contenido es una explicación didáctica de conceptos básicos de Git.
+https://github.com/rafex/IB-git
 -->
 
 ---
@@ -31,6 +44,11 @@ Es un sistema para guardar estados, comparar decisiones y coordinar copias del h
 <div class="big-quote">La colaboración ocurre cuando compartimos <span>historial</span>, no cuando pisamos la misma carpeta.</div>
 
 <!--
+Notas del orador:
+- Pregunta: “¿Git es una carpeta compartida o un historial de decisiones?”
+- Aclara que cada clon tiene su propio working tree y su propio repositorio local.
+- Repite la frase: la carpeta es el material de trabajo; el historial es lo que permite colaborar.
+
 [Sources]
 https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 -->
@@ -53,6 +71,11 @@ Al terminar, podrás explicar con tus propias palabras:
 <div class="bottom-note">No vamos a memorizar recetas: vamos a seguir el viaje de un archivo.</div>
 
 <!--
+Notas del orador:
+- Lee los cuatro resultados como la promesa del curso.
+- Explica que cada concepto se demostrará con archivos de texto, no con una aplicación compleja.
+- Anuncia el repositorio de práctica y que cada ejercicio tiene su propio setup.sh.
+
 [Sources]
 No hay fuentes externas; son objetivos didácticos del curso.
 -->
@@ -78,6 +101,18 @@ class: story-slide
 <div class="callout danger-callout">No es una estrategia de integración. Es deuda de coordinación.</div>
 
 <!--
+Notas del orador:
+- Usa el meme como gancho y pregunta quién ha recibido una rama “terminada” el viernes por la tarde.
+- Señala que git push --force no resuelve un conflicto; puede reescribir trabajo remoto.
+- Pide que distingan el síntoma (push rechazado) de la causa (historial desactualizado y decisiones acumuladas).
+
+Comandos para una demostración segura:
+~~~bash
+git status
+git log --oneline --graph --all
+git fetch
+~~~
+
 [Sources]
 No hay fuentes externas; el escenario es un ejemplo didáctico basado en la mala práctica descrita por el usuario.
 -->
@@ -96,6 +131,16 @@ Viernes     ambos intentan unir 4 días de decisiones ──┘  conflicto grand
 <div class="principle">Git integra texto; el equipo debe integrar trabajo.</div>
 
 <!--
+Notas del orador:
+- Pide al grupo que identifique qué cambios no conoce cada persona el lunes.
+- Explica que traer cambios al comenzar y compartir unidades nucleares reduce la distancia entre historiales.
+- Conecta con la regla práctica: pull/fetch antes de empezar y push al cerrar una unidad revisable.
+
+Comando para visualizar la divergencia:
+~~~bash
+git log --oneline --graph --all
+~~~
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
 -->
@@ -119,8 +164,22 @@ No guarda una “carpeta mágica”. Cada commit describe cómo estaba el proyec
 <div class="caption">Puedes volver a mirar cualquier instantánea sin perder las demás.</div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 01 del repositorio IB-git.
+- Pide ejecutar el setup y observar que se crea un repositorio independiente.
+
+~~~bash
+cd ejercicios/01-commits
+bash setup.sh
+cd taller-01
+git status
+~~~
+
+- Explica que el objetivo es crear los estados A, B y C de agenda.txt.
+
 [Sources]
 https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+https://github.com/rafex/IB-git/blob/main/ejercicios/01-commits/README.md
 -->
 
 ---
@@ -147,8 +206,28 @@ https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 <div class="bottom-note">Git no adivina intención: registra estados y la relación entre ellos.</div>
 
 <!--
+Notas del orador:
+- Haz una pausa después de cada estado y pregunta: “¿qué quedó registrado en este commit?”
+- La secuencia para el estado A es:
+
+~~~bash
+git status
+git add agenda.txt
+git commit -m "agrega agenda inicial"
+git log --oneline
+~~~
+
+- Para B y C se repite el ciclo: editar, git status, git add, git commit y git log.
+- Al final muestra que se puede volver a inspeccionar A sin borrar B ni C:
+
+~~~bash
+git show HEAD~2:agenda.txt
+git diff HEAD~2 HEAD
+~~~
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+https://github.com/rafex/IB-git/blob/main/ejercicios/01-commits/README.md
 -->
 
 ---
@@ -179,9 +258,27 @@ layout: two-cols
 <div class="caption">add, commit, push, fetch y pull mueven información entre lugares distintos.</div>
 
 <!--
+Notas del orador:
+- Recorre el flujo de izquierda a derecha y explica qué comando mueve información.
+- Working tree: se edita el archivo y se inspecciona con git status/git diff.
+- Staging: git add selecciona lo que entrará al próximo commit.
+- Repo local: git commit guarda la decisión y git log permite leerla.
+- Remote: git push publica; git fetch trae referencias sin tocar archivos; git pull trae e integra.
+
+Demostración:
+~~~bash
+git status
+git diff
+git add agenda.txt
+git diff --staged
+git commit -m "describe la decisión"
+git log --oneline
+~~~
+
 [Sources]
 https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 https://git-scm.com/docs/gitremote
+https://github.com/rafex/IB-git/blob/main/recursos/modelo-mental.md
 -->
 
 ---
@@ -205,8 +302,22 @@ agenda.txt
 <div class="principle">Un commit útil se puede leer como una frase.</div>
 
 <!--
+Notas del orador:
+- Explica que un commit no es sólo “guardar”: tiene contenido, autor, mensaje, padre e identidad.
+- Pide leerlo como una frase: “Ana agrega la sección de preguntas a partir de 2c91”.
+
+Comandos:
+~~~bash
+git show HEAD
+git log --oneline
+git show HEAD~1
+~~~
+
+- Conecta el mensaje del commit con la colaboración: un mensaje claro reduce preguntas futuras.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+https://github.com/rafex/IB-git/blob/main/recursos/cheat-sheet.md
 -->
 
 ---
@@ -222,8 +333,34 @@ https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
 <div class="caption">Crear una rama es mover un nombre para trabajar con libertad, no duplicar el proyecto.</div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 02: una rama es un nombre móvil que apunta a un commit.
+- Ejecuta el setup y muestra que crear la rama no duplica la carpeta.
+
+~~~bash
+cd ejercicios/02-ramas
+bash setup.sh
+cd taller-02
+git branch
+git branch ana
+git switch ana
+~~~
+
+- En ana: edita agenda.txt, agrega, commit y luego vuelve a main.
+
+~~~bash
+git add agenda.txt
+git commit -m "agrega sección de cierre"
+git switch main
+cat agenda.txt
+git log --oneline --graph --all
+~~~
+
+- Pregunta: “¿Dónde quedó el commit de ana y qué rama apunta a él?”
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+https://github.com/rafex/IB-git/blob/main/ejercicios/02-ramas/README.md
 -->
 
 ---
@@ -249,9 +386,24 @@ class: dark-slide
 <div class="dark-claim">Cada participante tiene una copia del historial.<br><span>El remote coordina; no contiene la única verdad posible.</span></div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 03: habrá un repositorio bare llamado origin y dos clones, ana y luis.
+- Recalca que origin es una copia nombrada, no “la carpeta central” de Git.
+
+~~~bash
+cd ejercicios/03-remotes
+bash setup.sh
+cd taller-03/ana
+git remote -v
+git log --oneline
+~~~
+
+- Explica que ambos clones tienen historial local y pueden trabajar sin red.
+
 [Sources]
 https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+https://github.com/rafex/IB-git/blob/main/ejercicios/03-remotes/README.md
 -->
 
 ---
@@ -275,6 +427,17 @@ https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
 <div class="principle">Un solo remote no convierte a Git en un sistema centralizado.</div>
 
 <!--
+Notas del orador:
+- Compara “flujo centralizado” con “naturaleza distribuida”.
+- Un equipo puede acordar un único remote principal y aun así cada clon conservar todo el historial.
+- Demuestra que el alias puede consultarse y que no es una palabra reservada:
+
+~~~bash
+git remote -v
+git remote get-url origin
+git branch -a
+~~~
+
 [Sources]
 https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
@@ -298,9 +461,23 @@ cliente  → repositorio de una organización</pre>
 <div class="caption">Puedes tener uno, varios o ninguno. origin es una convención, no una arquitectura.</div>
 
 <!--
+Notas del orador:
+- Explica origin, upstream, backup y cliente como nombres de conexiones.
+- Muestra que los nombres se pueden consultar, añadir o eliminar sin mover commits.
+
+~~~bash
+git remote -v
+git remote add backup ../origin.git
+git remote -v
+git remote remove backup
+~~~
+
+- Evita presentar origin como “el servidor”; es sólo el nombre más común para una conexión.
+
 [Sources]
 https://git-scm.com/docs/git-remote
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+https://github.com/rafex/IB-git/blob/main/recursos/cheat-sheet.md
 -->
 
 ---
@@ -317,10 +494,26 @@ https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
 <div class="flow-strip"><b>traer primero</b><span>fetch / pull</span><b>integrar</b><span>merge / rebase</span><b>publicar después</b><span>push</span></div>
 
 <!--
+Notas del orador:
+- Explica los cuatro movimientos con una frase y una demostración:
+
+~~~bash
+git clone <url> git-taller
+git fetch
+git pull
+git push
+~~~
+
+- clone se usa normalmente una vez para obtener la copia inicial.
+- fetch trae referencias y no modifica el archivo de trabajo.
+- pull hace fetch y después integra en la rama actual.
+- push publica commits locales; no publica cambios que aún no tengan commit.
+
 [Sources]
 https://git-scm.com/docs/git-fetch
 https://git-scm.com/docs/git-pull
 https://git-scm.com/docs/git-push
+https://github.com/rafex/IB-git/blob/main/recursos/cheat-sheet.md
 -->
 
 ---
@@ -339,9 +532,30 @@ class: section-slide
 <div class="big-quote">La frecuencia correcta es: <span>cuando termina una unidad nuclear de trabajo.</span></div>
 
 <!--
+Notas del orador:
+- Presenta el ciclo que queremos convertir en hábito:
+  1. traer historial reciente;
+  2. hacer una unidad pequeña;
+  3. revisar;
+  4. crear un commit claro;
+  5. compartir.
+
+~~~bash
+git pull
+git status
+# editar agenda.txt
+git diff
+git add agenda.txt
+git commit -m "termina una unidad de trabajo"
+git push
+~~~
+
+- Aclara que subir con frecuencia no significa publicar trabajo roto: significa compartir unidades revisables y con contexto.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+https://github.com/rafex/IB-git/blob/main/GUIA-FACILITADOR.md
 -->
 
 ---
@@ -362,8 +576,23 @@ luis: A ── B ── D   “agrega notas”</pre>
 <div class="principle">El auto-merge funciona mejor cuando las diferencias son pequeñas y recientes.</div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 04 y pide predecir el resultado antes de integrar.
+
+~~~bash
+cd ejercicios/04-merge-rebase
+bash setup.sh
+cd taller-04
+git log --oneline --graph --all
+git status
+~~~
+
+- Si las ramas tocaron líneas distintas, Git puede combinar C y D automáticamente.
+- Si tocaron la misma zona, Git se detiene y la decisión pasa al equipo.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+https://github.com/rafex/IB-git/blob/main/ejercicios/04-merge-rebase/README.md
 -->
 
 ---
@@ -379,9 +608,22 @@ https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 <div class="caption">Úsalo cuando quieras conservar el contexto de la integración.</div>
 
 <!--
+Notas del orador:
+- Parte A del ejercicio 04: merge conserva que hubo dos caminos.
+
+~~~bash
+git switch main
+git merge feature
+git log --oneline --graph --all
+~~~
+
+- Señala el commit M y sus dos padres.
+- Explica que merge suele ser adecuado cuando quieres conservar el contexto de la integración o cuando la rama ya es compartida.
+
 [Sources]
 https://git-scm.com/docs/git-merge
 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+https://github.com/rafex/IB-git/blob/main/ejercicios/04-merge-rebase/README.md
 -->
 
 ---
@@ -405,9 +647,30 @@ Después:
 <div class="caption">Úsalo para ordenar trabajo local o una rama que todavía no compartiste.</div>
 
 <!--
+Notas del orador:
+- Parte B del ejercicio 04: rebase reaplica los commits de una rama sobre una base nueva.
+
+~~~bash
+git switch mi-cambio
+git rebase main
+git log --oneline --graph --all
+~~~
+
+- Explica que el contenido puede ser equivalente, pero cambian los padres y los hashes.
+- Regla de seguridad: no hagas rebase de una rama que otras personas ya descargaron.
+- Si aparece un conflicto durante rebase:
+
+~~~bash
+git status
+# editar el archivo y quitar los marcadores
+git add agenda.txt
+git rebase --continue
+~~~
+
 [Sources]
 https://git-scm.com/docs/git-rebase
 https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+https://github.com/rafex/IB-git/blob/main/ejercicios/04-merge-rebase/README.md
 -->
 
 ---
@@ -424,9 +687,17 @@ https://git-scm.com/book/en/v2/Git-Branching-Rebasing
 <div class="principle">La política del equipo importa: no reescribas una rama que otras personas ya usan.</div>
 
 <!--
+Notas del orador:
+- Usa la tabla para convertir la elección en una pregunta de intención:
+  - ¿quiero conservar el encuentro? merge;
+  - ¿quiero ordenar mi rama todavía privada? rebase;
+  - ¿quiero impedir una integración divergente? ff-only.
+- Pide al grupo que formule la política de su equipo antes de memorizar comandos.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Rebasing
 https://git-scm.com/docs/git-merge
+https://github.com/rafex/IB-git/blob/main/ejercicios/04-merge-rebase/README.md
 -->
 
 ---
@@ -445,8 +716,21 @@ después:  A ── B ── C  main avanza al mismo commit</pre>
 <div class="caption">Es una baranda de seguridad: no inventa una integración ni resuelve un conflicto por ti.</div>
 
 <!--
+Notas del orador:
+- Parte C del ejercicio 04: ff-only sólo permite avanzar si no hay dos caminos que reconciliar.
+
+~~~bash
+git switch main
+git merge --ff-only adelante
+git log --oneline --graph --all
+~~~
+
+- Para demostrar la barrera, crea divergencia y repite el comando.
+- El error es útil: obliga a mirar el historial antes de decidir entre merge o rebase.
+
 [Sources]
 https://git-scm.com/docs/git-merge
+https://github.com/rafex/IB-git/blob/main/ejercicios/04-merge-rebase/README.md
 -->
 
 ---
@@ -466,8 +750,26 @@ Dos personas editaron la misma zona de acuerdos.txt:
 <div class="conflict-answer"><b>Git no sabe qué decisión representa al equipo.</b><br>La persona debe leer ambas versiones, elegir una combinación y crear un nuevo commit.</div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 05: el conflicto se provoca a propósito para aprender a leerlo.
+
+~~~bash
+cd ejercicios/05-conflictos
+bash setup.sh
+cd taller-05
+git log --oneline --graph --all
+git diff main ana
+git diff main luis
+git merge ana
+git merge luis
+~~~
+
+- Lee los marcadores en orden: HEAD, separador y la rama que se intenta integrar.
+- No presentes el conflicto como un error de Git: es una decisión que Git no puede inventar.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+https://github.com/rafex/IB-git/blob/main/ejercicios/05-conflictos/README.md
 -->
 
 ---
@@ -486,8 +788,29 @@ El resultado correcto expresa una decisión humana:
 <div class="principle">Un conflicto pequeño es una conversación corta. Uno acumulado se convierte en investigación.</div>
 
 <!--
+Notas del orador:
+- Guiar siempre con el mismo flujo: leer, conversar, editar, comprobar y commit.
+
+~~~bash
+git status
+# editar acuerdos.txt y quitar <<<<<<<, ======= y >>>>>>>
+git diff
+git add acuerdos.txt
+git status
+git commit -m "resuelve conflicto: conserva ambas líneas"
+git log --oneline --graph --all
+~~~
+
+- La resolución no es borrar marcas sin pensar: hay que decidir qué combinación representa al equipo.
+- Si se quiere cancelar la integración:
+
+~~~bash
+git merge --abort
+~~~
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
+https://github.com/rafex/IB-git/blob/main/ejercicios/05-conflictos/README.md
 -->
 
 ---
@@ -505,8 +828,21 @@ https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
 <div class="callout danger-callout">El último que toca la integración hereda decisiones que nunca estuvo presente para discutir.</div>
 
 <!--
+Notas del orador:
+- Pide que el grupo traduzca la cadena causal a una práctica concreta.
+- Pregunta: “¿Qué habría podido ver Ana o Luis si hubieran hecho fetch ayer?”
+
+~~~bash
+git fetch
+git log --oneline main..origin/main
+git diff main origin/main
+~~~
+
+- Repite que el conflicto grande del viernes es una señal de coordinación atrasada, no una hazaña técnica.
+
 [Sources]
 No hay fuente externa; es un modelo causal didáctico construido a partir del problema descrito por el usuario.
+https://github.com/rafex/IB-git/blob/main/GUIA-FACILITADOR.md
 -->
 
 ---
@@ -524,8 +860,26 @@ No hay fuente externa; es un modelo causal didáctico construido a partir del pr
 <div class="caption">Subir diariamente no significa publicar trabajo roto: significa compartir unidades nucleares, revisables y con contexto.</div>
 
 <!--
+Notas del orador:
+- Contrasta el meme con una jornada saludable: traer, trabajar en pequeño, commit, compartir y volver a traer.
+- Ejecuta el flujo en el orden mostrado:
+
+~~~bash
+git pull
+git status
+# editar un archivo de texto
+git add archivo.txt
+git commit -m "termina una unidad nuclear"
+git push
+~~~
+
+- Define unidad nuclear: un cambio coherente, revisable y que otra persona puede integrar.
+- No esperes al final de la semana para compartir el primer estado.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+https://github.com/rafex/IB-git/blob/main/recursos/cheat-sheet.md
+https://github.com/rafex/IB-git/blob/main/GUIA-FACILITADOR.md
 -->
 
 ---
@@ -547,8 +901,23 @@ Trabajaremos sobre menu.txt:
 <div class="bottom-note">La práctica no evalúa velocidad. Evalúa si puedes explicar qué ocurrió en el historial.</div>
 
 <!--
+Notas del orador:
+- Introduce el ejercicio 06 como integración de todo el curso.
+
+~~~bash
+cd ejercicios/06-laboratorio
+bash setup.sh
+cd taller-06
+git log --oneline --graph --all
+~~~
+
+- Ronda 1: Ana agrega ensalada, hace commit y push; Luis hace pull.
+- Ronda 2: Luis reordena el menú, hace commit y push; Ana hace pull.
+- Ronda 3: ambos cambian la misma línea; observa cómo aparece el conflicto.
+
 [Sources]
 No hay fuentes externas; ejercicio original para el curso.
+https://github.com/rafex/IB-git/blob/main/ejercicios/06-laboratorio/README.md
 -->
 
 ---
@@ -567,9 +936,26 @@ No hay fuentes externas; ejercicio original para el curso.
 </v-clicks>
 
 <!--
+Notas del orador:
+- Cierra con una lista que el participante pueda repetir en voz alta.
+- Comandos mínimos para llevarse:
+
+~~~bash
+git pull
+git status
+git add archivo.txt
+git commit -m "mensaje claro"
+git push
+git log --oneline --graph --all
+~~~
+
+- Añade la regla de integración: merge conserva contexto, rebase ordena trabajo no compartido y ff-only impide avanzar a ciegas.
+- Invita a consultar recursos/cheat-sheet.md del repositorio IB-git.
+
 [Sources]
 https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows
 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+https://github.com/rafex/IB-git/blob/main/recursos/cheat-sheet.md
 -->
 
 ---
@@ -582,6 +968,12 @@ class: final-slide
 <div class="final-subtitle">Pequeño · frecuente · explícito · compartido</div>
 
 <!--
+Notas del orador:
+- Haz una pausa después de la frase final y pide una respuesta: “¿qué hábito vas a cambiar mañana?”
+- Reafirma: commits pequeños, frecuentes, explícitos y compartidos.
+- Comparte el repositorio para continuar con los seis ejercicios:
+  https://github.com/rafex/IB-git
+
 [Sources]
 No hay fuentes externas; cierre didáctico original.
 -->
@@ -602,6 +994,15 @@ class: contact-slide
 <div class="contact-logo" role="img" aria-label="Rafex · Una idea diferente"></div>
 
 <!--
+Notas del orador:
+- Invita a clonar el repositorio y practicar el ejercicio que corresponda a la duda de cada persona.
+- Sugiere empezar por ejercicios/01-commits y avanzar hasta ejercicios/06-laboratorio.
+- Deja visible el enlace al repositorio y ofrece continuar la conversación después del curso.
+
+Enlace de práctica:
+https://github.com/rafex/IB-git
+
 [Sources]
 Datos de contacto del autor, siguiendo la diapositiva de contacto de Boost Desarrollo.
+https://github.com/rafex/IB-git
 -->

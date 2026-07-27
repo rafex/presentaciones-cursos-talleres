@@ -117,6 +117,9 @@ FECHA="$(date +%Y-%m-%d)"
 sed -e "s/__TITULO__/$TITLE/g" -e "s/__FECHA__/$FECHA/g" \
   "$TEMPLATES_DIR/taller.md" > "$TALLER_DIR/$NAME.md"
 
+sed -e "s/__TITULO__/$TITLE/g" -e "s/__TIPO__/Taller/g" \
+  "$TEMPLATES_DIR/cronograma.md" > "$TALLER_DIR/cronograma.md"
+
 cp "$TEMPLATES_DIR/theme.css" "$TALLER_DIR/assets/css/theme.css"
 touch "$TALLER_DIR/assets/images/.gitkeep"
 
@@ -146,6 +149,7 @@ find "$TALLER_DIR" | sed "s|$REPO_ROOT/||" | sort
 echo
 echo "Próximos pasos:"
 echo "  - Edita talleres/$NAME/$NAME.md"
+echo "  - Completa talleres/$NAME/cronograma.md"
 echo "  - Personaliza talleres/$NAME/assets/css/theme.css"
 echo "  - Agrega tu código dentro de talleres/$NAME/ejercicios/"
 echo "  - just generate $NAME -t taller"

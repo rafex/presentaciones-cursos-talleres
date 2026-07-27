@@ -69,6 +69,9 @@ mkdir -p "$PRES_DIR/assets/css" "$PRES_DIR/assets/images"
 sed -e "s/__TITULO__/$TITLE/g" -e "s/__FECHA__/$FECHA/g" \
   "$TEMPLATES_DIR/presentacion.md" > "$PRES_DIR/$NAME.md"
 
+sed -e "s/__TITULO__/$TITLE/g" -e "s/__TIPO__/Conferencia/g" \
+  "$TEMPLATES_DIR/cronograma.md" > "$PRES_DIR/cronograma.md"
+
 cp "$TEMPLATES_DIR/theme.css" "$PRES_DIR/assets/css/theme.css"
 touch "$PRES_DIR/assets/images/.gitkeep"
 
@@ -79,6 +82,7 @@ find "$PRES_DIR" | sed "s|$REPO_ROOT/||" | sort
 echo
 echo "Próximos pasos:"
 echo "  - Edita presentaciones/$NAME/$NAME.md"
+echo "  - Completa presentaciones/$NAME/cronograma.md"
 echo "  - Personaliza presentaciones/$NAME/assets/css/theme.css"
 echo "  - just generate $NAME -t presentation"
 echo "  - Cuando esté lista para publicarse: crea presentaciones/$NAME/.release.yaml"

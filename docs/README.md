@@ -18,6 +18,7 @@ Elige el motor que mejor se adapte a tu presentación:
 - **[Guía Slidev](./03-slidev.md)** — Paso a paso para crear una presentación con Slidev
 - **[Exportación y ZIP](./04-exportacion.md)** — Cómo empaquetar tu presentación para InsightBloom
 - **[ZIP InsightBloom MVP Slidev](./05-insightbloom-mvp.md)** — Formato específico del MVP (sin dist/, node_modules/, componentes Vue)
+- **Cronograma obligatorio:** cada conferencia y taller debe incluir un `cronograma.md` con agenda, actividades, comandos o demostraciones y 15 minutos finales para dudas.
 
 ## Inicio rápido
 
@@ -56,5 +57,6 @@ just zip <nombre> --engine slidev   # Empaqueta para InsightBloom
 
 - **Nombres:** minúsculas, con guiones (ej: `mi-presentacion`)
 - **Estructura:** `presentaciones/<nombre>/` o `talleres/<nombre>/`
+- **Cronograma:** `cronograma.md` es obligatorio para conferencias y talleres; el formato base vive en `scripts/templates/cronograma.md`
 - **Motor:** Se define al crear; Marp o Slidev son independientes
 - **Salida:** PDF + ODP (Marp), PDF/PPTX/PNG (Slidev), ZIP para InsightBloom (ambos)
