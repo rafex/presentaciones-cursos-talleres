@@ -18,7 +18,7 @@ Elige el motor que mejor se adapte a tu presentación:
 - **[Guía Slidev](./03-slidev.md)** — Paso a paso para crear una presentación con Slidev
 - **[Exportación y ZIP](./04-exportacion.md)** — Cómo empaquetar tu presentación para InsightBloom
 - **[ZIP InsightBloom MVP Slidev](./05-insightbloom-mvp.md)** — Formato específico del MVP (sin dist/, node_modules/, componentes Vue)
-- **Cronograma obligatorio:** cada conferencia y taller debe incluir un `cronograma.md` con agenda, actividades, comandos o demostraciones y 15 minutos finales para dudas.
+- **Cronograma obligatorio:** cada conferencia y taller debe incluir un `cronograma.md` con bloques por horario (`## HH:MM — Bloque`), actividades, comandos o demostraciones y 15 minutos finales para dudas.
 
 ## Inicio rápido
 

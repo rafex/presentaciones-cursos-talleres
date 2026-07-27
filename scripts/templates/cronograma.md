@@ -6,9 +6,10 @@
 **Materiales o repositorio:** por definir  
 **Cierre:** 15 minutos para dudas y preguntas
 
-> Este archivo es obligatorio para toda conferencia y taller. Ajusta los
-> nombres de los bloques y las actividades, pero conserva el tiempo total y la
-> ronda final de preguntas salvo que el evento requiera otra duración.
+> Este archivo es obligatorio para toda conferencia y taller. Usa horarios
+> reales y ajusta la hora de inicio, los nombres de los bloques y las
+> actividades. Conserva el tiempo total y la ronda final de preguntas salvo
+> que el evento requiera otra duración.
 
 ## Preparación previa
 
@@ -19,19 +20,71 @@ Anota aquí los requisitos que deben estar listos antes de comenzar:
 - archivos, demos o ejercicios que deben prepararse;
 - comprobaciones técnicas de audio, pantalla y conexión.
 
-## Agenda de 90 minutos
+## 09:00 — Bienvenida y contexto
 
-| Tiempo | Duración | Bloque | Qué explica la persona facilitadora | Qué hacen las personas participantes |
-|---|---:|---|---|---|
-| 00:00–00:05 | 5 min | Bienvenida y contexto | Presenta el objetivo, el problema y el resultado esperado. | Se ubican, comparten expectativas y conocen la dinámica. |
-| 00:05–00:15 | 10 min | Modelo o contexto | Explica las ideas base y conecta con una situación real. | Escuchan, preguntan y relacionan el tema con su experiencia. |
-| 00:15–00:25 | 10 min | Primer concepto + demostración | Muestra el primer paso con un ejemplo concreto. | Reproducen el paso o toman una decisión sobre el ejemplo. |
-| 00:25–00:35 | 10 min | Actividad 1 | Acompaña una práctica, ejercicio o análisis guiado. | Prueban, editan, ejecutan o discuten el resultado. |
-| 00:35–00:45 | 10 min | Segundo concepto + demostración | Explica una segunda idea y sus criterios de uso. | Comparan alternativas y formulan preguntas. |
-| 00:45–00:55 | 10 min | Actividad 2 | Propone un caso para aplicar lo explicado. | Trabajan individualmente o en parejas y comparten hallazgos. |
-| 00:55–01:05 | 10 min | Integración | Une los conceptos y muestra errores frecuentes. | Revisan su resultado y corrigen lo necesario. |
-| 01:05–01:15 | 10 min | Actividad final | Facilita un reto breve o una práctica de cierre. | Integran lo aprendido y preparan una conclusión. |
-| 01:15–01:30 | 15 min | Dudas y preguntas | Recapitula las ideas clave y abre la ronda final. | Preguntan, comparten dificultades y definen su siguiente paso. |
+Presenta el objetivo, el problema y el resultado esperado.
+
+- **Facilitación:** explicar la dinámica y recoger expectativas.
+- **Participantes:** ubicarse, compartir expectativas y preparar sus materiales.
+
+## 09:05 — Modelo o contexto
+
+Explica las ideas base y conéctalas con una situación real.
+
+- **Facilitación:** presentar el modelo mental y resolver preguntas iniciales.
+- **Participantes:** relacionar el tema con su experiencia.
+
+## 09:15 — Primer concepto y demostración
+
+Muestra el primer paso con un ejemplo concreto.
+
+- **Facilitación:** demostrar el flujo y señalar el resultado esperado.
+- **Participantes:** reproducir el paso o tomar decisiones sobre el ejemplo.
+
+## 09:25 — Actividad práctica 1
+
+Deja tiempo para probar lo explicado.
+
+1. Explicar el objetivo y mostrar el resultado esperado.
+2. Realizar la actividad individualmente o en parejas.
+3. Revisar el resultado y compartir dificultades.
+
+## 09:35 — Segundo concepto y demostración
+
+Explica una segunda idea y sus criterios de uso.
+
+- **Facilitación:** comparar alternativas y mostrar errores frecuentes.
+- **Participantes:** analizar las opciones y formular preguntas.
+
+## 09:45 — Actividad práctica 2
+
+Propón un caso para aplicar lo explicado.
+
+1. Resolver el ejercicio con los materiales del curso.
+2. Comprobar el resultado.
+3. Compartir un hallazgo o una pregunta.
+
+## 09:55 — Integración
+
+Une los conceptos y muestra cómo se relacionan en un escenario completo.
+
+- **Facilitación:** conectar las ideas y aclarar las decisiones importantes.
+- **Participantes:** revisar su resultado y corregir lo necesario.
+
+## 10:05 — Actividad final
+
+Facilita un reto breve para integrar lo aprendido.
+
+1. Completar el reto.
+2. Comprobar el resultado.
+3. Preparar una conclusión o siguiente paso.
+
+## 10:15 — Dudas y preguntas
+
+Recapitula las ideas clave y abre la ronda final de 15 minutos.
+
+- **Facilitación:** responder preguntas y conectar las respuestas con los objetivos.
+- **Participantes:** compartir dificultades, casos reales y el siguiente paso que aplicarán.
 
 ## Ritmo recomendado para cada bloque práctico
 

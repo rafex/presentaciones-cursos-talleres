@@ -19,19 +19,85 @@ git --version
 
 Cada participante debe tener Git instalado, una terminal y un editor de texto.
 
-## Agenda de 90 minutos
+## 09:00 — Bienvenida y contexto
 
-| Tiempo | Duración | Bloque | Qué explica la persona facilitadora | Qué hacen las personas participantes |
-|---|---:|---|---|---|
-| 00:00–00:05 | 5 min | Bienvenida y contexto | Presentar el objetivo. Plantear el mito del “push del viernes” y explicar que Git sirve para colaborar mediante historial. | Compartir experiencias breves y preparar el repositorio. |
-| 00:05–00:15 | 10 min | Modelo mental de Git | Explicar working tree, staging area, repositorio local, remote, commits y ramas. Mostrar que Git guarda instantáneas, no una carpeta compartida. | Observar el flujo y predecir qué ocurre al editar, preparar y confirmar un archivo. |
-| 00:15–00:25 | 10 min | Ejercicio 01: commits | Demostrar `git status`, `git add`, `git commit`, `git log` y `git show`. Relacionar cada commit con un estado de `agenda.txt`. | Ejecutar los tres commits A, B y C y comprobar el historial. |
-| 00:25–00:35 | 10 min | Ejercicio 02: ramas | Explicar que una rama es un marcador. Mostrar `git branch`, `git switch` y el grafo de commits. | Crear la rama `ana`, modificar `agenda.txt`, confirmar el cambio y comparar `ana` contra `main`. |
-| 00:35–00:45 | 10 min | Ejercicio 03: remotes | Explicar `clone`, `fetch`, `pull` y `push`. Comparar `origin` con un alias y mostrar que cada clon conserva el historial. | Simular Ana → `push` → Luis → `fetch/pull` → `push` → Ana. Observar cuándo cambia el archivo. |
-| 00:45–00:55 | 10 min | Ejercicio 04: integración | Explicar cuándo usar `merge`, `rebase` y `git merge --ff-only`. Mostrar los tres grafos y la regla de no rebasar ramas compartidas. | Ejecutar una integración con `merge`, otra con `rebase` y comprobar el comportamiento de `ff-only`. |
-| 00:55–01:05 | 10 min | Ejercicio 05: conflictos | Provocar un conflicto en `acuerdos.txt`. Leer los marcadores y explicar que Git no puede tomar la decisión humana. | Seguir el flujo: leer → conversar → editar → comprobar → `add` → `commit`. Probar `git merge --abort` como alternativa. |
-| 01:05–01:15 | 10 min | Ejercicio 06: laboratorio | Integrar todo en un escenario de colaboración con `menu.txt`. Reforzar commits pequeños, `pull` al iniciar y `push` al terminar. | Completar las tres rondas: agregar, reordenar y resolver un conflicto real. |
-| 01:15–01:30 | 15 min | Dudas y preguntas | Recapitular las ideas clave y abrir la ronda final. Usar el historial de los ejercicios para responder casos concretos. | Formular preguntas, compartir dificultades y explicar qué práctica aplicarán en su equipo. |
+Presentar el objetivo del curso y plantear el mito del “push del viernes”. Git
+sirve para colaborar mediante un historial de decisiones, no para compartir una
+carpeta sin control.
+
+- **Facilitación:** explicar la dinámica y recoger experiencias breves.
+- **Participantes:** preparar el repositorio y compartir cómo trabajan hoy.
+
+## 09:05 — Modelo mental de Git
+
+Explicar working tree, staging area, repositorio local, remote, commits y ramas.
+Mostrar que Git guarda instantáneas y que cada clon conserva su propio historial.
+
+- **Facilitación:** dibujar el flujo entre archivo, staging, repositorio local y remotes.
+- **Participantes:** predecir qué ocurre al editar, preparar y confirmar un archivo.
+
+## 09:15 — Ejercicio 01: commits
+
+Demostrar `git status`, `git add`, `git commit`, `git log` y `git show` usando
+los estados de `agenda.txt`.
+
+1. Ejecutar los tres commits A, B y C.
+2. Revisar el historial.
+3. Comprobar qué cambió en cada commit.
+
+## 09:25 — Ejercicio 02: ramas
+
+Explicar que una rama es un marcador y mostrar `git branch`, `git switch` y el
+grafo de commits.
+
+1. Crear la rama `ana`.
+2. Modificar `agenda.txt` y confirmar el cambio.
+3. Comparar `ana` contra `main`.
+
+## 09:35 — Ejercicio 03: remotes
+
+Explicar `clone`, `fetch`, `pull` y `push`. Comparar `origin` con un alias y
+mostrar la colaboración entre repositorios.
+
+1. Simular Ana → `push` → Luis → `fetch/pull` → `push` → Ana.
+2. Observar cuándo cambia el archivo.
+3. Identificar qué historial existe localmente y cuál está publicado.
+
+## 09:45 — Ejercicio 04: integración
+
+Explicar cuándo usar `merge`, `rebase` y `git merge --ff-only`. Mostrar los
+tres grafos y la regla de no rebasar ramas compartidas.
+
+1. Ejecutar una integración con `merge`.
+2. Ejecutar otra con `rebase`.
+3. Comprobar el comportamiento de `ff-only`.
+
+## 09:55 — Ejercicio 05: conflictos
+
+Provocar un conflicto en `acuerdos.txt` y explicar que Git no puede tomar por
+las personas la decisión sobre qué texto conservar.
+
+1. Leer los marcadores del conflicto.
+2. Conversar y editar el archivo.
+3. Comprobar, ejecutar `add` y confirmar.
+4. Probar `git merge --abort` como alternativa.
+
+## 10:05 — Ejercicio 06: laboratorio
+
+Integrar todo en un escenario de colaboración con `menu.txt`. Reforzar commits
+pequeños, `pull` al iniciar y `push` al terminar.
+
+1. Agregar una sección.
+2. Reordenar el contenido.
+3. Resolver un conflicto real.
+
+## 10:15 — Dudas y preguntas
+
+Recapitular las ideas clave y abrir la ronda final de 15 minutos. Usar el
+historial de los ejercicios para responder casos concretos.
+
+- **Facilitación:** responder preguntas y conectar cada respuesta con una práctica colaborativa.
+- **Participantes:** compartir dificultades y explicar qué práctica aplicarán en su equipo.
 
 ## Ritmo recomendado para cada bloque práctico
 

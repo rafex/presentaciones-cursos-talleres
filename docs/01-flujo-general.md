@@ -89,8 +89,9 @@ presentaciones/mi-presentacion/ # o talleres/mi-taller/
 - **Marp:** Edita `presentaciones/mi-presentacion/mi-presentacion.md`
 - **Slidev:** Edita `presentaciones/mi-presentacion/slidev/slides.md` o
   `talleres/mi-taller/slidev/slides.md`
-- **Cronograma:** Completa siempre `cronograma.md` con tiempos, explicación,
-  actividad de participantes y la ronda final de preguntas.
+- **Cronograma:** Completa siempre `cronograma.md` con bloques encabezados por
+  horario (`## HH:MM — Bloque`), explicación, actividad de participantes y la
+  ronda final de preguntas.
 
 Ver [Guía Marp](./02-marp.md) o [Guía Slidev](./03-slidev.md) para sintaxis específica.
 
@@ -153,7 +154,7 @@ viviendo en `ejercicios/` y no se reemplazan al crear `slidev/`.
 | Directorio | kebab-case, minúsculas | `mi-presentacion`, `crea-tu-agente-ia` |
 | Archivo MD | snake_case (Marp) o slides.md (Slidev) | `mi_presentacion.md`, `slidev/slides.md` |
 | Título | Título normal con capitales | `Mi presentación increíble`, `Cómo crear un agente de IA` |
-| Cronograma | `cronograma.md` obligatorio | Agenda de 90 minutos con práctica y 15 min de preguntas |
+| Cronograma | `cronograma.md` obligatorio | Bloques por horario, práctica y 15 min de preguntas |
 
 ## Portal local
 
