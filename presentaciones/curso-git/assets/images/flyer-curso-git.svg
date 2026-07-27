@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Git para colaborar — curso básico</title>
+  <desc id="desc">Flyer del curso práctico de Git para comprender commits, ramas, remotes, merge, rebase, ff-only y conflictos.</desc>
+  <defs>
+    <linearGradient id="leftShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7f4ee" stop-opacity="0.98"/>
+      <stop offset="0.74" stop-color="#f7f4ee" stop-opacity="0.93"/>
+      <stop offset="1" stop-color="#f7f4ee" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#23352d" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <image x="0" y="0" width="1080" height="1350" preserveAspectRatio="xMidYMid slice" xlink:href="git-flyer-background.png"/>
+  <rect x="0" y="0" width="720" height="1000" fill="url(#leftShade)"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#23352d">
+    <text x="82" y="98" font-size="24" font-weight="700" letter-spacing="4" fill="#166534">CURSO · TALLER BÁSICO</text>
+    <rect x="82" y="132" width="98" height="8" rx="4" fill="#e75b3b"/>
+    <text x="78" y="250" font-size="104" font-weight="800" letter-spacing="-5">GIT</text>
+    <text x="82" y="330" font-size="56" font-weight="800" letter-spacing="-2">PARA COLABORAR</text>
+    <text x="84" y="390" font-size="28" font-weight="500" fill="#68716a">Entiende el historial antes de moverlo.</text>
+    <g filter="url(#shadow)">
+      <rect x="82" y="446" width="320" height="64" rx="32" fill="#23352d"/>
+      <text x="115" y="487" font-size="22" font-weight="700" letter-spacing="1" fill="#fffdf8">90 MIN · PRÁCTICA GUIADA</text>
+    </g>
+    <text x="84" y="586" font-size="26" font-weight="700">Aprende a:</text>
+    <g font-size="25" font-weight="500">
+      <circle cx="96" cy="634" r="8" fill="#e75b3b"/><text x="122" y="643">entender commits y ramas</text>
+      <circle cx="96" cy="692" r="8" fill="#166534"/><text x="122" y="701">trabajar con remotes</text>
+      <circle cx="96" cy="750" r="8" fill="#f2c94c"/><text x="122" y="759">elegir merge, rebase o ff-only</text>
+      <circle cx="96" cy="808" r="8" fill="#e75b3b"/><text x="122" y="817">resolver conflictos sin pánico</text>
+    </g>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="78" y="872" width="590" height="156" rx="18" fill="#e75b3b"/>
+    <text x="112" y="932" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="800" fill="#fffdf8">Adiós al “push del viernes”.</text>
+    <text x="112" y="976" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500" fill="#fff3eb">Integra cambios pequeños, frecuentes y claros.</text>
+  </g>
+  <rect x="0" y="1100" width="1080" height="250" fill="#23352d"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#fffdf8">
+    <text x="82" y="1158" font-size="22" font-weight="700" letter-spacing="2" fill="#f2c94c">PRÁCTICA CON ARCHIVOS DE TEXTO</text>
+    <text x="82" y="1212" font-size="28" font-weight="700">Repositorio del curso</text>
+    <text x="82" y="1254" font-size="25" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#d7e4d9">github.com/rafex/IB-git</text>
+    <text x="82" y="1308" font-size="19" fill="#bdd0bf">Raúl Eduardo González Argote · rafex@rafex.dev</text>
+  </g>
+  <circle cx="988" cy="1212" r="52" fill="#f2c94c"/>
+  <text x="988" y="1225" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" font-weight="800" fill="#23352d">git</text>
+</svg>
