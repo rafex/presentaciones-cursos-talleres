@@ -99,24 +99,44 @@ Ver [Guía Marp](./02-marp.md) o [Guía Slidev](./03-slidev.md) para sintaxis es
 
 **Marp:**
 ```bash
-just generate mi-presentacion       # PDF + ODP
-just generate mi-presentacion pdf   # Solo PDF
+just generate mi-presentacion                 # Genera PDF y ODP
+just generate mi-presentacion pdf             # Genera sólo PDF
+just generate mi-taller pdf -t taller         # PDF de un taller
 ```
 
 **Slidev:**
 ```bash
-just slidev-dev presentaciones/mi-presentacion/slidev/slides.md  # Modo dev
+just slidev-dev presentaciones/mi-presentacion/slidev/slides.md
 just slidev-export presentaciones/mi-presentacion/slidev/slides.md pdf
 ```
+
+`just` ejecuta recetas definidas en el archivo `Justfile` desde la raíz del
+repositorio. La forma general es `just <receta> <argumentos>`:
+
+| Comando | Qué hace | Cuándo usarlo |
+|---|---|---|
+| `just generate <nombre>` | Busca el material Marp y genera PDF/ODP. | Para la salida tradicional. |
+| `just slidev-dev <nombre>` | Levanta Slidev en modo desarrollo; también acepta la ruta a `slides.md`. | Mientras editas y quieres recarga automática. |
+| `just slidev-export <nombre> pdf` | Resuelve `slidev/slides.md` y exporta a PDF, PPTX o PNG; también acepta una ruta. | Para entregar una copia estática. |
+| `just zip <nombre>` | Crea un ZIP para InsightBloom. Usa Marp si no indicas otro motor. | Para publicar la presentación. |
+| `just zip <nombre> --engine slidev` | Crea el ZIP usando `slidev/slides.md`, sin borrar la fuente Marp. | Para publicar la versión Slidev. |
+
+Opciones útiles:
+
+- `-t taller` indica que el nombre se debe buscar en `talleres/`.
+- `-t presentation` indica que se debe buscar en `presentaciones/`.
+- `--engine marp` o `--engine slidev` elige qué fuente se empaqueta.
+- `slidev-dev` y `slidev-export` aceptan el nombre del proyecto o la ruta al
+  archivo `slides.md`; `just zip` recibe el nombre del proyecto.
 
 ### 5. Empaquetar para InsightBloom
 
 Ambos motores generan un ZIP listo para importar:
 
 ```bash
-just zip mi-presentacion                    # Marp (por defecto)
-just zip mi-taller mi-taller.md -t taller   # Marp del taller
-just zip mi-taller --engine slidev -t taller # Slidev del taller, si existe
+just zip mi-presentacion                     # Empaqueta Marp por defecto
+just zip mi-taller mi-taller.md -t taller    # Empaqueta el Markdown Marp del taller
+just zip mi-taller --engine slidev -t taller # Empaqueta talleres/mi-taller/slidev/slides.md
 ```
 
 En ambos casos Marp y Slidev son fuentes paralelas: los ejercicios siguen

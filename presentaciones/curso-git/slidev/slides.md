@@ -585,3 +585,23 @@ class: final-slide
 [Sources]
 No hay fuentes externas; cierre didáctico original.
 -->
+
+---
+class: contact-slide
+---
+
+# Contacto
+
+> Raúl Eduardo González Argote
+
+- 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez) para seguir en contacto
+- ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev) para dudas o charlas
+- 💻 [**github.com/rafex**](https://github.com/rafex)
+- 📝 [**theworldofrafex.blog**](https://theworldofrafex.blog/)
+
+<div class="contact-logo" role="img" aria-label="Rafex · Una idea diferente"></div>
+
+<!--
+[Sources]
+Datos de contacto del autor, siguiendo la diapositiva de contacto de Boost Desarrollo.
+-->

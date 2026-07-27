@@ -16,7 +16,9 @@
 default:
     @just --list
 
-# Genera PDF/ODP de una presentación o taller.
+# Genera la salida tradicional de Marp: PDF, ODP o ambos.
+# `nombre` se resuelve en presentaciones/ o talleres/; usa `-t taller` si
+# necesitas indicar explícitamente que el material vive en talleres/.
 # Uso: just generate <nombre> [pdf|odp|all] [-t|--type presentation|taller]
 generate *args:
     #!/usr/bin/env bash
@@ -54,24 +56,24 @@ generate *args:
     dir=$(./scripts/resolve-target.sh "$name" "${type_flags[@]+"${type_flags[@]}"}")
     ./scripts/generate-slides.sh "$dir" "$format"
 
-# Ejecuta o exporta un proyecto Slidev sin alterar la ruta Marp existente.
-# Uso: just slidev-dev presentaciones/red-soberana-de-ia/slidev/slides.md
-#      just slidev-export presentaciones/red-soberana-de-ia/slidev/slides.md pdf
+# Inicia Slidev en desarrollo; acepta curso-git o una ruta completa a slides.md.
 slidev-dev source:
     ./scripts/generate-slidev.sh "{{source}}" dev
 
+# Exporta Slidev a una salida estática: pdf, pptx o png. Acepta nombre o ruta.
 slidev-export source format="pdf":
     ./scripts/generate-slidev.sh "{{source}}" "{{format}}"
 
-# Empaqueta un proyecto Slidev transportable para InsightBloom.
+# Empaqueta el proyecto Slidev completo para InsightBloom, con source/ y dist/.
 slidev-zip source out="":
     ./scripts/build-slidev-presentation-zip.sh "{{source}}" "{{out}}"
 
-# Empaqueta un proyecto Slidev para el MVP de InsightBloom (sin dist/, node_modules/, etc).
+# Empaqueta el proyecto Slidev mínimo para InsightBloom, sin dependencias.
 # Uso: just slidev-insightbloom-zip <nombre> [-t presentation|taller] [salida.zip]
 #      just slidev-insightbloom-zip slidev-en-10-minutos
 #      just slidev-insightbloom-zip slidev-en-10-minutos -t presentation
 #      just slidev-insightbloom-zip slidev-en-10-minutos dist/custom.zip
+# Crea el ZIP MVP con slides.md y assets permitidos, sin node_modules ni dist/.
 slidev-insightbloom-zip *args:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -115,6 +117,7 @@ slidev-insightbloom-zip *args:
 #      just slidev-insightbloom-fat-zip slidev-en-10-minutos
 #      just slidev-insightbloom-fat-zip slidev-en-10-minutos -t presentation
 #      just slidev-insightbloom-fat-zip slidev-en-10-minutos dist/custom.zip
+# Crea el ZIP FAT con dist/, manifiesto y hashes; formato experimental.
 slidev-insightbloom-fat-zip *args:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -190,7 +193,9 @@ portal-dev:
     fi
     exec python3 -m http.server "$port" --directory portal
 
-# Genera el ZIP listo para subir a InsightBloom.
+# Genera un ZIP listo para subir a InsightBloom.
+# Por defecto usa Marp; agrega `--engine slidev` para empaquetar
+# <directorio>/slidev/slides.md sin eliminar la fuente Marp.
 # Uso: just zip <nombre> [archivo.md] [salida.zip] [-t|--type presentation|taller] [--engine marp|slidev]
 zip *args:
     #!/usr/bin/env bash

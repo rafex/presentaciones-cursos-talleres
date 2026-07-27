@@ -4,8 +4,8 @@
 # generate-slides.sh sigue siendo el predeterminado para PDF/ODP y releases.
 #
 # Uso:
-#   ./scripts/generate-slidev.sh <slides.md> dev
-#   ./scripts/generate-slidev.sh <slides.md> pdf|pptx|png|md
+#   ./scripts/generate-slidev.sh <nombre-o-slides.md> dev
+#   ./scripts/generate-slidev.sh <nombre-o-slides.md> pdf|pptx|png|md
 #
 set -euo pipefail
 
@@ -15,7 +15,7 @@ SLIDEV="$REPO_ROOT/presentaciones/node_modules/.bin/slidev"
 
 usage() {
   cat >&2 <<EOF
-Uso: $(basename "$0") <slides.md> dev|pdf|pptx|png|md
+Uso: $(basename "$0") <nombre-o-slides.md> dev|pdf|pptx|png|md
 EOF
   exit 1
 }
@@ -29,8 +29,14 @@ if [[ -f "$SOURCE" ]]; then
 elif [[ -f "$REPO_ROOT/$SOURCE" ]]; then
   SLIDES_FILE="$(cd "$REPO_ROOT/$(dirname "$SOURCE")" && pwd)/$(basename "$SOURCE")"
 else
-  echo "Error: no existe el archivo Slidev '$SOURCE'." >&2
-  exit 1
+  # También aceptamos el nombre corto del proyecto, por ejemplo:
+  #   just slidev-dev curso-git
+  if TARGET_DIR="$("$REPO_ROOT/scripts/resolve-target.sh" "$SOURCE" 2>/dev/null)" && [[ -f "$TARGET_DIR/slidev/slides.md" ]]; then
+    SLIDES_FILE="$TARGET_DIR/slidev/slides.md"
+  else
+    echo "Error: no existe la fuente Slidev '$SOURCE'. Usa una ruta a slides.md o el nombre de un proyecto con slidev/slides.md." >&2
+    exit 1
+  fi
 fi
 
 if [[ ! -x "$SLIDEV" ]]; then

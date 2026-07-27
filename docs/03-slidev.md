@@ -154,8 +154,14 @@ Contenido aquí
 ### Paso 5: Modo desarrollo
 
 ```bash
-just slidev-dev presentaciones/mi-presentacion/slidev/slides.md
+just slidev-dev mi-presentacion
 ```
+
+Este comando busca la receta `slidev-dev` del `Justfile`, resuelve
+`presentaciones/mi-presentacion/slidev/slides.md` y ejecuta Slidev en modo
+interactivo. También puedes pasar la ruta completa. No crea un PDF ni un ZIP:
+levanta un servidor local para editar, navegar y revisar las diapositivas con
+recarga automática.
 
 O directamente:
 ```bash
@@ -469,27 +475,34 @@ const count = ref(props.start)
 
 ## Generar salida
 
+En estos comandos, `just` sólo coordina la herramienta Slidev; el primer
+argumento es la ruta de la fuente y el segundo indica el formato de salida.
+
 ### PDF
 
 ```bash
-just slidev-export presentaciones/mi-presentacion/slidev/slides.md pdf
+just slidev-export mi-presentacion pdf
 ```
 
-Genera: `presentaciones/mi-presentacion/slidev/dist/slides.pdf`
+Genera un PDF estático para compartir o presentar sin el servidor de desarrollo.
 
 ### PPTX
 
 ```bash
-just slidev-export presentaciones/mi-presentacion/slidev/slides.md pptx
+just slidev-export mi-presentacion pptx
 ```
 
-⚠️ **Nota:** El PPTX contiene una imagen por diapositiva; no es editable como en Slidev.
+Genera un archivo PPTX. ⚠️ **Nota:** cada diapositiva se exporta como imagen;
+no queda editable como una presentación nativa de PowerPoint.
 
 ### PNG (una imagen por slide)
 
 ```bash
-just slidev-export presentaciones/mi-presentacion/slidev/slides.md png
+just slidev-export mi-presentacion png
 ```
+
+Genera una imagen PNG por diapositiva, útil para miniaturas, revisión visual o
+catálogos.
 
 ### HTML estática
 
@@ -508,7 +521,9 @@ Cuando tu presentación esté lista:
 just zip mi-presentacion --engine slidev
 ```
 
-Genera: `mi-presentacion-slidev.zip` con estructura:
+Aquí `just` resuelve `mi-presentacion` dentro de `presentaciones/`, selecciona
+`slidev/slides.md` por el motor indicado y llama al empaquetador Slidev. Genera
+un ZIP autocontenido con esta estructura:
 
 ```
 mi-presentacion-slidev.zip
@@ -529,6 +544,16 @@ mi-presentacion-slidev.zip
 InsightBloom puede:
 1. Servir `dist/index.html` directamente
 2. O reconstruir con `npm install && npm run build` en `source/`
+
+Para el paquete MVP, más pequeño y sin `dist/` ni dependencias, usa:
+
+```bash
+just slidev-insightbloom-zip mi-presentacion -t presentation
+```
+
+Este comando recibe el nombre del proyecto, resuelve la carpeta correcta,
+conserva `slides.md` y los assets permitidos, y excluye `node_modules/`,
+ejercicios y configuraciones que no necesita InsightBloom para el MVP.
 
 ## Frontmatter completo
 
@@ -599,9 +624,9 @@ engine para presentar o publicar el material.
 
 ```bash
 just new-taller mi-taller "Mi taller" "python" "vscode" --engine slidev
-just generate mi-taller -t taller                 # Marp: PDF/ODP
+just generate mi-taller -t taller                 # Genera PDF/ODP desde Marp
 just slidev-dev talleres/mi-taller/slidev/slides.md
-just slidev-insightbloom-zip mi-taller -t taller # ZIP MVP
+just slidev-insightbloom-zip mi-taller -t taller # Crea el ZIP MVP de Slidev
 ```
 
 La estructura resultante es:

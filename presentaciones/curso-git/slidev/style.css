@@ -42,7 +42,10 @@ code, pre, .terminal, .remote-token, .movement-list code, .day-step code, .ff-ru
 pre { background: transparent; margin: 0; }
 
 .cover-slide {
-  background: var(--green-dark);
+  background-color: var(--green-dark);
+  background-image: linear-gradient(90deg, rgba(35, 53, 45, 0.96) 0%, rgba(35, 53, 45, 0.86) 47%, rgba(35, 53, 45, 0.22) 100%), url('/images/git-cover-network.png');
+  background-position: center;
+  background-size: cover;
   color: #fffdf8;
   display: flex;
   flex-direction: column;
@@ -67,20 +70,68 @@ pre { background: transparent; margin: 0; }
 .cover-slide h2 { font: 1.5rem var(--mono); color: var(--yellow); margin: 0; }
 .cover-meta { margin-top: 3.8rem; color: #d7e4d9; font: 0.82rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
 
-.section-slide { background: var(--green-dark); }
+.section-slide {
+  background-color: var(--green-dark);
+  background-image: linear-gradient(rgba(35, 53, 45, 0.9), rgba(35, 53, 45, 0.9)), url('/images/git-history-paper.png');
+  background-position: center;
+  background-size: cover;
+}
 .section-slide h1, .section-slide p, .section-slide li { color: #fffdf8; }
 .section-slide h1 { font-size: 4.2rem; max-width: 82%; }
 .section-slide p { color: #cddbcf; max-width: 68%; font-size: 1.45rem; }
 .section-slide::after { color: #a4c0a8 !important; }
 
-.story-slide { background: #fbefe6; }
-.dark-slide { background: var(--green-dark); }
+.story-slide {
+  background-color: #fbefe6;
+  background-image: linear-gradient(rgba(251, 239, 230, 0.82), rgba(251, 239, 230, 0.82)), url('/images/git-history-paper.png');
+  background-position: center;
+  background-size: cover;
+}
+.dark-slide {
+  background-color: var(--green-dark);
+  background-image: linear-gradient(rgba(35, 53, 45, 0.86), rgba(35, 53, 45, 0.86)), url('/images/git-remotes-network.png');
+  background-position: center;
+  background-size: cover;
+}
 .dark-slide h1, .dark-slide p, .dark-slide li { color: #fffdf8; }
 .dark-slide::after { color: #91aa96 !important; }
 .final-slide { background: var(--coral); }
 .final-slide h1, .final-slide p { color: #fffdf8; }
 .final-slide h1 { font-size: 4.7rem; max-width: 78%; }
 .final-slide::after { color: rgba(255,255,255,0.66) !important; }
+
+.contact-slide {
+  background-color: var(--green-dark);
+  background-image: linear-gradient(90deg, rgba(35, 53, 45, 0.96) 0%, rgba(35, 53, 45, 0.9) 58%, rgba(35, 53, 45, 0.54) 100%), url('/images/git-remotes-network.png');
+  background-position: center;
+  background-size: cover;
+}
+.contact-slide h1, .contact-slide p, .contact-slide li { color: #fffdf8; }
+.contact-slide h1 { font-size: 4.4rem; margin-bottom: 1.1rem; }
+.contact-slide blockquote {
+  border-left: 4px solid var(--yellow);
+  background: transparent !important;
+  color: #d7e4d9 !important;
+  font-size: 1.25rem;
+  margin: 0 0 1.6rem;
+  padding-left: 1rem;
+}
+.contact-slide ul { max-width: 62%; padding-left: 1.2rem; }
+.contact-slide li { margin: 0.65rem 0; }
+.contact-slide li::marker { color: var(--yellow); }
+.contact-slide a { color: #ffe38a; }
+.contact-logo {
+  position: absolute;
+  right: 6rem;
+  top: 50%;
+  width: 25rem;
+  max-width: 30%;
+  height: 12rem;
+  transform: translateY(-50%);
+  background: url('/images/rafex.png') center / contain no-repeat;
+  filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.2));
+}
+.contact-slide::after { color: #a4c0a8 !important; }
 
 .big-quote { margin-top: 3.5rem; max-width: 72%; font-size: 2.35rem; line-height: 1.16; color: #fffdf8; }
 .big-quote span, .principle span { color: var(--yellow); }
