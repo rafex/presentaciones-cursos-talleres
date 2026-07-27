@@ -253,7 +253,8 @@ done
 
 # Construir JSON de archivos
 if [[ -s "$HASHES_FILE" ]]; then
-  FILES_JSON=$(cat "$HASHES_FILE" | paste -sd ',' | sed 's/,/, /g')
+  # BSD paste (macOS) requiere indicar explícitamente stdin con "-".
+  FILES_JSON=$(paste -sd ',' - < "$HASHES_FILE" | sed 's/,/, /g')
   FILES_JSON="{$FILES_JSON}"
 else
   FILES_JSON="{}"

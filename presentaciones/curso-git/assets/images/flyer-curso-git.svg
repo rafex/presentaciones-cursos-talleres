@@ -14,14 +14,15 @@
   <image x="0" y="0" width="1080" height="1350" preserveAspectRatio="xMidYMid slice" xlink:href="git-flyer-background.png"/>
   <rect x="0" y="0" width="720" height="1000" fill="url(#leftShade)"/>
   <g font-family="Inter, Arial, sans-serif" fill="#23352d">
-    <text x="82" y="98" font-size="24" font-weight="700" letter-spacing="4" fill="#166534">CURSO · TALLER BÁSICO</text>
+    <text x="82" y="98" font-size="24" font-weight="700" letter-spacing="4" fill="#166534">PONENCIA · TALLER BÁSICO</text>
     <rect x="82" y="132" width="98" height="8" rx="4" fill="#e75b3b"/>
     <text x="78" y="250" font-size="104" font-weight="800" letter-spacing="-5">GIT</text>
     <text x="82" y="330" font-size="56" font-weight="800" letter-spacing="-2">PARA COLABORAR</text>
     <text x="84" y="390" font-size="28" font-weight="500" fill="#68716a">Entiende el historial antes de moverlo.</text>
+    <text x="84" y="428" font-size="20" font-weight="700" fill="#166534">Imparte: Raúl Eduardo González Argote</text>
     <g filter="url(#shadow)">
-      <rect x="82" y="446" width="320" height="64" rx="32" fill="#23352d"/>
-      <text x="115" y="487" font-size="22" font-weight="700" letter-spacing="1" fill="#fffdf8">90 MIN · PRÁCTICA GUIADA</text>
+      <rect x="82" y="466" width="320" height="64" rx="32" fill="#23352d"/>
+      <text x="115" y="507" font-size="22" font-weight="700" letter-spacing="1" fill="#fffdf8">90 MIN · PRÁCTICA GUIADA</text>
     </g>
     <text x="84" y="586" font-size="26" font-weight="700">Aprende a:</text>
     <g font-size="25" font-weight="500">
@@ -38,10 +39,10 @@
   </g>
   <rect x="0" y="1100" width="1080" height="250" fill="#23352d"/>
   <g font-family="Inter, Arial, sans-serif" fill="#fffdf8">
-    <text x="82" y="1158" font-size="22" font-weight="700" letter-spacing="2" fill="#f2c94c">PRÁCTICA CON ARCHIVOS DE TEXTO</text>
-    <text x="82" y="1212" font-size="28" font-weight="700">Repositorio del curso</text>
-    <text x="82" y="1254" font-size="25" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#d7e4d9">github.com/rafex/IB-git</text>
-    <text x="82" y="1308" font-size="19" fill="#bdd0bf">Raúl Eduardo González Argote · rafex@rafex.dev</text>
+    <text x="82" y="1158" font-size="22" font-weight="700" letter-spacing="2" fill="#f2c94c">EN LA PLATAFORMA INSIGHTBLOOM</text>
+    <text x="82" y="1212" font-size="28" font-weight="700">El inicio de un camino al éxito</text>
+    <text x="82" y="1254" font-size="25" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#d7e4d9">insightbloom.v1.rafex.cloud</text>
+    <text x="82" y="1308" font-size="19" fill="#bdd0bf">Raúl Eduardo González Argote</text>
   </g>
   <circle cx="988" cy="1212" r="52" fill="#f2c94c"/>
   <text x="988" y="1225" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" font-weight="800" fill="#23352d">git</text>
