@@ -8,12 +8,14 @@ mainfont: Arial
 linkcolor: blue
 ---
 
-## Datos del autor
+<div class="author-block">
 
 **Institución de adscripción:** Investigador independiente  
 **Departamento:** No aplica  
 **Correo electrónico:** [rafex@rafex.dev](https://raulglez.me) 
 **Página web:** [GalaxIA](https://galax-ia.rafex.io/) 
+
+</div>
 
 ## Resumen
 
