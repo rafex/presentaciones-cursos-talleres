@@ -1,0 +1,322 @@
+/* ============================================
+   ESTILO VISUAL GALAXIA PARA PDF
+   Basado en https://galax-ia.rafex.io/
+   ============================================ */
+
+/* ----- RESET Y CONFIGURACIÓN BASE ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 12pt;
+  line-height: 1.7;
+  padding: 40px 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ----- ENCABEZADOS ----- */
+h1 {
+  font-size: 28pt;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid #4fc3f7;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #4fc3f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 18pt;
+  font-weight: 700;
+  color: #4fc3f7;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  border-left: 4px solid #4fc3f7;
+  padding-left: 14px;
+}
+
+h3 {
+  font-size: 15pt;
+  font-weight: 600;
+  color: #81d4fa;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 13pt;
+  font-weight: 600;
+  color: #b3e5fc;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+/* ----- PÁRRAFOS Y TEXTO ----- */
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+em {
+  color: #81d4fa;
+  font-style: italic;
+}
+
+/* Combinación negrita + cursiva (***texto***) */
+strong em,
+em strong {
+  color: #4fc3f7;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, #4fc3f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ----- ENLACES ----- */
+a {
+  color: #4fc3f7;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(79, 195, 247, 0.3);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #00e5ff;
+  border-bottom: 1px solid #00e5ff;
+}
+
+/* ----- LISTAS ----- */
+ul, ol {
+  padding-left: 28px;
+  margin-bottom: 16px;
+}
+
+li {
+  margin-bottom: 6px;
+  position: relative;
+}
+
+ul li::marker {
+  color: #4fc3f7;
+  font-size: 1.1em;
+}
+
+/* Listas anidadas */
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* ----- TABLAS ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 11pt;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(0, 229, 255, 0.1));
+  color: #4fc3f7;
+  font-weight: 700;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid #4fc3f7;
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: rgba(79, 195, 247, 0.05);
+}
+
+/* ----- CITAS Y BLOQUES ----- */
+blockquote {
+  border-left: 4px solid #4fc3f7;
+  padding: 14px 20px;
+  margin: 18px 0;
+  background: linear-gradient(135deg, rgba(79, 195, 247, 0.08), rgba(0, 229, 255, 0.03));
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: #b3e5fc;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ----- CÓDIGO ----- */
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 10.5pt;
+  background-color: rgba(79, 195, 247, 0.12);
+  color: #4fc3f7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(79, 195, 247, 0.15);
+}
+
+pre {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(79, 195, 247, 0.15);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #b3e5fc;
+  font-size: 10pt;
+}
+
+/* ----- LÍNEAS HORIZONTALES ----- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
+  margin: 30px 0;
+  opacity: 0.4;
+}
+
+/* ----- AUTOR Y METADATOS ----- */
+.author-block {
+  background: linear-gradient(135deg, rgba(79, 195, 247, 0.08), rgba(0, 229, 255, 0.04));
+  border: 1px solid rgba(79, 195, 247, 0.15);
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin-bottom: 28px;
+}
+
+.author-block strong {
+  color: #4fc3f7;
+}
+
+/* ----- NOTAS AL PIE / FOOTNOTES ----- */
+.footnotes {
+  border-top: 1px solid rgba(79, 195, 247, 0.2);
+  margin-top: 30px;
+  padding-top: 16px;
+  font-size: 10pt;
+  color: #90a4ae;
+}
+
+/* ----- PIE DE PÁGINA (para PDF) ----- */
+@page {
+  margin: 2cm 1.5cm;
+  @bottom-center {
+    content: "GalaxIA · IA federada y soberana · " counter(page);
+    font-size: 9pt;
+    color: #4fc3f7;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* ----- RESPONSIVE PARA PANTALLA ----- */
+@media screen {
+  body {
+    padding: 30px 20px;
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    background-color: #0a0a0f;
+    color: #e0e0e0;
+  }
+  
+  a {
+    color: #4fc3f7 !important;
+    border-bottom-color: rgba(79, 195, 247, 0.3) !important;
+  }
+  
+  h1 {
+    -webkit-text-fill-color: #ffffff;
+    background: none;
+    color: #ffffff;
+  }
+  
+  strong em, em strong {
+    -webkit-text-fill-color: #4fc3f7;
+    background: none;
+    color: #4fc3f7;
+  }
+}
+
+/* ----- DECORACIONES ESPECIALES ----- */
+
+/* Badge sutil para elementos destacados */
+.badge-highlight {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 12px;
+  background: rgba(79, 195, 247, 0.12);
+  border: 1px solid rgba(79, 195, 247, 0.2);
+  font-size: 0.85em;
+  color: #4fc3f7;
+}
+
+/* Viñeta decorativa para listas importantes */
+.important-list li::before {
+  content: "✦ ";
+  color: #4fc3f7;
+  font-weight: 700;
+}
+
+/* Glow sutil en los títulos principales */
+.glow-text {
+  text-shadow: 0 0 30px rgba(79, 195, 247, 0.15);
+}
+
+/* Separador decorativo entre secciones */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0;
+  color: #4fc3f7;
+  opacity: 0.3;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
+}
