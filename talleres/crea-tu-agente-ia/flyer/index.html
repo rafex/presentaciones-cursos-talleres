@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construye tu Agente IA en 120 minutos</title>
+  <style>
+    :root {
+      --navy: #06132f;
+      --cyan: #67e8f9;
+      --violet: #a78bfa;
+      --coral: #fb7185;
+      --orange: #fdba74;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      background: #06132f;
+      color: #f8fafc;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .flyer {
+      background:
+        linear-gradient(180deg, rgba(6, 19, 47, 0.22) 0%, rgba(6, 19, 47, 0.88) 58%, rgba(6, 19, 47, 0.98) 100%),
+        url("agente-network.png") center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      height: 1350px;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 88px 82px 68px;
+      position: relative;
+      width: 1080px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 92px;
+      letter-spacing: -0.07em;
+      line-height: 0.93;
+      margin: 48px 0 0;
+      max-width: 790px;
+    }
+
+    h1 span { color: var(--orange); }
+
+    .subtitle {
+      color: #dbeafe;
+      font-size: 32px;
+      line-height: 1.2;
+      margin-top: 40px;
+      max-width: 730px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 760px;
+    }
+
+    .chip {
+      background: rgba(17, 38, 84, 0.82);
+      border: 1px solid rgba(167, 139, 250, 0.62);
+      border-radius: 999px;
+      color: #ede9fe;
+      font-size: 19px;
+      font-weight: 700;
+      padding: 10px 17px;
+    }
+
+    .bottom {
+      align-items: end;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .promise {
+      border-left: 5px solid var(--coral);
+      color: #fef2f2;
+      font-size: 26px;
+      line-height: 1.22;
+      max-width: 640px;
+      padding-left: 19px;
+    }
+
+    .meta {
+      align-items: center;
+      display: flex;
+      gap: 14px;
+    }
+
+    .meta img {
+      border: 2px solid rgba(103, 232, 249, 0.7);
+      border-radius: 50%;
+      height: 66px;
+      object-fit: cover;
+      width: 66px;
+    }
+
+    .meta-text { text-align: right; }
+    .meta-text strong { color: #f8fafc; display: block; font-size: 18px; }
+    .meta-text small { color: #a5f3fc; display: block; font-size: 15px; margin-top: 4px; }
+
+    .orb {
+      background: var(--violet);
+      border-radius: 50%;
+      filter: blur(90px);
+      height: 190px;
+      opacity: 0.2;
+      position: absolute;
+      right: -30px;
+      top: 420px;
+      width: 190px;
+    }
+  </style>
+</head>
+<body>
+  <main class="flyer">
+    <div class="orb"></div>
+    <section>
+      <div class="eyebrow">Taller práctico · 120 minutos</div>
+      <h1>Construye tu<br><span>Agente IA</span></h1>
+      <p class="subtitle">Dale herramientas, conéctalo a Internet y enséñale tu propio conocimiento.</p>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">OpenCode</span>
+        <span class="chip">Groq</span>
+        <span class="chip">OpenRouter</span>
+        <span class="chip">Tools</span>
+        <span class="chip">RAG</span>
+      </div>
+    </section>
+    <section class="bottom">
+      <p class="promise">Al terminar tendrás un agente funcional que puede consultar una API y una base de conocimiento propia.</p>
+      <div class="meta">
+        <div class="meta-text"><strong>Raúl González</strong><small>rafex.dev</small></div>
+        <img src="rafex.png" alt="Raúl González">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

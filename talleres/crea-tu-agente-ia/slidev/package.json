@@ -1,0 +1,14 @@
+{
+  "name": "crea-tu-agente-ia-slidev",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.1.0",
+    "@slidev/theme-seriph": "^0.25.0"
+  }
+}
