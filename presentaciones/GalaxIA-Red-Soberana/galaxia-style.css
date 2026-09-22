@@ -1,12 +1,10 @@
 /* ============================================
    ESTILO PROFESIONAL PARA POSTULACIÓN ACADÉMICA
-   Inspirado en GalaxIA pero formal
    ============================================ */
 
 @page {
   margin: 2.5cm 2.5cm 2cm 2.5cm;
   size: A4;
-  
   @bottom-center {
     content: "Postulación · " counter(page) " de " counter(pages);
     font-size: 9pt;
@@ -25,8 +23,8 @@ body {
   padding: 0;
 }
 
-/* ----- TÍTULO PRINCIPAL ----- */
-h1 {
+/* ----- TÍTULO PRINCIPAL (desde YAML) ----- */
+h1.title {
   font-size: 18pt;
   font-weight: 700;
   color: #0a1628;
@@ -35,44 +33,57 @@ h1 {
   border-bottom: 2px solid #0a1628;
   padding-bottom: 10px;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: 'Times New Roman', serif;
   text-transform: uppercase;
 }
 
-/* ----- INFORMACIÓN DEL AUTOR ----- */
-.author-info {
+/* ----- BLOQUE DE AUTOR (primer blockquote) ----- */
+blockquote:first-of-type {
   text-align: center;
-  margin-bottom: 25px;
-  padding: 15px 0;
+  margin: 10px 0 25px 0;
+  padding: 12px 0;
+  border: none;
   border-bottom: 1px solid #cccccc;
-}
-
-.author-info .name {
-  font-size: 14pt;
-  font-weight: 700;
-  color: #0a1628;
-  margin-bottom: 4px;
-}
-
-.author-info .details {
+  background: transparent;
   font-size: 10.5pt;
   color: #333333;
   line-height: 1.5;
 }
 
-.author-info .details strong {
-  font-weight: 600;
-  color: #0a1628;
+blockquote:first-of-type p {
+  text-indent: 0;
+  margin: 0;
+  text-align: center;
 }
 
-.author-info a {
+blockquote:first-of-type strong {
+  color: #0a1628;
+  font-weight: 600;
+}
+
+blockquote:first-of-type a {
   color: #0055aa;
   text-decoration: none;
   border-bottom: 1px dotted #0055aa;
 }
 
-/* ----- ENCABEZADOS DE SECCIÓN ----- */
+/* ----- RESTO DE BLOCKQUOTES (citas normales) ----- */
+blockquote:not(:first-of-type) {
+  border-left: 3px solid #0a1628;
+  padding: 10px 20px;
+  margin: 15px 0;
+  background-color: #f8f9fa;
+  font-style: italic;
+  color: #333333;
+}
+
+blockquote:not(:first-of-type) p {
+  text-indent: 0;
+  margin-bottom: 0;
+}
+
+/* ----- ENCABEZADOS DE SECCIÓN (h2) ----- */
 h2 {
   font-size: 14pt;
   font-weight: 700;
@@ -84,25 +95,6 @@ h2 {
   font-family: 'Times New Roman', serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-h3 {
-  font-size: 12.5pt;
-  font-weight: 700;
-  color: #1a2a4a;
-  margin-top: 18px;
-  margin-bottom: 8px;
-  font-family: 'Times New Roman', serif;
-}
-
-h4 {
-  font-size: 11.5pt;
-  font-weight: 600;
-  color: #1a2a4a;
-  margin-top: 14px;
-  margin-bottom: 6px;
-  font-family: 'Times New Roman', serif;
-  font-style: italic;
 }
 
 /* ----- PÁRRAFOS ----- */
@@ -133,7 +125,7 @@ strong em, em strong {
   font-style: italic;
 }
 
-/* ----- ENLACES ----- */
+/* ----- ENLACES (generales) ----- */
 a {
   color: #0055aa;
   text-decoration: none;
@@ -181,21 +173,6 @@ tr:nth-child(even) td {
   background-color: #f8f9fa;
 }
 
-/* ----- CITAS ----- */
-blockquote {
-  border-left: 3px solid #0a1628;
-  padding: 10px 20px;
-  margin: 15px 0;
-  background-color: #f8f9fa;
-  font-style: italic;
-  color: #333333;
-}
-
-blockquote p {
-  text-indent: 0;
-  margin-bottom: 0;
-}
-
 /* ----- CÓDIGO ----- */
 code {
   font-family: 'Courier New', monospace;
@@ -229,59 +206,13 @@ hr {
   margin: 25px 0;
 }
 
-/* ----- PIE DE NOTAS ----- */
-.footnotes {
-  border-top: 1px solid #cccccc;
-  margin-top: 25px;
-  padding-top: 12px;
-  font-size: 9.5pt;
-  color: #555555;
-}
-
 /* ----- AJUSTES DE IMPRESIÓN ----- */
 @media print {
   body {
     background-color: #ffffff;
     color: #1a1a1a;
   }
-  
   a {
     color: #0055aa !important;
   }
-}
-
-/* ----- CLASES ADICIONALES ----- */
-
-/* Resumen destacado */
-.abstract {
-  background-color: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  padding: 15px 20px;
-  margin: 15px 0 20px 0;
-}
-
-.abstract p {
-  text-indent: 0;
-  margin-bottom: 0;
-}
-
-/* Palabras clave */
-.keywords {
-  font-size: 10pt;
-  color: #555555;
-  margin-top: 5px;
-  padding-top: 5px;
-  border-top: 1px solid #e0e0e0;
-}
-
-.keywords strong {
-  color: #0a1628;
-}
-
-/* Fecha y metadatos */
-.metadata {
-  text-align: right;
-  font-size: 10.5pt;
-  color: #555555;
-  margin-bottom: 20px;
 }

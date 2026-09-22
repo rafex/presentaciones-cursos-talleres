@@ -1,21 +1,13 @@
 ---
 title: "GalaxIA: protocolo abierto para una inteligencia artificial federada y soberana en México"
-author: "Raúl Eduardo González Argote"
 date: "2026-07-30"
-geometry: margin=1in
-fontsize: 12pt
-mainfont: Arial
-linkcolor: blue
 ---
 
-<div class="author-block">
-
-**Institución de adscripción:** Investigador independiente  
-**Departamento:** No aplica  
-**Correo electrónico:** [rafex@rafex.dev](https://raulglez.me) 
-**Página web:** [GalaxIA](https://galax-ia.rafex.io/) 
-
-</div>
+> [**Raúl Eduardo González Argote** ](https://raulglez.me/)  
+> **Institución de adscripción:** Investigador independiente  
+> **Departamento:** No aplica  
+> **Correo electrónico:** [rafex@rafex.dev](mailto:rafex@rafex.dev)  
+> **Página web:** [GalaxIA](https://galax-ia.rafex.io/)
 
 ## Resumen
 
