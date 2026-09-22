@@ -1,8 +1,14 @@
 # Agente informativo UPTx
 
 Ejercicio final del taller `Construye tu Agente IA en 120 minutos`. El agente
-usa Groq para decidir cuándo consultar una tool de clima o una base local de
-conocimiento sobre la Universidad Politécnica de Tlaxcala.
+usa el loop OpenAI-compatible de Groq para decidir cuándo consultar una tool de
+clima o una base local de conocimiento sobre la Universidad Politécnica de
+Tlaxcala.
+
+El ciclo es explícito: Groq recibe la pregunta y los schemas, solicita una
+tool, el programa ejecuta la función, devuelve el resultado a Groq y el modelo
+redacta la respuesta final. Esto evita depender de una herramienta sintética
+`final_answer` que no funciona con todos los modelos compatibles.
 
 ## Requisitos
 
@@ -46,6 +52,9 @@ uv run --project talleres/crea-tu-agente-ia/ejercicios/agente-uptx \
 ```bash
 uv run pytest
 ```
+
+Las pruebas cubren la recuperación de carreras, reglamento y ciclos, además
+del ciclo `tool_choice="required"` seguido de `tool_choice="auto"`.
 
 ## Actualizar información del sitio
 

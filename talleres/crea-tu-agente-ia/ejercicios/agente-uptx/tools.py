@@ -1,11 +1,10 @@
-"""Tools reales que el agente puede elegir durante la conversación."""
+"""Tools del agente y sus esquemas OpenAI function calling."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
 import requests
-from smolagents import tool
 
 from retriever import UPTxRetriever
 
@@ -13,39 +12,35 @@ ROOT = Path(__file__).resolve().parent
 retriever = UPTxRetriever(ROOT / "knowledge" / "uptx.md")
 
 
-@tool
 def obtener_clima(ciudad: str) -> str:
-    """Obtiene el clima actual de una ciudad usando Open-Meteo.
+    """Obtiene el clima actual de una ciudad usando Open-Meteo."""
 
-    Args:
-        ciudad: Ciudad o municipio que se desea consultar.
-    """
+    try:
+        geocoding = requests.get(
+            "https://geocoding-api.open-meteo.com/v1/search",
+            params={"name": ciudad, "count": 1, "language": "es", "format": "json"},
+            timeout=10,
+        )
+        geocoding.raise_for_status()
+        results = geocoding.json().get("results", [])
+        if not results:
+            return f"No encontré coordenadas para {ciudad}."
 
-    geocoding = requests.get(
-        "https://geocoding-api.open-meteo.com/v1/search",
-        params={"name": ciudad, "count": 1, "language": "es", "format": "json"},
-        timeout=10,
-    )
-    geocoding.raise_for_status()
-    results = geocoding.json().get("results", [])
-    if not results:
-        return f"No encontré coordenadas para {ciudad}."
-
-    location = results[0]
-    latitude = location["latitude"]
-    longitude = location["longitude"]
-    forecast = requests.get(
-        "https://api.open-meteo.com/v1/forecast",
-        params={
-            "latitude": latitude,
-            "longitude": longitude,
-            "current": "temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m",
-            "timezone": "auto",
-        },
-        timeout=10,
-    )
-    forecast.raise_for_status()
-    current = forecast.json().get("current", {})
+        location = results[0]
+        forecast = requests.get(
+            "https://api.open-meteo.com/v1/forecast",
+            params={
+                "latitude": location["latitude"],
+                "longitude": location["longitude"],
+                "current": "temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m",
+                "timezone": "auto",
+            },
+            timeout=10,
+        )
+        forecast.raise_for_status()
+        current = forecast.json().get("current", {})
+    except requests.RequestException as error:
+        return f"No pude consultar el clima de {ciudad}: {error}"
 
     return (
         f"Clima actual en {location.get('name', ciudad)}, {location.get('country', '')}: "
@@ -57,13 +52,8 @@ def obtener_clima(ciudad: str) -> str:
     )
 
 
-@tool
 def consultar_uptx(pregunta: str) -> str:
-    """Consulta información institucional de la Universidad Politécnica de Tlaxcala.
-
-    Args:
-        pregunta: Pregunta sobre carreras, admisión, ciclos, cursos o reglamento.
-    """
+    """Consulta información institucional de la Universidad Politécnica de Tlaxcala."""
 
     matches = retriever.search(pregunta)
     if not matches:
@@ -72,10 +62,49 @@ def consultar_uptx(pregunta: str) -> str:
             "Consulta directamente las fuentes oficiales incluidas en el Markdown."
         )
 
-    evidence = []
-    for match in matches:
-        evidence.append(f"[{match.heading}]\n{match.text}")
-    return "\n\n---\n\n".join(evidence)
+    return "\n\n---\n\n".join(f"[{match.heading}]\n{match.text}" for match in matches)
 
 
-TOOLS = [obtener_clima, consultar_uptx]
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "obtener_clima",
+            "description": "Obtiene las condiciones meteorológicas actuales de una ciudad.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "ciudad": {
+                        "type": "string",
+                        "description": "Ciudad o municipio que se desea consultar.",
+                    }
+                },
+                "required": ["ciudad"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "consultar_uptx",
+            "description": "Consulta carreras, admisión, ciclos, cursos y reglamento de la UPTx.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "pregunta": {
+                        "type": "string",
+                        "description": "Pregunta sobre información institucional de la UPTx.",
+                    }
+                },
+                "required": ["pregunta"],
+                "additionalProperties": False,
+            },
+        },
+    },
+]
+
+FUNCTIONS = {
+    "obtener_clima": obtener_clima,
+    "consultar_uptx": consultar_uptx,
+}

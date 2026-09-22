@@ -98,7 +98,7 @@ class: architecture-slide
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"background": "transparent", "primaryColor": "#172554", "primaryBorderColor": "#67e8f9", "primaryTextColor": "#f8fafc", "lineColor": "#fb7185", "secondaryColor": "#312e81", "tertiaryColor": "#0f172a"}}}%%
 flowchart TB
-  U[Usuario] --> A[Agente\\nsmolagents]
+  U[Usuario] --> A[Agente\\nloop de tools]
   A --> M[LLM\\nGroq]
   A --> C[Tool: clima\\nOpen-Meteo]
   A --> R[Tool: consultar_uptx\\nRAG local]
@@ -120,7 +120,7 @@ class: timeline-slide
   <div class="time-block"><b>00:08</b><span>Acceso</span><small>Groq API key</small></div>
   <div class="time-block"><b>00:23</b><span>Proyecto</span><small>Python con OpenCode</small></div>
   <div class="time-block"><b>00:35</b><span>Primer LLM</span><small>Proveedor intercambiable</small></div>
-  <div class="time-block"><b>00:50</b><span>Agente</span><small>smolagents en acción</small></div>
+  <div class="time-block"><b>00:50</b><span>Agente</span><small>loop de tools en acción</small></div>
   <div class="time-block"><b>01:05</b><span>Tool externa</span><small>Clima vía API</small></div>
   <div class="time-block"><b>01:20</b><span>RAG</span><small>UPTx en Markdown</small></div>
   <div class="time-block"><b>01:50</b><span>Prueba y cierre</span><small>Preguntas reales</small></div>
@@ -142,7 +142,7 @@ class: keys-slide
   <div>
     <h3>Acceso</h3>
     <pre><code>export GROQ_API_KEY="..."
-export OPENROUTER_API_KEY="..."</code></pre>
+export GROQ_MODEL="openai/gpt-oss-120b"</code></pre>
     <p>La llave identifica al proveedor. El modelo se elige después.</p>
   </div>
   <div class="warning-panel">
@@ -186,7 +186,7 @@ agente-uptx/
 
 ```text
 Crea un proyecto Python mínimo
-para un agente con smolagents.
+para un agente con function calling.
 
 Separa el modelo, las tools y los
 secretos. Incluye pyproject.toml
@@ -216,9 +216,11 @@ class: provider-slide
   api_key=GROQ_API_KEY,
   base_url=GROQ_BASE_URL,
 )</code></pre>
-  <pre><code>cliente = OpenAI(
-  api_key=OPENROUTER_API_KEY,
-  base_url=OPENROUTER_BASE_URL,
+  <pre><code>respuesta = cliente.chat.completions.create(
+  model=GROQ_MODEL,
+  messages=mensajes,
+  tools=tools,
+  tool_choice="required",
 )</code></pre>
 </div>
 
@@ -256,10 +258,12 @@ class: loop-slide
   </div>
 </div>
 
+<div class="mini-flow">Pregunta → Groq + tools → llamada de herramienta → resultado → Groq → respuesta</div>
+
 <p class="center callout">El ciclo es pequeño. La decisión es lo importante.</p>
 
 <!--
-Notas del presentador: aquí se introduce smolagents con el mínimo de teoría. El agente recibe un modelo y una lista de tools.
+Notas del presentador: aquí se introduce el loop de function calling. Groq recibe la pregunta y los esquemas de las tools, devuelve una llamada, recibe el resultado y finalmente redacta la respuesta.
 -->
 
 ---
@@ -277,25 +281,14 @@ class: tool-slide
 ::right::
 
 ```python
-@tool
 def obtener_clima(
-    latitude: float,
-    longitude: float,
+    ciudad: str,
 ) -> str:
-    """Obtiene las condiciones
-    meteorológicas actuales."""
-    response = requests.get(
-        "https://api.open-meteo.com/v1/forecast",
-        params={
-            "latitude": latitude,
-            "longitude": longitude,
-            "current": "temperature_2m",
-        },
-    )
-    return response.text
+    """Obtiene el clima actual de una ciudad."""
+    return "resultado de Open-Meteo"
 ```
 
-<p class="code-caption">Una API + una función Python = una Tool</p>
+<p class="code-caption">Una API + una función Python + un schema = una Tool</p>
 
 <!--
 Notas del presentador: probar una pregunta concreta, como la temperatura cerca de la UPTx. El objetivo es observar la llamada, no enseñar meteorología.
@@ -341,19 +334,28 @@ class: rag-tool-slide
 ::right::
 
 ```python
-@tool
-def consultar_uptx(
-    pregunta: str,
-) -> str:
-    """Consulta el conocimiento institucional de la UPTx."""
-    return retriever.search(pregunta)
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "consultar_uptx",
+            "parameters": {"type": "object", "properties": {"pregunta": {"type": "string"}}},
+        },
+    },
+]
+
+respuesta = cliente.chat.completions.create(
+    model=GROQ_MODEL,
+    messages=mensajes,
+    tools=tools,
+    tool_choice="required",
+)
 ```
 
 ```python
 tools = [
-    obtener_clima,
-    consultar_uptx,
-]
+call = respuesta.choices[0].message.tool_calls[0]
+resultado = FUNCTIONS[call.function.name](**json.loads(call.function.arguments))
 ```
 
 <!--

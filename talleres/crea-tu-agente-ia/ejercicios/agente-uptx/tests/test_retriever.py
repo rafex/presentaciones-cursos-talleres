@@ -22,5 +22,25 @@ def test_retriever_finds_regulation_periods() -> None:
     assert any("cuatrimestr" in result.text.lower() for result in results)
 
 
+def test_retriever_finds_offer_for_careers() -> None:
+    results = UPTxRetriever(KNOWLEDGE).search("¿Qué carreras ofrece la UPTx?")
+    assert results
+    assert results[0].heading == "Oferta educativa"
+    assert "Ingeniería Mecatrónica" in results[0].text
+
+
+def test_retriever_finds_article_10() -> None:
+    results = UPTxRetriever(KNOWLEDGE).search("¿Puedo estar inscrito en dos programas académicos?")
+    assert results
+    assert "simultáneamente" in results[0].text
+    assert results[0].heading == "Admisión e inscripción"
+
+
 def test_retriever_returns_empty_for_unknown_question() -> None:
     assert UPTxRetriever(KNOWLEDGE).search("¿Cuál es el menú de la cafetería?") == []
+
+
+def test_retriever_does_not_repeat_headings() -> None:
+    results = UPTxRetriever(KNOWLEDGE).search("reglamento derechos obligaciones sanciones")
+    headings = [result.heading for result in results]
+    assert len(headings) == len(set(headings))
