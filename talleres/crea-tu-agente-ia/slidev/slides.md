@@ -1,7 +1,11 @@
 ---
 theme: seriph
 title: Construye tu Agente IA en 120 minutos
+description: Taller práctico para construir un agente con Groq, tools y conocimiento institucional de la UPTx
+author: Raúl Eduardo González Argote
+date: 21 septiembre 2026
 transition: slide-left
+aspectRatio: 16/9
 mdc: true
 layout: cover
 class: cover-slide
@@ -13,12 +17,31 @@ class: cover-slide
 
 <img src="./assets/images/agente-network.png" class="cover-image" alt="Red abstracta de un agente de IA">
 
-<p class="cover-subtitle">Python · OpenCode · Groq · OpenRouter · Tools · RAG</p>
+<p class="cover-subtitle">Python · OpenCode · Groq · Tools · RAG</p>
 
 <div class="cover-meta">Taller práctico de construcción con IA</div>
 
 <!--
 Notas del presentador: abrir con el resultado. La promesa es concreta: al terminar, cada persona tendrá un agente funcional que puede consultar una API y su propia base de conocimiento.
+-->
+
+---
+class: statement-slide
+---
+
+# Resultado del taller
+
+<div class="statement-lead">Cada participante termina con un agente que decide cuándo consultar una herramienta.</div>
+
+<div class="statement-list">
+  <span>Python ejecutable</span>
+  <span>Groq configurado</span>
+  <span>Clima real</span>
+  <span>Conocimiento UPTx</span>
+</div>
+
+<!--
+Notas del presentador: presentar el entregable antes de explicar la teoría. El ejercicio funciona desde la terminal con una sola API key de Groq.
 -->
 
 ---
@@ -67,7 +90,7 @@ class: architecture-slide
 
 <div class="architecture-copy">
   <p>El usuario hace una pregunta. El agente decide si puede responder con el modelo o si necesita consultar una herramienta.</p>
-  <p class="muted">La misma idea funciona con un modelo de Groq o con un modelo gratuito seleccionado desde OpenRouter.</p>
+  <p class="muted">Groq es el proveedor validado en el taller. La interfaz compatible con OpenAI deja abierta una migración posterior.</p>
 </div>
 
 ::right::
@@ -76,11 +99,10 @@ class: architecture-slide
 %%{init: {"theme": "base", "themeVariables": {"background": "transparent", "primaryColor": "#172554", "primaryBorderColor": "#67e8f9", "primaryTextColor": "#f8fafc", "lineColor": "#fb7185", "secondaryColor": "#312e81", "tertiaryColor": "#0f172a"}}}%%
 flowchart TB
   U[Usuario] --> A[Agente\\nsmolagents]
-  A --> M[LLM\\nGroq / OpenRouter]
+  A --> M[LLM\\nGroq]
   A --> C[Tool: clima\\nOpen-Meteo]
-  A --> R[Tool: reglamento\\nAPI RAG]
-  R --> F[FAISS]
-  F --> D[Reglamento UPTx]
+  A --> R[Tool: consultar_uptx\\nRAG local]
+  R --> D[uptx.md\\nfuentes oficiales]
 ```
 
 <!--
@@ -95,12 +117,12 @@ class: timeline-slide
 
 <div class="timeline">
   <div class="time-block"><b>00:00</b><span>Mapa del agente</span><small>Arquitectura y objetivo</small></div>
-  <div class="time-block"><b>00:08</b><span>Accesos</span><small>Groq y OpenRouter</small></div>
+  <div class="time-block"><b>00:08</b><span>Acceso</span><small>Groq API key</small></div>
   <div class="time-block"><b>00:23</b><span>Proyecto</span><small>Python con OpenCode</small></div>
   <div class="time-block"><b>00:35</b><span>Primer LLM</span><small>Proveedor intercambiable</small></div>
   <div class="time-block"><b>00:50</b><span>Agente</span><small>smolagents en acción</small></div>
   <div class="time-block"><b>01:05</b><span>Tool externa</span><small>Clima vía API</small></div>
-  <div class="time-block"><b>01:20</b><span>RAG</span><small>Reglamento indexado</small></div>
+  <div class="time-block"><b>01:20</b><span>RAG</span><small>UPTx en Markdown</small></div>
   <div class="time-block"><b>01:50</b><span>Prueba y cierre</span><small>Preguntas reales</small></div>
 </div>
 
@@ -154,7 +176,10 @@ agente-uptx/
 ├── main.py
 ├── model.py
 ├── tools.py
-├── requirements.txt
+├── retriever.py
+├── knowledge/uptx.md
+├── tests/
+├── pyproject.toml
 ├── .env.example
 └── .gitignore
 ```
@@ -164,7 +189,7 @@ Crea un proyecto Python mínimo
 para un agente con smolagents.
 
 Separa el modelo, las tools y los
-secretos. Incluye requirements.txt
+secretos. Incluye pyproject.toml
 y .gitignore. No agregues un
 framework web.
 ```
@@ -183,7 +208,7 @@ class: provider-slide
   <div class="provider-app"><b>Nuestra aplicación</b><small>Python + interfaz compatible</small></div>
   <div class="provider-line"></div>
   <div class="provider-choice"><b>Groq</b><small>respuesta rápida</small></div>
-  <div class="provider-choice"><b>OpenRouter</b><small>modelo gratuito</small></div>
+  <div class="provider-choice"><b>OpenAI-compatible</b><small>migración opcional</small></div>
 </div>
 
 <div class="code-compare">
@@ -289,15 +314,15 @@ class: rag-slide
   <span>↓</span>
   <div><b>Chunks</b><small>fragmentos recuperables</small></div>
   <span>↓</span>
-  <div><b>Embeddings</b><small>representación semántica</small></div>
+  <div><b>Tokens</b><small>términos comparables</small></div>
   <span>↓</span>
-  <div class="rag-final"><b>FAISS</b><small>búsqueda relevante</small></div>
+  <div class="rag-final"><b>Retriever local</b><small>coincidencias relevantes</small></div>
 </div>
 
-<div class="rag-note">El taller usa una API RAG ya construida para dedicar el tiempo a integrar y probar el agente.</div>
+<div class="rag-note">El taller usa un Markdown versionado y una búsqueda local para funcionar sin otra API key ni un servicio externo.</div>
 
 <!--
-Notas del presentador: explicar qué ocurre dentro de la base vectorial, pero no construir el vector store desde cero en esta sesión.
+Notas del presentador: explicar que la recuperación sigue siendo RAG aunque el índice sea ligero. El objetivo es que cada participante pueda leer y modificar la base.
 -->
 
 ---
@@ -310,25 +335,24 @@ class: rag-tool-slide
 <div class="architecture-copy">
   <p>La base de conocimiento entra al agente como una segunda Tool.</p>
   <p class="quote-inline">El RAG deja de ser una demo aislada y pasa a formar parte del ciclo de decisión.</p>
-  <div class="mini-flow">pregunta → agente → consultar_reglamento() → fragmentos relevantes</div>
+  <div class="mini-flow">pregunta → agente → consultar_uptx() → fragmentos relevantes</div>
 </div>
 
 ::right::
 
 ```python
 @tool
-def consultar_reglamento(
+def consultar_uptx(
     pregunta: str,
 ) -> str:
-    """Consulta el Reglamento
-    Interno del Alumno de la UPTx."""
-    return rag_api.search(pregunta)
+    """Consulta el conocimiento institucional de la UPTx."""
+    return retriever.search(pregunta)
 ```
 
 ```python
 tools = [
     obtener_clima,
-    consultar_reglamento,
+    consultar_uptx,
 ]
 ```
 
@@ -366,9 +390,9 @@ class: scope-slide
     <small>Construimos</small>
     <ul>
       <li>Un agente funcional en Python</li>
-      <li>Dos proveedores posibles</li>
+      <li>Groq como proveedor validado</li>
       <li>Una Tool conectada a Internet</li>
-      <li>Una Tool conectada a RAG</li>
+      <li>Una Tool conectada a Markdown local</li>
     </ul>
   </div>
   <div>
@@ -398,13 +422,13 @@ class: final-architecture-slide
   <div class="stack-item highlight"><b>Agente</b><small>elige si necesita una Tool</small></div>
   <span>↓</span>
   <div class="stack-row">
-    <div class="stack-item"><b>LLM</b><small>Groq / OpenRouter</small></div>
+    <div class="stack-item"><b>LLM</b><small>Groq</small></div>
     <div class="stack-item"><b>Tool</b><small>Open-Meteo</small></div>
-    <div class="stack-item"><b>Tool</b><small>API RAG + FAISS</small></div>
+    <div class="stack-item"><b>Tool</b><small>RAG local UPTx</small></div>
   </div>
 </div>
 
-<p class="final-message">LLM → Agent → Tools → APIs → RAG → conocimiento propio</p>
+<p class="final-message">LLM → Agente → Tools → APIs → RAG → conocimiento propio</p>
 
 <!--
 Notas del presentador: cerrar conectando el resultado con la promesa de portada. Cada participante se lleva un agente pequeño, explicable y ampliable.
@@ -414,14 +438,31 @@ Notas del presentador: cerrar conectando el resultado con la promesa de portada.
 class: closing-slide
 ---
 
-# Tu primer agente no necesita ser enorme
+# Un agente útil empieza con una pregunta real
 
 <img src="./assets/images/agente-network.png" class="cover-image" alt="Red abstracta de un agente de IA">
 
-<p class="cover-subtitle">Necesita una pregunta real, una herramienta útil y un documento que conozcas.</p>
+<p class="cover-subtitle">Y con una herramienta que puedas explicar.</p>
 
 <div class="cover-meta">Construye tu Agente IA en 120 minutos</div>
 
 <!--
 Notas del presentador: abrir espacio para preguntas y recuperar el objetivo de cada persona. Proponer que el siguiente documento sea propio, siempre que pueda probarse con preguntas concretas.
+-->
+
+---
+class: contact-slide
+---
+
+# Contacto
+
+> Raúl Eduardo González Argote
+
+- 🔗 [**LinkedIn**](https://www.linkedin.com/in/soft-architect-raul-gonzalez)
+- ✉️ [**rafex@rafex.dev**](mailto:rafex@rafex.dev)
+- 💻 [**github.com/rafex**](https://github.com/rafex)
+- 📝 [**theworldofrafex.blog**](https://theworldofrafex.blog/)
+
+<!--
+Notas del presentador: dejar visibles los enlaces y recordar que el ejercicio puede ampliarse con nuevas tools y documentos.
 -->

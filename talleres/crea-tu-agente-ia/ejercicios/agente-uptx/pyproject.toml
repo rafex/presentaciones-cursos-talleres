@@ -1,0 +1,20 @@
+[project]
+name = "agente-uptx"
+version = "0.1.0"
+description = "Agente informativo de la Universidad Politécnica de Tlaxcala con Groq y tools"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12.3",
+  "python-dotenv>=1.0.1",
+  "requests>=2.32.3",
+  "smolagents[openai]>=1.26.0,<2",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

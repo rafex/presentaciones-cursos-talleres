@@ -1,0 +1,60 @@
+# Agente informativo UPTx
+
+Ejercicio final del taller `Construye tu Agente IA en 120 minutos`. El agente
+usa Groq para decidir cuándo consultar una tool de clima o una base local de
+conocimiento sobre la Universidad Politécnica de Tlaxcala.
+
+## Requisitos
+
+- Python 3.11 o posterior.
+- [`uv`](https://docs.astral.sh/uv/).
+- Una API key de Groq.
+
+## Configuración
+
+```bash
+cp .env.example .env
+```
+
+Edita `.env` y agrega sólo tu clave:
+
+```dotenv
+GROQ_API_KEY=gsk_...
+```
+
+El archivo `.env` está protegido por `.gitignore`.
+
+## Ejecutar
+
+```bash
+uv sync
+uv run python main.py "¿Qué carreras ofrece la UPTx?"
+uv run python main.py "¿Cuántas horas de servicio social pide el reglamento?"
+uv run python main.py "¿Qué clima hay en Tepeyanco?"
+```
+
+Desde la raíz del repositorio también puedes usar:
+
+```bash
+uv run --project talleres/crea-tu-agente-ia/ejercicios/agente-uptx \
+  python talleres/crea-tu-agente-ia/ejercicios/agente-uptx/main.py \
+  "¿Qué carreras ofrece la UPTx?"
+```
+
+## Probar sin consumir Groq
+
+```bash
+uv run pytest
+```
+
+## Actualizar información del sitio
+
+El archivo [`knowledge/uptx.md`](./knowledge/uptx.md) es el snapshot revisado
+que usa el agente. Para obtener un snapshot técnico de las páginas públicas:
+
+```bash
+uv run python scripts/refresh_uptx_knowledge.py
+```
+
+Revisa los cambios antes de reemplazar la base revisada. Las convocatorias y
+los calendarios requieren confirmar siempre la fecha y la fuente oficial.
