@@ -128,7 +128,7 @@ a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(11,
 .cards.four { grid-template-columns: repeat(4, 1fr); }
 .cards.two-col { grid-template-columns: repeat(2, 1fr); }
 .card { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 0.6rem; padding: 0.85rem 1rem; }
-.card h3 { color: var(--blue); }
+.card h3 { color: var(--blue); font-size: 1.12rem; font-weight: 650; }
 .card p, .card li { font-size: 0.88rem; line-height: 1.38; margin: 0.2rem 0; }
 .card ul { padding-left: 1.05rem; margin: 0.25rem 0 0; }
 .card.violet { border-top-color: var(--violet); } .card.violet h3 { color: var(--violet); }
@@ -159,7 +159,7 @@ a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(11,
 .metric .lbl { font-size: 0.9rem; color: var(--muted); margin-top: 0.25rem; }
 .compare { display: flex; align-items: center; gap: 1.6rem; margin: 1.1rem 0; }
 .compare .arrow { font-size: 2.6rem; color: var(--violet); }
-.compare .from .num { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: rgba(180, 35, 24, 0.55); }
+.compare .from .num { color: #8a97ab; }
 
 .callout { margin-top: 1rem; padding: 0.75rem 1rem; border-left: 4px solid var(--blue); background: var(--blue-soft); border-radius: 0 0.5rem 0.5rem 0; font-size: 0.95rem; }
 .callout.warn { border-left-color: var(--amber); background: var(--amber-soft); }
@@ -181,9 +181,25 @@ tr:nth-child(even) td { background: rgba(255, 255, 255, 0.55); }
 .dense th { padding: 0.3rem 0.5rem; }
 
 .slidev-code, pre code { font-size: 0.8rem; }
-.mermaid { margin: 0.4rem auto; }
+.mermaid { margin: 0.4rem auto; display: flex; justify-content: center; }
 .figure { text-align: center; }
 .figure img { max-height: 21rem; margin: 0 auto; }
 .bottom-note { position: absolute; left: 4rem; right: 4rem; bottom: 2.4rem; color: var(--muted); font-size: 0.82rem; }
 .links li { margin: 0.35rem 0; }
 .links code { background: var(--blue-soft); padding: 0.1rem 0.4rem; border-radius: 0.3rem; color: var(--blue); }
+
+/* ---- mapa de la LAN ---- */
+.lan .router { padding: 0.5rem 1rem; background: var(--night); color: #fff; border-radius: 0.5rem; font-size: 0.86rem; text-align: center; margin: 0.6rem 0 0.9rem; }
+.lan .router code { color: var(--cyan); }
+.hosts { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 0.85fr; gap: 0.7rem; align-items: start; }
+.host { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 0.6rem; padding: 0.55rem 0.75rem 0.4rem; }
+.host h3 { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; color: var(--blue); }
+.host h3 span { font: 0.72rem var(--mono); color: var(--muted); }
+.host.violet { border-top-color: var(--violet); } .host.violet h3 { color: var(--violet); }
+.host.green { border-top-color: var(--green); } .host.green h3 { color: var(--green); }
+.host.amber { border-top-color: var(--amber); } .host.amber h3 { color: var(--amber); }
+.host.gray { border-top-color: #8a97ab; } .host.gray h3 { color: var(--muted); }
+.svc { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.78rem; padding: 0.2rem 0; border-bottom: 1px dashed var(--line); }
+.svc:last-child { border-bottom: 0; }
+.svc code { color: var(--blue); }
+.lan-note { margin-top: 0.9rem; font-size: 0.82rem; color: var(--muted); }
