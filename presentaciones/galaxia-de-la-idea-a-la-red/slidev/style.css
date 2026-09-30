@@ -85,8 +85,8 @@ a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(11,
   padding-left: 5rem;
 }
 .final-slide h1, .final-slide p { color: #fff; }
-.final-slide h1 { font-size: 3.1rem; max-width: 56%; }
-.final-slide p { max-width: 50%; font-size: 1.15rem; color: #d3e0f5; }
+.final-slide h1 { font-size: 2.9rem; max-width: 62%; }
+.final-slide p { max-width: 55%; font-size: 1.5rem; color: #d3e0f5; }
 
 .contact-slide {
   background: radial-gradient(circle at 85% 20%, rgba(106, 75, 216, 0.3), transparent 45%), linear-gradient(135deg, var(--night), var(--night-2));
