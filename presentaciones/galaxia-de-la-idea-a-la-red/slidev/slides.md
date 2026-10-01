@@ -668,7 +668,7 @@ Notas del orador:
 
 # Lo que funciona hoy
 
-<span class="snapshot">Snapshot 27–28 sep 2026 · laboratorio completo · observación propia</span>
+<span class="snapshot">Snapshot 1 oct 2026 · laboratorio completo · observación propia</span>
 
 <div class="two">
 <div class="card green">
@@ -677,11 +677,11 @@ Notas del orador:
 
 - Chat con **streaming** desde el navegador
 - **OCR** de PDFs e imágenes (Tesseract, español)
-- **Base de conocimiento** con citas (la Constitución)
-- **RAG** de red y RAG local en el navegador
-- **Adjuntos por IPFS** y su liberación automática
+- **Base de conocimiento** con citas «archivo › sección» (documentación de galaxIA)
+- **RAG** de red y **adjuntos por IPFS**
+- Un **teléfono se une solo** y presta su cómputo (`/calc`)
+- **Autorización expresa** por uso y despacho siempre con oferta, puja y asignación
 - **Reconexión** sola tras reiniciar Atlas o un equipo
-- Prueba del Portal (e2e) contra la red real: pasa
 
 </div>
 <div class="card amber">
@@ -689,24 +689,29 @@ Notas del orador:
 <h3>Con reservas</h3>
 
 - Un **solo** LLM y un solo orquestador
-- **Certificados autofirmados**: cada navegador nuevo acepta excepciones
+- **~40 s** por respuesta con KB (el CPU lee ~26 tok/s)
+- Búsqueda de la KB **léxica**: a veces trae la sección equivocada
+- Cualquier nodo anunciado puede ganar; solo frena la **autorización**
+- **Certificados autofirmados** y sin acceso fuera de la LAN
 - Reputación **sin datos reales** todavía
-- Sin acceso desde fuera de la LAN
-- Imágenes de KB y RAG compiladas con una versión anterior del SDK
 
 </div>
 </div>
 
-<div class="callout warn"><b>Hoy, 30 sep, 09:36</b> (al preparar esta charla): en la LAN solo respondían el router y Bastion. Atlas veía <b>2 nodos</b> (Navigator y Star): la red sigue viva, pero sin OCR, KB ni RAG.</div>
+<div class="callout"><b>Hoy, 1 oct:</b> los cinco equipos y el teléfono están en la red. Atlas ve <b>7 peers</b> y el diagnóstico sale sin problemas bloqueantes. Hace un día, al preparar la charla, solo respondían el router y Bastion: la red es modular, si faltan nodos se pierden capacidades, no la red.</div>
 
 <!--
 Notas del orador:
-- Antes de presentar: encender el laboratorio completo (Raspberry Pi 4B, Raspberry Pi 3B y ThinkPad), correr `scripts/doctor.sh` y actualizar esta slide con lo que muestre.
-- El punto de la callout es pedagógico: la red es modular. Si faltan nodos, se pierden capacidades, no la red entera. Pero Bastion concentra Atlas, Navigator, Star y el LLM: por eso es el punto único de falla.
-- El e2e del Portal usa el mismo código de sesión que el navegador (js-libp2p) contra Atlas y Navigator reales.
+- Estado medido el 1 de octubre con scripts/doctor.sh: 7 peers en Atlas (5 nodos, el teléfono y el navegador), 1 star y 4 satellites anunciados, sin problemas bloqueantes.
+- El teléfono es el hito nuevo: abre una página, su navegador es un nodo libp2p, se anuncia con una capacidad (aritmética en WASM) y atiende misiones. El Navigator lo descubre solo. La pantalla del teléfono muestra estado y tiempos, nunca lo que se le envió.
+- La regla que se documentó hoy: ningún documento autoriza despachar una misión sin oferta, puja y asignación. El nodo móvil rechaza lo que no tenga una asignación válida. Los comandos piden autorización expresa antes de publicar nada; OCR, RAG y KB todavía no.
+- Reservas honestas: ~40 s por respuesta con KB en este hardware (Qwen3.5-2B, sin GPU); la búsqueda de la KB es léxica y el modelo chico puede alucinar detalles aunque tenga la fuente; con el autodescubrimiento cualquier nodo de la LAN con la capacidad puede ganar y el único control es la autorización del usuario.
+- Bastion concentra Atlas, Navigator, Star y el LLM: sigue siendo el punto único de falla.
 
 [Sources]
 https://github.com/rafex/galaxIA-gitops/blob/main/docs/estado-poc.md
+https://github.com/rafex/galaxIA-gitops/blob/main/docs/nodo-movil-calc.md
+https://github.com/rafex/galaxIA/blob/main/spec-native/DECISIONS.md
 -->
 
 ---
