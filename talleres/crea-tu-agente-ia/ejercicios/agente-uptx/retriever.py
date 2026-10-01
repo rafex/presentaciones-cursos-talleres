@@ -1,4 +1,10 @@
-"""Recuperación local y ligera de fragmentos del conocimiento UPTx."""
+"""Retriever local y ligero para el conocimiento institucional de la UPTx.
+
+No usa embeddings, una base vectorial ni un servicio externo. Lee un Markdown
+versionado, lo separa por encabezados y puntúa cada fragmento con coincidencias
+de términos. Los encabezados pesan más que el cuerpo y las expansiones de
+intención relacionan palabras como ``carreras`` e ``ingenierías``.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +13,8 @@ import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
+# Términos que aparecen en casi cualquier pregunta institucional y no ayudan a
+# distinguir la intención. Se conservan sólo los términos informativos.
 STOPWORDS = {
     "a",
     "al",
@@ -47,6 +55,8 @@ STOPWORDS = {
     "tienen",
 }
 
+# Variantes y conceptos relacionados que mejoran la búsqueda sin incorporar
+# una dependencia de NLP. Las claves y valores se normalizan sin acentos.
 INTENT_EXPANSIONS = {
     "carrera": {"carreras", "oferta", "educativa", "programas", "ingenieria", "licenciatura"},
     "carreras": {"carrera", "oferta", "educativa", "programas", "ingenieria", "licenciatura"},
@@ -66,6 +76,8 @@ INTENT_EXPANSIONS = {
     "calendario": {"escolar", "ciclo", "admision", "fechas", "inscripcion"},
 }
 
+# Estas señales ayudan a evitar que una pregunta normativa reciba primero la
+# sección de oferta educativa sólo porque ambas mencionan a la universidad.
 REGULATION_QUERY_TERMS = {
     "alumno",
     "articulo",
@@ -78,6 +90,7 @@ REGULATION_QUERY_TERMS = {
     "sanciones",
 }
 
+# Señales de preguntas que sí deben priorizar la oferta académica.
 OFFER_QUERY_TERMS = {
     "carrera",
     "carreras",
@@ -91,14 +104,14 @@ OFFER_QUERY_TERMS = {
 
 @dataclass(frozen=True)
 class Chunk:
-    """Fragmento recuperable con su encabezado y contenido."""
+    """Fragmento recuperable con el encabezado que le da contexto."""
 
     heading: str
     text: str
 
 
 def normalize(text: str) -> list[str]:
-    """Devuelve tokens comparables sin acentos ni puntuación."""
+    """Devuelve tokens comparables sin acentos, mayúsculas ni puntuación."""
 
     plain = unicodedata.normalize("NFKD", text)
     plain = "".join(char for char in plain if not unicodedata.combining(char))
@@ -106,7 +119,12 @@ def normalize(text: str) -> list[str]:
 
 
 def expand_query(question: str) -> set[str]:
-    """Normaliza la pregunta y agrega términos de intención relacionados."""
+    """Normaliza la pregunta y agrega términos de intención relacionados.
+
+    Por ejemplo, ``carreras`` activa también ``oferta`` y ``programas``. Esto
+    permite que una pregunta natural encuentre el encabezado oficial aunque no
+    repita exactamente las mismas palabras.
+    """
 
     tokens = set(normalize(question)) - STOPWORDS
     expanded = set(tokens)
@@ -116,7 +134,12 @@ def expand_query(question: str) -> set[str]:
 
 
 def load_chunks(path: Path) -> list[Chunk]:
-    """Carga el Markdown y lo divide por encabezados y párrafos."""
+    """Carga el Markdown y lo divide por encabezados y párrafos.
+
+    Cada encabezado inicia una sección. Los párrafos siguientes se agrupan en
+    un ``Chunk`` hasta encontrar el siguiente encabezado. Así las respuestas
+    pueden conservar el título y el contexto de la fuente.
+    """
 
     content = path.read_text(encoding="utf-8")
     chunks: list[Chunk] = []
@@ -142,14 +165,24 @@ def load_chunks(path: Path) -> list[Chunk]:
 
 
 class UPTxRetriever:
-    """Buscador por coincidencia de términos, sin servicio externo."""
+    """Buscador por coincidencia de términos, sin servicio externo.
+
+    La puntuación favorece coincidencias en títulos, frases completas y
+    vocabulario de la intención. ``search`` devuelve como máximo una sección
+    por encabezado para no repetir la misma fuente en la respuesta.
+    """
 
     def __init__(self, knowledge_path: Path) -> None:
         self.knowledge_path = knowledge_path
         self.chunks = load_chunks(knowledge_path)
 
     def search(self, question: str, limit: int = 3) -> list[Chunk]:
-        """Devuelve los fragmentos más relacionados con la pregunta."""
+        """Devuelve los fragmentos más relacionados con la pregunta.
+
+        Las preguntas sin términos informativos devuelven una lista vacía.
+        También se aplica un filtro mínimo para que una coincidencia genérica
+        no parezca una respuesta válida a una pregunta fuera del alcance.
+        """
 
         raw_query = set(normalize(question)) - STOPWORDS
         query = expand_query(question)
@@ -178,6 +211,8 @@ class UPTxRetriever:
                 "reglamento" in heading_tokens or "inscripcion" in heading_tokens
             ):
                 regulation_bonus = 8
+            # El título identifica mejor la intención que una mención aislada
+            # dentro del texto. La frase exacta y el reglamento reciben bonos.
             score = (heading_overlap * 4) + body_overlap + phrase_bonus + regulation_bonus
             if score >= 2:
                 scored.append((score, heading_overlap, -index, chunk))

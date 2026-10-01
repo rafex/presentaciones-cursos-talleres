@@ -13,6 +13,36 @@ Icon?
 *.odp
 
 /tmp/
-/dist/
+dist/
 portal/generated/
 *.zip
+
+# Node.js, npm, pnpm, Yarn y herramientas de frontend
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+*.log
+.vite/
+.slidev/
+
+# Python y herramientas de calidad
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Variables de entorno y archivos locales
+.env
+.env.*
+!.env.example

@@ -21,6 +21,8 @@ URLS = {
 
 
 def extract_page(title: str, url: str) -> str:
+    """Descarga una página pública y la convierte en una sección Markdown."""
+
     response = requests.get(url, timeout=20)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
@@ -31,6 +33,8 @@ def extract_page(title: str, url: str) -> str:
 
 
 def main() -> None:
+    """Genera un snapshot auxiliar sin reemplazar la base revisada."""
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=Path(__file__).parents[1] / "knowledge" / "uptx-site-snapshot.md")
     args = parser.parse_args()

@@ -10,6 +10,50 @@ tool, el programa ejecuta la función, devuelve el resultado a Groq y el modelo
 redacta la respuesta final. Esto evita depender de una herramienta sintética
 `final_answer` que no funciona con todos los modelos compatibles.
 
+## Cómo está organizado el código
+
+Cada archivo tiene una responsabilidad pequeña para que el flujo sea fácil de
+leer, probar y extender:
+
+```text
+main.py       Entrada CLI y loop de function calling.
+model.py      Cliente de Groq y configuración desde .env.
+tools.py      Clima, búsqueda local y extracción de fuentes oficiales.
+retriever.py  Búsqueda local por intención dentro de knowledge/uptx.md.
+knowledge/    Snapshot institucional revisado y sus fuentes oficiales.
+tests/        Pruebas del retriever y del loop sin consumir la API.
+```
+
+El recorrido de una pregunta es:
+
+```text
+pregunta
+  -> Groq elige una tool
+  -> main.py despacha a FUNCTIONS
+  -> tools.py consulta Open-Meteo, retriever.py o una fuente oficial
+  -> el resultado vuelve a Groq
+  -> Groq redacta la respuesta final
+```
+
+### Consulta de una fuente oficial
+
+`consultar_uptx` localiza fragmentos en `knowledge/uptx.md`. Si un fragmento
+incluye una línea `Fuente: https://uptlax.edu.mx/...`, el modelo puede llamar a
+`consultar_fuente_uptx` con esa URL. La segunda tool descarga la página, elimina
+elementos que no son contenido y devuelve los párrafos relevantes para la
+pregunta original.
+
+La tool sólo permite HTTPS en `uptlax.edu.mx` y sus subdominios. No consulta el
+API externo del RAG ni acepta URLs arbitrarias. Si el enlace apunta a un PDF o
+la página no responde, devuelve un aviso para que el agente conserve la fuente
+sin inventar el contenido.
+
+Para modificar el agente, empieza por `INSTRUCTIONS` en `main.py`. Para añadir
+una herramienta, implementa la función en `tools.py`, agrega su schema a
+`TOOLS` y registra el mismo nombre en `FUNCTIONS`. Para mejorar las preguntas
+institucionales, actualiza `knowledge/uptx.md` o las expansiones de intención
+en `retriever.py`.
+
 ## Requisitos
 
 - Python 3.11 o posterior.

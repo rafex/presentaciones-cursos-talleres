@@ -86,7 +86,7 @@ layout: two-cols
 class: architecture-slide
 ---
 
-# La arquitectura final conecta cinco piezas
+# La arquitectura final conecta las piezas del agente
 
 <div class="architecture-copy">
   <p>El usuario hace una pregunta. El agente decide si puede responder con el modelo o si necesita consultar una herramienta.</p>
@@ -96,13 +96,15 @@ class: architecture-slide
 ::right::
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"background": "transparent", "primaryColor": "#172554", "primaryBorderColor": "#67e8f9", "primaryTextColor": "#f8fafc", "lineColor": "#fb7185", "secondaryColor": "#312e81", "tertiaryColor": "#0f172a"}}}%%
+%%{init: {"theme": "base", "themeVariables": {"background": "transparent", "primaryColor": "#e0e7ff", "primaryBorderColor": "#4f46e5", "primaryTextColor": "#18314f", "lineColor": "#e11d48", "secondaryColor": "#dbeafe", "tertiaryColor": "#f8fafc"}}}%%
 flowchart TB
   U[Usuario] --> A[Agente\\nloop de tools]
   A --> M[LLM\\nGroq]
   A --> C[Tool: clima\\nOpen-Meteo]
   A --> R[Tool: consultar_uptx\\nRAG local]
   R --> D[uptx.md\\nfuentes oficiales]
+  A --> S[Tool: consultar_fuente_uptx\\nweb oficial]
+  S --> W[HTML visible\\nfuente verificada]
 ```
 
 <!--
@@ -326,9 +328,9 @@ class: rag-tool-slide
 # La recuperación gana sentido cuando el agente la elige
 
 <div class="architecture-copy">
-  <p>La base de conocimiento entra al agente como una segunda Tool.</p>
-  <p class="quote-inline">El RAG deja de ser una demo aislada y pasa a formar parte del ciclo de decisión.</p>
-  <div class="mini-flow">pregunta → agente → consultar_uptx() → fragmentos relevantes</div>
+  <p>La base local encuentra fuentes oficiales y una segunda Tool visita la URL cuando hace falta más detalle.</p>
+  <p class="quote-inline">El RAG local orienta la búsqueda. La página oficial aporta el contexto actualizado.</p>
+  <div class="mini-flow">pregunta → consultar_uptx() → Fuente: URL → consultar_fuente_uptx()</div>
 </div>
 
 ::right::
@@ -353,9 +355,11 @@ respuesta = cliente.chat.completions.create(
 ```
 
 ```python
-tools = [
 call = respuesta.choices[0].message.tool_calls[0]
 resultado = FUNCTIONS[call.function.name](**json.loads(call.function.arguments))
+
+# El siguiente turno puede visitar la fuente encontrada.
+consultar_fuente_uptx(url, pregunta)
 ```
 
 <!--
@@ -427,6 +431,7 @@ class: final-architecture-slide
     <div class="stack-item"><b>LLM</b><small>Groq</small></div>
     <div class="stack-item"><b>Tool</b><small>Open-Meteo</small></div>
     <div class="stack-item"><b>Tool</b><small>RAG local UPTx</small></div>
+    <div class="stack-item"><b>Tool</b><small>Fuente oficial UPTx</small></div>
   </div>
 </div>
 
